@@ -1,5 +1,5 @@
 <!--
-Most-used companion when building tools.
+Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
 -->
 
 
