@@ -9,3 +9,7 @@ Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
 </p>
 
 [Auditing in the browser?](https://coliru.stacked-crooked.com/a/ff6f9d44fd41f79c)
+
+
+
+**ByteResource.cpp is my most-referenced file when building a tool, so should it be yours.**
