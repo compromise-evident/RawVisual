@@ -139,7 +139,7 @@ int main()
 	if(location_of_special_character == -1) {cout << "No characters outside of the standard 9, 10, 13, and 32-126.\n\n";}
 	else
 	{	cout << "Character ~" << location_of_special_character << " is the 1st char outside of 9, 10, 13, and 32-126.\n"
-		     << "(if examining text file. It may be a hidden/unwanted special char.)\n\n";
+		     << "(If examining text file. It may be a hidden/unwanted special char.)\n\n";
 	}
 }
 
