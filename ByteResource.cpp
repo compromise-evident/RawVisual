@@ -1,6 +1,8 @@
 /// Byte occurrence print-out for any file, and C++/GNU+Linux resource.
+/// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
-/* All files are just text files stored in byte quantity. Type char takes input
+
+/*  Version 2.0.0.  All files are text files in byte quantity.  char takes input
 using its 256 storage values -128 to 127. See bottom for extensive byte details.
 Depending on byte endings and encoding,  some char may show up here as  multiple
 separate items--for which multiple occurrence counters tick once. This issue may
@@ -55,12 +57,12 @@ int main()
 	cin.getline(path_to_file, 10000);
 	if(path_to_file[0] == '\0') {cout << "\nNo path given.\n"; return 0;}
 	
-	//Fixes path to file if drag & dropped (removes single quotes for ex:)   '/home/nikolay/my documents/hush hush.bmp'
+	//Fixes path to file if drag & dropped (removes single quotes for ex:)   '/home/nikolay/my documents/main.zip'
 	if(path_to_file[0] == '\'')
 	{	for(int a = 0; a < 10000; a++)
 		{	path_to_file[a] = path_to_file[a + 1];
 			if(path_to_file[a] == '\'')
-			{	path_to_file[a] = '\0';
+			{	path_to_file[a    ] = '\0';
 				path_to_file[a + 1] = '\0';
 				path_to_file[a + 2] = '\0';
 				break;
@@ -114,13 +116,21 @@ int main()
 	cout << "\n";
 	int distinct_bytes = 0;
 	for(int a = 0; a < 256; a++)
-	{	     if(a <  10) {cout << "occurrence of   " << a << ":  ";}
-		else if(a < 100) {cout << "occurrence of  "  << a << ":  ";}
-		else             {cout << "occurrence of "   << a << ":  ";}
+	{	     if(a <  10) {cout << "occurrence of   " << a << ":\t";}
+		else if(a < 100) {cout << "occurrence of  "  << a << ":\t";}
+		else             {cout << "occurrence of "   << a << ":\t";}
 		
-		if(distribution[a] == 0) {cout << "-\n"                  ;}
-		else   {distinct_bytes++; cout << distribution[a] << "\n";}
+		if(distribution[a] == 0) {cout << "-";}
+		else {distinct_bytes++;   cout << distribution[a];}
+		
+		if(a ==  9) {cout << "\t\ttab"                                ;}
+		if(a == 10) {cout << "\t\tnew line (\\n for GNU+Linux)"       ;}
+		if(a == 13) {cout << "\t\tnew line (\\r for Mac. Win: \\r\\n)";}
+		if(a == 32) {cout << "\t\tspace"                              ;}
+		if((a > 32) && (a < 127)) {cout << "\t\t" << char(a)          ;}
+		cout << "\n";
 	}
+	
 	cout << "\n" << total_bytes << " total bytes, ";
 	if(total_bytes == distinct_bytes) {cout << "all distinct.\n\n";}
 	else               {cout << distinct_bytes << " distinct.\n\n";}
