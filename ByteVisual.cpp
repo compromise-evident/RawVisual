@@ -2,7 +2,7 @@
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
-/*  Version 2.0.0.  All files are text files in byte quantity.  char takes input
+/*  Version 2.0.1.  All files are text files in byte quantity.  char takes input
 using its 256 storage values -128 to 127. See bottom for extensive byte details.
 Depending on byte endings and encoding,  some char may show up here as  multiple
 separate items--for which multiple occurrence counters tick once. This issue may
@@ -49,6 +49,8 @@ using namespace std;
 
 int main()
 {	ifstream in_stream;
+	
+	cout << " \n\n"; //Because char eatage upon landscape mode on Android.
 	
 	//Gets path to file from user.
 	cout << "\nDrag & drop file into terminal or enter path:\n\n";
@@ -148,7 +150,7 @@ int main()
 	
 	if(location_of_special_character == -1) {cout << "No characters outside of the standard 9, 10, 13, and 32-126.\n\n";}
 	else
-	{	cout << "Character ~" << location_of_special_character << " is the 1st char outside of 9, 10, 13, and 32-126.\n"
+	{	cout << "Char# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126.\n"
 		     << "(If examining text file. It may be a hidden/unwanted special char.)\n\n";
 	}
 }
