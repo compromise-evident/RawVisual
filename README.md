@@ -2,7 +2,9 @@
 Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
 -->
 
+apk flag: Trojan.AndroidOS.Piom.C!c
 
+Looking for replacement for the Moscow app that helped me produce this apk: C4droid
 
 <p align="center">
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/App.png">
