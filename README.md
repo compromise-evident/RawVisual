@@ -8,7 +8,7 @@ Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
 </p>
 
-[Auditing in the browser?](https://coliru.stacked-crooked.com/a/7ab2c2d6959e1e37)
+[Auditing in the browser?](https://coliru.stacked-crooked.com/a/447fda65531a8469)
 
 
 
