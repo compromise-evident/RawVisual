@@ -8,6 +8,8 @@ Looking for replacement for the Moscow app that helped me produce this apk: C4dr
 
 Boy am I glad VirusTotal exists
 
+virustotal.com/gui/file/110566b5d1916511fc917e764fe068ec7845e75086f556018909a0c88353b248/detection
+
 <p align="center">
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/App.png">
 </p>
