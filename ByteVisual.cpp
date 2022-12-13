@@ -125,11 +125,11 @@ int main()
 		if(distribution[a] == 0) {cout << "-";}
 		else {distinct_bytes++;   cout << distribution[a];}
 		
-		if(a ==  9) {cout << "\t\ttab"                                ;}
-		if(a == 10) {cout << "\t\tnew line (\\n for GNU+Linux)"       ;}
-		if(a == 13) {cout << "\t\tnew line (\\r for Mac. Win: \\r\\n)";}
-		if(a == 32) {cout << "\t\tspace"                              ;}
-		if((a > 32) && (a < 127)) {cout << "\t\t" << char(a)          ;}
+		if(a ==  9) {cout << "\t\ttab"                      ;}
+		if(a == 10) {cout << "\t\tnew line for Linux"       ;}
+		if(a == 13) {cout << "\t\tnew line for Mac"         ;}
+		if(a == 32) {cout << "\t\tspace"                    ;}
+		if((a > 32) && (a < 127)) {cout << "\t\t" << char(a);}
 		cout << "\n";
 	}
 	
