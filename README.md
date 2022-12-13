@@ -2,19 +2,7 @@
 Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
 -->
 
-# WARNING: apk flag: Trojan.AndroidOS.Piom.C!c
 
-Looking for replacement for the Moscow app that helped me produce this apk: C4droid
-
-Boy am I glad VirusTotal exists
-
-virustotal.com/gui/file/110566b5d1916511fc917e764fe068ec7845e75086f556018909a0c88353b248/detection
-
-<p align="center">
-  <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/App.png">
-</p>
-
-**ByteVisual.apk** is made from **ByteVisual.cpp** using [C4droid](https://play.google.com/store/apps/details?id=com.n0n3m4.droidc&hl=en_US&gl=US&pli=1)
 
 <p align="center">
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
