@@ -50,6 +50,8 @@ using namespace std;
 int main()
 {	ifstream in_stream;
 	
+	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
+	
 	//Gets path to file from user.
 	cout << "\nDrag & drop file into terminal or enter path:\n\n";
 	char  path_to_file[10000];
