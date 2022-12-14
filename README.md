@@ -14,7 +14,7 @@ Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
 </p>
 
-[Auditing in the browser?](https://coliru.stacked-crooked.com/a/9627b49860eb462f)
+[Auditing in the browser?](https://coliru.stacked-crooked.com/a/60cbf91306af2afb)
 
 
 
