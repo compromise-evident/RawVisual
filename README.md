@@ -5,6 +5,10 @@ Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
 
 
 <p align="center">
+  <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/App.png">
+</p>
+
+<p align="center">
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
 </p>
 
