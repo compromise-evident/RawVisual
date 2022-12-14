@@ -136,9 +136,7 @@ int main()
 		cout << "\n";
 	}
 	
-	cout << "\n" << total_bytes << " total bytes, ";
-	if(total_bytes == distinct_bytes) {cout << "all distinct.\n\n";}
-	else               {cout << distinct_bytes << " distinct.\n\n";}
+	cout << "\n" << total_bytes << " bytes total, " << distinct_bytes << " distinct.\n\n";
 	
 	//Displays average, minimum, and maximum.
 	long long minimum = 999999999999999999;
