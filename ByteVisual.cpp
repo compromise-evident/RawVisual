@@ -81,7 +81,7 @@ int main()
 	in_stream.close();
 	
 	//Fills distribution[] and calculates total_bytes.
-	int location_counter = 2;
+	int location_counter = 1;
 	int location_of_special_character = -1;
 	bool count_until_special_character = true;
 	
@@ -95,8 +95,6 @@ int main()
 	{	temp_file_byte_normal = temp_file_byte;
 		if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
 		distribution[temp_file_byte_normal]++;
-		in_stream.get(temp_file_byte);
-		total_bytes++;
 		
 		if(count_until_special_character == true)
 		{	if((temp_file_byte <  32)
@@ -111,6 +109,9 @@ int main()
 			
 			location_counter++;
 		}
+		
+		in_stream.get(temp_file_byte);
+		total_bytes++;
 	}
 	in_stream.close();
 	
