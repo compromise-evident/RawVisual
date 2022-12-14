@@ -53,7 +53,9 @@ int main()
 	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
-	cout << "\nDrag & drop file into terminal or enter path:\n\n";
+	cout << "\n(Byte occurrence print-out for any file.)"
+	     << "\nDrag & drop file into terminal or enter path:\n\n";
+	
 	char  path_to_file[10000];
 	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';} //Fills path_to_file[] with null.
 	cin.getline(path_to_file, 10000);
