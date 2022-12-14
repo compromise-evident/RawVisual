@@ -8,6 +8,8 @@ Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/App.png">
 </p>
 
+ByteVisual**.apk** was created from ByteVisual**.cpp** using C4droid.
+
 <p align="center">
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
 </p>
