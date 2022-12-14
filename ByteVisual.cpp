@@ -117,7 +117,7 @@ int main()
 	}
 	in_stream.close();
 	
-	//Displays occurrence, total, and distinct.
+	//Displays occurrence and counts distinct.
 	cout << "\n";
 	int distinct_bytes = 0;
 	for(int a = 0; a < 256; a++)
@@ -136,19 +136,23 @@ int main()
 		cout << "\n";
 	}
 	
+	//Displays total and distinct.
 	cout << "\n" << total_bytes << " bytes total, " << distinct_bytes << " distinct.\n\n";
 	
-	//Displays average, minimum, and maximum.
+	//Calculates average, minimum, and maximum.
 	long long minimum = 999999999999999999;
 	long long maximum = 0;
 	for(int a = 0; a < 256; a++)
 	{	if((distribution[a] < minimum) && (distribution[a] > 0)) {minimum = distribution[a];}
 		if(distribution[a] > maximum) {maximum = distribution[a];}
 	}
+	
+	//Displays average, minimum, and maximum.
 	cout << (total_bytes / distinct_bytes) << "\t (average tallies of present)\n"
 	     << minimum << "\t (least tallies of present)\n"
 	     << maximum << "\t (most tallies)\n\n";
 	
+	//Displays location of special character.
 	if(location_of_special_character == -1) {cout << "No characters outside of the standard 9, 10, 13, and 32-126.\n\n";}
 	else
 	{	cout << "Char# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126.\n"
