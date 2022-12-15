@@ -185,7 +185,8 @@ int main()
 	cout << "\n";
 	
 	//Displays the first 60 file characters.
-	cout << "Omitting non-standard char from now on, ";
+	cout << "You may choose to show non-standard\n"
+	     << "char as integers (omitted otherwise)..........";
 	
 	if(total_bytes > 60) {cout << "1st 60 Bytes:\n";}
 	else
@@ -213,7 +214,7 @@ int main()
 	in_stream.close();
 	
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
-	cout << "\n\n";
+	cout << "\n";
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
 	{	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 		     << "\n////////////////////////////////////////////////////////////////////"
