@@ -1,8 +1,8 @@
-/// Byte occurrence print-out for any file, and C++/GNU+Linux resource.
+/// Complete raw analysis of any file.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
-/*  Version 2.0.1.  All files are text files in byte quantity.  char takes input
+/*  Version 3.0.0   All files are text files in byte quantity.  char takes input
 using its 256 storage values -128 to 127. See bottom for extensive byte details.
 Depending on byte endings and encoding,  some char may show up here as  multiple
 separate items--for which multiple occurrence counters tick once. This issue may
@@ -18,6 +18,10 @@ being 9--to create files that can't be  corrupted as they're re-formatted across
 the web until finally reaching your device,  such as an  Authorship.public file.
 When in doubt,use only characters 9 and 32-126 for  un-fuckable  file integrity.
 See char  13  and  10  in the table below if your files need to be  copy/pasted.
+
+  WARNING: storage other than spinning-disk drives cannot be easily overwritten.
+           Adjusted for Android, my tools are less safe on those modern devices.
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you wish to deal with bytes as numbers  0 to 255  (as done here, in Multiway,
 schemeOTP, groupOTP, Allornothing, RICIN, RICINgauss, and RICINoptic)   then use
@@ -153,10 +157,99 @@ int main()
 	     << maximum << "\t (most tallies)\n\n";
 	
 	//Displays location of special character.
-	if(location_of_special_character == -1) {cout << "No characters outside of the standard 9, 10, 13, and 32-126.\n\n";}
+	if(location_of_special_character == -1) {cout << "No characters outside of the standard 9, 10, 13, and 32-126.";}
+	else                                    {cout << "Char# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126.";}
+	
+	//Calculates the number of special characters.
+	long long special_character_sum = 0;
+	if(location_of_special_character != -1)
+	{	for(int a = 0; a < 256; a++)
+		{	if((a < 32)
+			|| (a > 126))
+			{	if((a !=  9)
+				&& (a != 10)
+				&& (a != 13)) {special_character_sum += distribution[a];}
+			}
+		}
+	}
+	
+	//Displays the number of special characters.
+	if(location_of_special_character != -1) {cout << "\nTotal non-standard char: " << special_character_sum;}
+	
+	//Displays the first 60 file characters.
+	if(total_bytes > 60) {cout << "\n\n1st 60 Bytes:\n";}
 	else
-	{	cout << "Char# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126.\n"
-		     << "(If examining text file. It may be a hidden/unwanted special char.)\n\n";
+	{	if     (total_bytes == 1) {cout << "\n\nThe one Byte:\n"                   ;}
+		else if(total_bytes == 2) {cout << "\n\nThe two Bytes:\n"                  ;}
+		else                      {cout << "\n\nAll " << total_bytes << " Bytes:\n";}
+	}
+	
+	in_stream.open(path_to_file);
+	in_stream.get(temp_file_byte);
+	for(int a = 1; in_stream.eof() == false; a++)
+	{	cout << temp_file_byte;
+		
+		if(a == 60) {break;}
+		
+		in_stream.get(temp_file_byte);
+	}
+	in_stream.close();
+	
+	//Displays sha256sum of given file.
+	char bash[20000] = {"sha256sum "};
+	for(int a = 0; path_to_file[a] != '\0'; a++) {bash[a + 10] = path_to_file[a];}
+	
+	cout << "\n\nsha256sum:\n";
+	system(bash);
+	cout << "\n";
+	
+	//Asks user about displaying file characters: how many Bytes, actual or integer.
+	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
+	{	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+		cout << "\nEnter how many file Bytes to display (" << total_bytes << " total): ";
+		long long user_byte_quantity;
+		cin >> user_byte_quantity;
+		
+		if((user_byte_quantity < 1) || (user_byte_quantity > 9223372036854775807))
+		{	cout << "\n\n\nOUT OF BOUNDS!\n\n\n";
+			in_stream.close();
+			continue;
+		}
+		
+		cout << "Display actual? y/n: ";
+		char display_actual;
+		cin >> display_actual;
+		
+		in_stream.open(path_to_file);
+		in_stream.get(temp_file_byte);
+		for(long long a = 0; in_stream.eof() == false; a++)
+		{	if(a == user_byte_quantity) {break;}
+			
+			if(display_actual != 'y')
+			{	temp_file_byte_normal = temp_file_byte;
+				if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
+				
+				long long power_of_ten = 1000000000000000000;
+				for(int b = 0; b < 18; b++)
+				{	if((a + 1) < power_of_ten)
+					{	cout << " ";
+						power_of_ten /= 10;
+					}
+				}
+				
+				cout << (a + 1) << " = ";
+				
+				if(temp_file_byte_normal < 100) {cout << " ";}
+				if(temp_file_byte_normal <  10) {cout << " ";}
+				cout << temp_file_byte_normal << "\n";
+			}
+			else {cout << temp_file_byte;}
+			
+			in_stream.get(temp_file_byte);
+		}
+		in_stream.close();
+		
+		if(display_actual == 'y') {cout << "\n";}
 	}
 }
 
