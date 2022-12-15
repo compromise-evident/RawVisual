@@ -202,7 +202,7 @@ int main()
 		|| (temp_file_byte > 126))
 		{	if((temp_file_byte !=  9)
 			&& (temp_file_byte != 10)
-			&& (temp_file_byte != 13)) {;} //Then do nothing, modifiable for later.
+			&& (temp_file_byte != 13)) {;} //Do nothing if non-standard, modifiable for later.
 		}
 		else {cout << temp_file_byte;}
 		
@@ -261,7 +261,7 @@ int main()
 				|| (temp_file_byte > 126))
 				{	if((temp_file_byte !=  9)
 					&& (temp_file_byte != 10)
-					&& (temp_file_byte != 13)) {;} //Then do nothing, modifiable for later.
+					&& (temp_file_byte != 13)) {;} //Do nothing if non-standard, modifiable for later.
 				}
 				else {cout << temp_file_byte;}
 			}
