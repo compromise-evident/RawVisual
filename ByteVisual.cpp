@@ -57,7 +57,7 @@ int main()
 	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
-	cout << "\n(Byte occurrence print-out for any file.)"
+	cout << "\n(Complete raw analysis of any file.)"
 	     << "\nDrag & drop file into terminal or enter path:\n\n";
 	
 	char  path_to_file[10000];
@@ -205,8 +205,10 @@ int main()
 	
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
-	{	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-		cout << "\nEnter how many file Bytes to display (" << total_bytes << " total): ";
+	{	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+		     << "\n////////////////////////////////////////////////////////////////////"
+		     << "\nEnter how many file Bytes to display (" << total_bytes << " total): ";
+		
 		long long user_byte_quantity;
 		cin >> user_byte_quantity;
 		
