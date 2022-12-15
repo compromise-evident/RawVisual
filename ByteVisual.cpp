@@ -176,25 +176,6 @@ int main()
 	//Displays the number of special characters.
 	if(location_of_special_character != -1) {cout << "\nTotal non-standard char: " << special_character_sum;}
 	
-	//Displays the first 60 file characters.
-	if(total_bytes > 60) {cout << "\n\n1st 60 Bytes:\n";}
-	else
-	{	if     (total_bytes == 1) {cout << "\n\nThe one Byte:\n"                   ;}
-		else if(total_bytes == 2) {cout << "\n\nThe two Bytes:\n"                  ;}
-		else                      {cout << "\n\nAll " << total_bytes << " Bytes:\n";}
-	}
-	
-	in_stream.open(path_to_file);
-	in_stream.get(temp_file_byte);
-	for(int a = 1; in_stream.eof() == false; a++)
-	{	cout << temp_file_byte;
-		
-		if(a == 60) {break;}
-		
-		in_stream.get(temp_file_byte);
-	}
-	in_stream.close();
-	
 	//Displays sha256sum of given file.
 	char bash[20000] = {"sha256sum "};
 	for(int a = 0; path_to_file[a] != '\0'; a++) {bash[a + 10] = path_to_file[a];}
@@ -203,7 +184,36 @@ int main()
 	system(bash);
 	cout << "\n";
 	
+	//Displays the first 60 file characters.
+	cout << "Omitting non-standard char from now on, ";
+	
+	if(total_bytes > 60) {cout << "1st 60 Bytes:\n";}
+	else
+	{	if     (total_bytes == 1) {cout << "the one Byte:\n"                   ;}
+		else if(total_bytes == 2) {cout << "the two Bytes:\n"                  ;}
+		else                      {cout << "all " << total_bytes << " Bytes:\n";}
+	}
+	
+	in_stream.open(path_to_file);
+	in_stream.get(temp_file_byte);
+	for(int a = 1; in_stream.eof() == false; a++)
+	{	//..........The decision-maker for what to print.
+		if((temp_file_byte < 32)
+		|| (temp_file_byte > 126))
+		{	if((temp_file_byte !=  9)
+			&& (temp_file_byte != 10)
+			&& (temp_file_byte != 13)) {;} //Then do nothing, modifiable for later.
+		}
+		else {cout << temp_file_byte;}
+		
+		if(a == 60) {break;}
+		
+		in_stream.get(temp_file_byte);
+	}
+	in_stream.close();
+	
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
+	cout << "\n\n";
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
 	{	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 		     << "\n////////////////////////////////////////////////////////////////////"
@@ -218,7 +228,7 @@ int main()
 			continue;
 		}
 		
-		cout << "Display actual? y/n: ";
+		cout << "Display actual instead of integer? y/n: ";
 		char display_actual;
 		cin >> display_actual;
 		
@@ -245,7 +255,16 @@ int main()
 				if(temp_file_byte_normal <  10) {cout << " ";}
 				cout << temp_file_byte_normal << "\n";
 			}
-			else {cout << temp_file_byte;}
+			else
+			{	//..........The decision-maker for what to print.
+				if((temp_file_byte < 32)
+				|| (temp_file_byte > 126))
+				{	if((temp_file_byte !=  9)
+					&& (temp_file_byte != 10)
+					&& (temp_file_byte != 13)) {;} //Then do nothing, modifiable for later.
+				}
+				else {cout << temp_file_byte;}
+			}
 			
 			in_stream.get(temp_file_byte);
 		}
