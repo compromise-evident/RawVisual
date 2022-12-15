@@ -2,6 +2,11 @@
 
 
 
+Version 3.0.0   Loops your entry of: how many file Bytes to display, and whether
+                you want to display them as int or actual, omitting non-standard
+                since Android terminal corrups from special char even with sane.
+                Thursday, December 15 2022
+
 Version 2.0.1   Adjusted comments for Android. ByteVisual.apk added. C4droid ok.
                 Monday, December 12 2022
 
