@@ -1,5 +1,5 @@
 <!--
-Byte occurrence print-out for any file, and C++/GNU+Linux resource in the cpp.
+Complete raw analysis of any file.
 -->
 
 
