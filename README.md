@@ -18,7 +18,7 @@ Raw analysis of any file.
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
 </p>
 
-[Auditing in the browser?](https://coliru.stacked-crooked.com/a/14d9d24f1c3a8588)
+[Auditing in the browser?](https://coliru.stacked-crooked.com/a/b1be2075217e7f00)
 
 
 
