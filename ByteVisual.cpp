@@ -86,6 +86,14 @@ int main()
 	if(in_stream.eof() == true) {in_stream.close();  cout << "\n\nNothing to process, the file is empty.\n"; return 0;}
 	in_stream.close();
 	
+	//Displays sha256sum of given file.
+	char bash[20000] = {"sha256sum "};
+	for(int a = 0; path_to_file[a] != '\0'; a++) {bash[a + 10] = path_to_file[a];}
+	
+	cout << "\n\nsha256sum:\n";
+	system(bash);
+	cout << "\n";
+	
 	//Fills distribution[] and calculates total_bytes.
 	int location_counter = 1;
 	int location_of_special_character = -1;
@@ -141,7 +149,7 @@ int main()
 	}
 	
 	//Displays total and distinct.
-	cout << "\n" << total_bytes << " bytes total, " << distinct_bytes << " distinct.\n\n";
+	cout << "\n" << total_bytes << " Bytes total, " << distinct_bytes << " distinct.\n\n";
 	
 	//Calculates average, minimum, and maximum.
 	long long minimum = 999999999999999999;
@@ -157,36 +165,33 @@ int main()
 	     << maximum << "\t (most tallies)\n\n";
 	
 	//Displays location of special character.
-	if(location_of_special_character == -1) {cout << "No characters outside of the standard 9, 10, 13, and 32-126.";}
-	else                                    {cout << "Char# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126.";}
+	if(location_of_special_character == -1) {cout << "No Bytes outside of the standard 9, 10, 13, and 32-126.\n\n";}
+	else                                    {cout << "Byte# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126";}
 	
-	//Calculates the number of special characters.
+	//Calculates the number of special characters, and how many distinct.
 	long long special_character_sum = 0;
+	int       distinct_special_characters = 0;
 	if(location_of_special_character != -1)
 	{	for(int a = 0; a < 256; a++)
 		{	if((a < 32)
 			|| (a > 126))
 			{	if((a !=  9)
 				&& (a != 10)
-				&& (a != 13)) {special_character_sum += distribution[a];}
+				&& (a != 13))
+				{	special_character_sum += distribution[a];
+					
+					if(distribution[a] > 0) {distinct_special_characters++;}
+				}
 			}
 		}
 	}
 	
-	//Displays the number of special characters.
-	if(location_of_special_character != -1) {cout << "\nTotal non-standard char: " << special_character_sum;}
+	//Displays the number of special characters & how many distinct.
+	if(location_of_special_character != -1)
+	{	cout << "\n(non-standard Bytes present.) " << special_character_sum << " total, " << distinct_special_characters << " distinct.\n\n";}
 	
-	//Displays sha256sum of given file.
-	char bash[20000] = {"sha256sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash[a + 10] = path_to_file[a];}
-	
-	cout << "\n\nsha256sum:\n";
-	system(bash);
-	cout << "\n";
-	
-	//Displays the first 60 file characters.
-	cout << "You may choose to print non-standard\n"
-	     << "char as integers (omitted otherwise)..........";
+	//Displays the first 60 file Bytes.
+	cout << "Omitting non-standard, ";
 	
 	if(total_bytes > 60) {cout << "1st 60 Bytes:\n";}
 	else
