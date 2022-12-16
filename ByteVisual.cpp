@@ -1,4 +1,4 @@
-/// ByteVisual - complete raw analysis of any file.
+/// ByteVisual - raw analysis of any file.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
@@ -57,7 +57,7 @@ int main()
 	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
-	cout << "\n(Complete raw analysis of any file.)"
+	cout << "\n(Raw analysis of any file.)"
 	     << "\nDrag & drop file into terminal or enter path:\n\n";
 	
 	char  path_to_file[10000];
@@ -185,7 +185,7 @@ int main()
 	cout << "\n";
 	
 	//Displays the first 60 file characters.
-	cout << "You may choose to show non-standard\n"
+	cout << "You may choose to print non-standard\n"
 	     << "char as integers (omitted otherwise)..........";
 	
 	if(total_bytes > 60) {cout << "1st 60 Bytes:\n";}
@@ -216,7 +216,7 @@ int main()
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
 	{	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 		     << "\n////////////////////////////////////////////////////////////////////"
-		     << "\nEnter how many file Bytes to display (" << total_bytes << " total): ";
+		     << "\nENTER HOW MANY FILE BYTES TO DISPLAY (" << total_bytes << " TOTAL): ";
 		
 		long long user_byte_quantity;
 		cin >> user_byte_quantity;
@@ -227,7 +227,7 @@ int main()
 			continue;
 		}
 		
-		cout << "Display actual instead of integer? y/n: ";
+		cout << "DISPLAY SIDE-BY-SIDE WITH BYTE's INTEGER ID? y/n: ";
 		char display_actual;
 		cin >> display_actual;
 		
@@ -236,7 +236,7 @@ int main()
 		for(long long a = 0; in_stream.eof() == false; a++)
 		{	if(a == user_byte_quantity) {break;}
 			
-			if(display_actual != 'y')
+			if(display_actual == 'y')
 			{	temp_file_byte_normal = temp_file_byte;
 				if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
 				
@@ -248,7 +248,7 @@ int main()
 					}
 				}
 				
-				cout << (a + 1) << " = ";
+				cout << "Byte# " << (a + 1) << " = ";
 				
 				if(temp_file_byte_normal < 100) {cout << " ";}
 				if(temp_file_byte_normal <  10) {cout << " ";}
@@ -276,7 +276,7 @@ int main()
 		}
 		in_stream.close();
 		
-		if(display_actual == 'y') {cout << "\n";}
+		if(display_actual != 'y') {cout << "\n";}
 	}
 }
 
