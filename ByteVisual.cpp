@@ -203,7 +203,7 @@ int main()
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
 	{	cout << " \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
 		     << "\n ///////////////////////////////////////////////////////////////////"
-		     << "\n//////////// How many Bytes to print (" << total_bytes << " max): ";
+		     << "\n/////////////// # of Bytes to print (" << total_bytes << " max): ";
 		
 		long long user_byte_quantity;
 		cin >> user_byte_quantity;
@@ -214,7 +214,7 @@ int main()
 			continue;
 		}
 		
-		cout << "\\\\\\\\\\\\\\\\\\\\\\\\ Non-standard will be omitted. print ALL + int? y/n: ";
+		cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Non-standard will be omitted. print ALL+int? y/n: ";
 		char display_actual;
 		cin >> display_actual;
 		
