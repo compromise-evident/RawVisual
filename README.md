@@ -31,4 +31,4 @@ In the terminal sample above, characters 191 and 195 are contiguous in the file-
 ```text
 cout << char(195) << char(191);
 ```
-prints only the one char ÿ to the terminal.
+prints only the one char ÿ to the terminal. It's 2 Bytes long, select, paste it, and check file size.
