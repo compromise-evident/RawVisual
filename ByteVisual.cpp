@@ -92,7 +92,6 @@ int main()
 	
 	cout << "\n\nsha256sum:\n";
 	system(bash);
-	cout << "\n";
 	
 	//Fills distribution[] and calculates total_bytes.
 	int location_counter = 1;
@@ -165,7 +164,7 @@ int main()
 	     << maximum << "\t (most tallies)\n\n";
 	
 	//Displays location of special character.
-	if(location_of_special_character == -1) {cout << "No Bytes outside of the standard 9, 10, 13, and 32-126.\n\n";}
+	if(location_of_special_character == -1) {cout << "No Bytes outside of the standard 9, 10, 13, and 32-126.\n";}
 	else                                    {cout << "Byte# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126";}
 	
 	//Calculates the number of special characters, and how many distinct.
@@ -188,33 +187,7 @@ int main()
 	
 	//Displays the number of special characters & how many distinct.
 	if(location_of_special_character != -1)
-	{	cout << "\n(non-standard Bytes present.) " << special_character_sum << " total, " << distinct_special_characters << " distinct.\n\n";}
-	
-	//Displays the first 60 file Bytes.
-	cout << "Omitting non-standard, ";
-	
-	if(total_bytes > 60) {cout << "1st 60 Bytes:\n";}
-	else
-	{	if     (total_bytes == 1) {cout << "the one Byte:\n"                   ;}
-		else if(total_bytes == 2) {cout << "the two Bytes:\n"                  ;}
-		else                      {cout << "all " << total_bytes << " Bytes:\n";}
-	}
-	
-	in_stream.open(path_to_file);
-	in_stream.get(temp_file_byte);
-	for(int a = 1; in_stream.eof() == false; a++)
-	{	//..........The decision-maker for what to print.
-		if( temp_file_byte ==   9)  {cout << temp_file_byte;}
-		if( temp_file_byte ==  10)  {cout << temp_file_byte;}
-		if( temp_file_byte ==  13)  {cout << temp_file_byte;}
-		if((temp_file_byte  >  31)
-		&& (temp_file_byte  < 127)) {cout << temp_file_byte;}
-		
-		if(a == 60) {in_stream.close(); break;}
-		
-		in_stream.get(temp_file_byte);
-	}
-	in_stream.close();
+	{	cout << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct.)\n";}
 	
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
 	cout << "\n";
