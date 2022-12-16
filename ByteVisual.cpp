@@ -86,12 +86,22 @@ int main()
 	if(in_stream.eof() == true) {in_stream.close();  cout << "\n\nNothing to process, the file is empty.\n"; return 0;}
 	in_stream.close();
 	
-	//Displays sha256sum of given file.
+	//Displays sha256sum & sha512sum of given file, if and only if directory is good.
+	
 	char bash[20000] = {"sha256sum "};
 	for(int a = 0; path_to_file[a] != '\0'; a++) {bash[a + 10] = path_to_file[a];}
 	
-	cout << "\n\nsha256sum:\n";
+	cout << "\n\n\n\n\nsha256sum:\n";
 	system(bash);
+	
+	//Displays sha256sum of given file.
+	bash[3] = '5';
+	bash[4] = '1';
+	bash[5] = '2';
+	
+	cout << "\nsha256sum:\n";
+	system(bash);
+	cout << "\n";
 	
 	//Fills distribution[] and calculates total_bytes.
 	int location_counter = 1;
@@ -129,7 +139,6 @@ int main()
 	in_stream.close();
 	
 	//Displays occurrence and counts distinct.
-	cout << "\n";
 	int distinct_bytes = 0;
 	for(int a = 0; a < 256; a++)
 	{	     if(a <  10) {cout << "occurrence of   " << a << ":\t";}
@@ -192,9 +201,9 @@ int main()
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
 	cout << "\n";
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
-	{	cout << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
-		     << "\n////////////////////////////////////////////////////////////////////"
-		     << "\nENTER HOW MANY FILE BYTES TO DISPLAY (" << total_bytes << " TOTAL): ";
+	{	cout << " \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"
+		     << "\n ///////////////////////////////////////////////////////////////////"
+		     << "\n//////////// How many Bytes to print (" << total_bytes << " max): ";
 		
 		long long user_byte_quantity;
 		cin >> user_byte_quantity;
@@ -205,7 +214,7 @@ int main()
 			continue;
 		}
 		
-		cout << "DISPLAY SIDE-BY-SIDE WITH BYTE's INTEGER ID? y/n: ";
+		cout << "\\\\\\\\\\\\\\\\\\\\\\\\ Non-standard will be omitted. print ALL + int? y/n: ";
 		char display_actual;
 		cin >> display_actual;
 		
