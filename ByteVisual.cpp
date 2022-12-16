@@ -1,4 +1,4 @@
-/// Complete raw analysis of any file.
+/// ByteVisual - complete raw analysis of any file.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
@@ -199,15 +199,13 @@ int main()
 	in_stream.get(temp_file_byte);
 	for(int a = 1; in_stream.eof() == false; a++)
 	{	//..........The decision-maker for what to print.
-		if((temp_file_byte < 32)
-		|| (temp_file_byte > 126))
-		{	if((temp_file_byte !=  9)
-			&& (temp_file_byte != 10)
-			&& (temp_file_byte != 13)) {;} //Do nothing if non-standard, modifiable for later.
-		}
-		else {cout << temp_file_byte;}
+		if( temp_file_byte ==   9)  {cout << temp_file_byte;}
+		if( temp_file_byte ==  10)  {cout << temp_file_byte;}
+		if( temp_file_byte ==  13)  {cout << temp_file_byte;}
+		if((temp_file_byte  >  31)
+		&& (temp_file_byte  < 127)) {cout << temp_file_byte;}
 		
-		if(a == 60) {break;}
+		if(a == 60) {in_stream.close(); break;}
 		
 		in_stream.get(temp_file_byte);
 	}
@@ -254,17 +252,24 @@ int main()
 				
 				if(temp_file_byte_normal < 100) {cout << " ";}
 				if(temp_file_byte_normal <  10) {cout << " ";}
-				cout << temp_file_byte_normal << "\n";
+				cout << temp_file_byte_normal;
+				
+				//..........Prints standard char next to it.
+				if     ( temp_file_byte_normal ==   9)  {cout << " tab\n"                     ;}
+				else if( temp_file_byte_normal ==  10)  {cout << " new line for Linux (\\n)\n";}
+				else if( temp_file_byte_normal ==  13)  {cout << " new line for Mac   (\\r)\n";}
+				else if( temp_file_byte_normal ==  32)  {cout << " space\n"                   ;}
+				else if((temp_file_byte_normal  >  32)
+				     && (temp_file_byte_normal  < 127)) {cout << " " << char(temp_file_byte_normal) << "\n";}
+				else                                    {cout << "\n"                                      ;}
 			}
 			else
 			{	//..........The decision-maker for what to print.
-				if((temp_file_byte < 32)
-				|| (temp_file_byte > 126))
-				{	if((temp_file_byte !=  9)
-					&& (temp_file_byte != 10)
-					&& (temp_file_byte != 13)) {;} //Do nothing if non-standard, modifiable for later.
-				}
-				else {cout << temp_file_byte;}
+				if( temp_file_byte ==   9)  {cout << temp_file_byte;}
+				if( temp_file_byte ==  10)  {cout << temp_file_byte;}
+				if( temp_file_byte ==  13)  {cout << temp_file_byte;}
+				if((temp_file_byte  >  31)
+				&& (temp_file_byte  < 127)) {cout << temp_file_byte;}
 			}
 			
 			in_stream.get(temp_file_byte);
