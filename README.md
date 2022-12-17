@@ -14,7 +14,7 @@ Raw analysis of any file.
 
 (ByteVisual.apk was made from ByteVisual.cpp and ByteVisual_icon.png using C4droid)
 
-### ByteVisual.cpp is my most-referenced file when building a tool, so should it be yours.
+### ByteVisual.cpp is my most-referenced file when building a tool. It's a mighty resource.
 
 <p align="center">
   <img src="https://github.com/compromise-evident/ByteVisual/blob/main/Other/Terminal.png">
