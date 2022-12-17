@@ -186,9 +186,6 @@ int main()
 		cout << "\n";
 	}
 	
-	//Displays total and distinct.
-	cout << "\n" << total_bytes << " Bytes total, " << distinct_bytes << " distinct.\n\n";
-	
 	//Calculates average, minimum, and maximum.
 	long long minimum = 999999999999999999;
 	long long maximum = 0;
@@ -198,12 +195,10 @@ int main()
 	}
 	
 	//Displays average, minimum, and maximum.
-	cout << (total_bytes / distinct_bytes) << "\t (average tallies of present)\n"
-	     << minimum << "\t (least tallies of present)\n"
-	     << maximum << "\t (most tallies)\n\n";
+	cout << "\navg: " << (total_bytes / distinct_bytes) << ", min: " << minimum << ", max: " << maximum << " (of present)\n\n";
 	
 	//Displays location of special character.
-	if(location_of_special_character == -1) {cout << "No Bytes outside of the standard 9, 10, 13, and 32-126.\n";}
+	if(location_of_special_character == -1) {cout << "No Bytes outside of the standard 9, 10, 13, and 32-126\n\n";}
 	else                                    {cout << "Byte# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126";}
 	
 	//Calculates the number of special characters, and how many distinct.
@@ -226,7 +221,10 @@ int main()
 	
 	//Displays the number of special characters & how many distinct.
 	if(location_of_special_character != -1)
-	{	cout << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct.)\n";}
+	{	cout << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct)\n\n";}
+	
+	//Displays total and distinct.
+	cout << total_bytes << " Bytes total, " << distinct_bytes << " distinct\n";
 	
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
 	cout << "\n";
