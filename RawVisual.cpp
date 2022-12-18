@@ -140,9 +140,9 @@ int main()
 	}
 	
 	cout                                                << "\nAnalytics tool: RawVisual v4.0.0\n"
-	                                                    << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";  //Do not exceed 67 width EVER!!!
+	                                                    << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";  //Do not consume 68 width + \n; just don't exceed 67.
 	if(user_determined_save_to_file == 'y') {out_stream << "\nAnalytics tool: RawVisual v4.0.0\n"
-	                                                    << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";} //Do not exceed 67 width EVER!!!
+	                                                    << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n";} //Do not consume 68 width + \n; just don't exceed 67.
 	
 	//writes file hash of file to temporary files.
 	char bash_md5sum[10050] = {"md5sum "};
@@ -443,13 +443,13 @@ int main()
 	//Asks user about displaying file characters: how many Bytes, actual or integer.
 	//REMINDER: file is written to--created with overwrite; out_stream.open(). Now only use: out_stream.open(path_to_file_analyzed_txt, ios::app);
 	for(int maximum_user_loops = 0; maximum_user_loops < 100; maximum_user_loops++)
-	{	cout           << "///////////////////////////////////////////////////////////////////\n"
-		               << "/////////////// # of Bytes to print (" << total_bytes << " max): "; //Do not exceed 67 width EVER!!!
+	{	cout           << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
+		               << " \\\\\\\\\\\\\\\\\\\\\\\\\\ # of Bytes to print (" << total_bytes << " max): "; //Do not consume 68 width + \n; just don't exceed 67.
 		
 		if(user_determined_save_to_file == 'y')
 		{	out_stream.open(path_to_file_analyzed_txt, ios::app);
-			out_stream << "///////////////////////////////////////////////////////////////////\n"
-			           << "/////////////// # of Bytes to print (" << total_bytes << " max): "; //Do not exceed 67 width EVER!!!
+			out_stream << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
+			           << " \\\\\\\\\\\\\\\\\\\\\\\\\\ # of Bytes to print (" << total_bytes << " max): "; //Do not consume 68 width + \n; just don't exceed 67.
 			out_stream.close();
 		}
 		
@@ -463,10 +463,12 @@ int main()
 		}
 		
 		if((user_byte_quantity < 1) || (user_byte_quantity > 9223372036854775807))
-		{	cout           << "\nOUT OF BOUNDS!\n\n";
+		{	cout           << "///////////////////////////////////////////////////////////////////\n\n"
+			               << "OUT OF BOUNDS!\n\n";
 			if(user_determined_save_to_file == 'y')
 			{	out_stream.open(path_to_file_analyzed_txt, ios::app);
-				out_stream << "\nOUT OF BOUNDS!\n\n";
+				out_stream << "///////////////////////////////////////////////////////////////////\n\n"
+				           << "OUT OF BOUNDS!\n\n";
 				out_stream.close();
 			}
 			
@@ -474,10 +476,10 @@ int main()
 			continue;
 		}
 		
-		cout           << "////////////// Non-standard will be omitted. print ALL+int? y/n: ";
+		cout           << " ///////////// Non-standard will be omitted. print ALL+int? y/n: ";
 		if(user_determined_save_to_file == 'y')
 		{	out_stream.open(path_to_file_analyzed_txt, ios::app);
-			out_stream << "////////////// Non-standard will be omitted. print ALL+int? y/n: ";
+			out_stream << " ///////////// Non-standard will be omitted. print ALL+int? y/n: ";
 			out_stream.close();
 		}
 		
@@ -487,6 +489,13 @@ int main()
 		if(user_determined_save_to_file == 'y')
 		{	out_stream.open(path_to_file_analyzed_txt, ios::app);
 			out_stream << display_actual << "\n";
+			out_stream.close();
+		}
+		
+		cout           << "///////////////////////////////////////////////////////////////////\n"; //Do not consume 68 width + \n; just don't exceed 67.
+		if(user_determined_save_to_file == 'y')
+		{	out_stream.open(path_to_file_analyzed_txt, ios::app);
+			out_stream << "///////////////////////////////////////////////////////////////////\n"; //Do not consume 68 width + \n; just don't exceed 67.
 			out_stream.close();
 		}
 		
