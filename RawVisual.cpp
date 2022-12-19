@@ -497,7 +497,7 @@ int main()
 			out_stream.close();
 		}
 		
-		out_stream.open(path_to_file_analyzed_txt, ios::app);
+		if(user_determined_save_to_file == 'y') {out_stream.open(path_to_file_analyzed_txt, ios::app);}
 		in_stream.open(path_to_file);
 		in_stream.get(temp_file_byte);
 		for(long long a = 0; in_stream.eof() == false; a++)
