@@ -355,8 +355,8 @@ int main()
 	if(location_of_special_character != -1)
 	{	out_stream << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct)\n\n";}
 	
-	//Displays total and distinct.
-	out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct\n\n";
+	//Displays total, distinct, skipped, displayed.
+	out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct, " << bytes_to_skip << " skipped, " << bytes_to_see << " displayed.\n\n";
 	
 	out_stream << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
 	           << " >>>>>>>> Only char 9, 10, 13, and 32-126 for readability >>>>>>>>>\n"
