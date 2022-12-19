@@ -1,4 +1,4 @@
-/// RawVisual - raw analysis of any file.
+/// RawVisual - complete raw analysis of any file.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
@@ -59,7 +59,7 @@ int main()
 	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
-	cout << "\n(Raw analysis of any file.)"
+	cout << "\n(Complete raw analysis of any file.)"
 	     << "\nDrag & drop file into terminal or enter path:\n\n";
 	
 	char  path_to_file[10000];
@@ -98,6 +98,59 @@ int main()
 	{	path_to_file_location_of_actual_file_name_beginning = a;
 	}
 	
+	//Makes a copy of path_to_file for out file.
+	char path_to_out_file[10000];
+	for(int a = 0; a < 10000; a++) {path_to_out_file[a] = path_to_file[a];}
+	
+	//Preparing out file stream.
+	path_to_out_file[path_to_file_null_bookmark     ] = '-';
+	path_to_out_file[path_to_file_null_bookmark +  1] = 'V';
+	path_to_out_file[path_to_file_null_bookmark +  2] = 'i';
+	path_to_out_file[path_to_file_null_bookmark +  3] = 's';
+	path_to_out_file[path_to_file_null_bookmark +  4] = 'u';
+	path_to_out_file[path_to_file_null_bookmark +  5] = 'a';
+	path_to_out_file[path_to_file_null_bookmark +  6] = 'l';
+	path_to_out_file[path_to_file_null_bookmark +  7] = '.';
+	path_to_out_file[path_to_file_null_bookmark +  8] = 't';
+	path_to_out_file[path_to_file_null_bookmark +  9] = 'x';
+	path_to_out_file[path_to_file_null_bookmark + 10] = 't';
+	
+	//Tests & notifies about out directory.
+	out_stream.open(path_to_out_file);
+	out_stream << "test";
+	out_stream.close();
+	
+	in_stream.open(path_to_out_file);
+	if(in_stream.fail() == true)
+	{	//..........Renaming path_to_out_file with actual file name for out_stream to default working directory.
+		int temp_name_beginning = path_to_file_location_of_actual_file_name_beginning;
+		for(int a = 0; path_to_file[a] != '\0'; a++)
+		{	path_to_out_file[a] = path_to_file[temp_name_beginning];
+			temp_name_beginning++;
+		}
+		
+		//..........Gets first null in path_to_out_file coming from the left.
+		int path_to_out_file_null_bookmark = 0;
+		for(int a = 0; path_to_out_file[a] != '\0'; a++) {path_to_out_file_null_bookmark++;}
+		
+		path_to_out_file[path_to_out_file_null_bookmark     ] = '-';
+		path_to_out_file[path_to_out_file_null_bookmark +  1] = 'V';
+		path_to_out_file[path_to_out_file_null_bookmark +  2] = 'i';
+		path_to_out_file[path_to_out_file_null_bookmark +  3] = 's';
+		path_to_out_file[path_to_out_file_null_bookmark +  4] = 'u';
+		path_to_out_file[path_to_out_file_null_bookmark +  5] = 'a';
+		path_to_out_file[path_to_out_file_null_bookmark +  6] = 'l';
+		path_to_out_file[path_to_out_file_null_bookmark +  7] = '.';
+		path_to_out_file[path_to_out_file_null_bookmark +  8] = 't';
+		path_to_out_file[path_to_out_file_null_bookmark +  9] = 'x';
+		path_to_out_file[path_to_out_file_null_bookmark + 10] = 't';
+		path_to_out_file[path_to_out_file_null_bookmark + 11] ='\0';
+		
+		cout   << "Analysis file will be written to DEFAULT WORKING directory.\n\n";
+	}
+	else {cout << "Analysis file will be written to given directory.\n\n";}
+	in_stream.close();
+	
 	//Asks user for information for later, last interaction with user.
 	cout << "How many Bytes to skip? ";
 	long long bytes_to_skip;
@@ -107,22 +160,8 @@ int main()
 	long long bytes_to_see;
 	cin >> bytes_to_see;
 	
-	//Preparing out file stream.
-	path_to_file[path_to_file_null_bookmark     ] = '-';
-	path_to_file[path_to_file_null_bookmark +  1] = 'V';
-	path_to_file[path_to_file_null_bookmark +  2] = 'i';
-	path_to_file[path_to_file_null_bookmark +  3] = 's';
-	path_to_file[path_to_file_null_bookmark +  4] = 'u';
-	path_to_file[path_to_file_null_bookmark +  5] = 'a';
-	path_to_file[path_to_file_null_bookmark +  6] = 'l';
-	path_to_file[path_to_file_null_bookmark +  7] = '.';
-	path_to_file[path_to_file_null_bookmark +  8] = 't';
-	path_to_file[path_to_file_null_bookmark +  9] = 'x';
-	path_to_file[path_to_file_null_bookmark + 10] = 't';
-	out_stream.open(path_to_file);
-	path_to_file[path_to_file_null_bookmark     ] ='\0'; //Reverting.
-	
 	//Begins file write.
+	out_stream.open(path_to_out_file);
 	out_stream << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 		       << "Analyzing file: "; //Do not exceed width of 67 (do not consume 68 width + \n.)
 	
@@ -355,11 +394,15 @@ int main()
 	if(location_of_special_character != -1)
 	{	out_stream << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct)\n\n";}
 	
-	//Displays total, distinct, skipped, displayed.
-	out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct, " << bytes_to_skip << " skipped, " << bytes_to_see << " displayed.\n\n";
+	//Displays total, distinct, and skipped.
+	out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct, " << bytes_to_skip << " skipped, ";
+	
+	//Displays displayed.
+	if(bytes_to_see >= total_bytes) {out_stream << total_bytes  << " displayed.\n\n";}
+	else                            {out_stream << bytes_to_see << " displayed.\n\n";}
 	
 	out_stream << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
-	           << " >>>>>>>> Only char 9, 10, 13, and 32-126 for readability >>>>>>>>>\n"
+	           << " >>>>>>>>>>>>>>>> Only char 9, 10, 13, and 32-126 >>>>>>>>>>>>>>>>>\n"
 	           << "//////////////////////////////////////////////////////////////////\n\n";
 	
 	
@@ -383,7 +426,7 @@ int main()
 	}
 	in_stream.close();
 	out_stream << "\n\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
-	           << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
+	           << " >>>>>>>>>>>>>>>> Index, int ID, char if standard >>>>>>>>>>>>>>>>>\n"
 	           << "//////////////////////////////////////////////////////////////////\n\n";
 	
 	//Second round with integer ID.
@@ -801,7 +844,7 @@ creates file_2 in /home/user/Desktop/my_folder
 
 what this means: just chdir(); and C4droid will export apk where things like out_stream.open("./my_folder"); are accessed FROM THE NEW WORKING DIR!
 
-TO APPEND TO FILE
+APPEND TO FILE
 ~~~~~~~~~~~~~~~~~
 out_stream.open(path_to_file, ios::app);
 
