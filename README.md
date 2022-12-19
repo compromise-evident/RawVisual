@@ -14,8 +14,6 @@ Raw analysis of any file.
 
 (RawVisual.apk was made from RawVisual.cpp and RawVisual_icon.png using C4droid)
 
-## RawVisual.cpp is my most-referenced file--mighty resourceful!
-
 <p align="center">
   <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/Terminal.png">
 </p>
