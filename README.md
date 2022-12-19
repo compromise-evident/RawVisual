@@ -3,6 +3,7 @@ Raw analysis of any file + reference in the cpp.
 -->
 
 # Work in progress
+Version 5 almost ready: minimalist, less code, simpler, but far more power with Byte-skipping, smaller out-file, safety
 
 <p align="center">
   <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/RawVisual_icon.png" width="175">
