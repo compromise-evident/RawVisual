@@ -1,6 +1,10 @@
-/*	ByteVisual log
+/*	RawVisual log
 
 
+
+Version 4.0.0   Write ALL to file (live choice). Added checking: md5sum,sha1sum,
+                sha256sum, and sha512sum.
+                Monday, December 18, 2022
 
 Version 3.0.0   Loops your entry of: how many file Bytes to display, and whether
                 you want to display them as int or actual, omitting non-standard
