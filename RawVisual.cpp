@@ -98,18 +98,16 @@ int main()
 	
 	//Appending -analyzed.txt to file name for saving.
 	path_to_file_analyzed_txt[path_to_file_null_bookmark     ] = '-';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  1] = 'a';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  2] = 'n';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  3] = 'a';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  4] = 'l';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  5] = 'y';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  6] = 'z';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  7] = 'e';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  8] = 'd';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark +  9] = '.';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  1] = 'V';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  2] = 'i';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  3] = 's';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  4] = 'u';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  5] = 'a';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  6] = 'l';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  7] = '.';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  8] = 't';
+	path_to_file_analyzed_txt[path_to_file_null_bookmark +  9] = 'x';
 	path_to_file_analyzed_txt[path_to_file_null_bookmark + 10] = 't';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark + 11] = 'x';
-	path_to_file_analyzed_txt[path_to_file_null_bookmark + 12] = 't';
 	
 	//Asks if user wants everything saved to a file.
 	cout << "Save ALL analysis to file? y/n: ";
@@ -591,12 +589,13 @@ int main()
 
 
 
-/*    __________________________________________________________________________________________________________________________________
-     /                                                                                                                                  \
-    |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-    |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-    |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-     \_________________________________________________________________________________________________________________________________*/
+/*        __________________________________________________________________________________________________________________________________
+         /                                                                                                                                  \
+        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
+        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
+        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
+         \__________________________________________________________________________________________________________________________________/
+*/
 
 /* ALL ASCII ARE FULL BYTES OR 8 BITS! ALL FILES ARE STRINGS OF BYTES!
 The tilde character for example is 01111110 having first bit as zero
@@ -879,53 +878,94 @@ Dec	Hex	 Binary      HTML   Char  Description                  C++ file read/wri
 
 
 
-/*    __________________________________________________________________________________________________________________________________
-     /                                                                                                                                  \
-    |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-    |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-    |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-     \_________________________________________________________________________________________________________________________________*/
+/*        __________________________________________________________________________________________________________________________________
+         /                                                                                                                                  \
+        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
+        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
+        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
+         \__________________________________________________________________________________________________________________________________/
+*/
 
 /* Other C++ commands for files & folders:
 
 FOLDERS/FILES:
+~~~~~~~~~~~~~~
 system("ls > my_list.txt");               //Creates a text file in running dir--containing a list of file names in that same dir (standard "ls" command in GNU+Linux.)
-system("mkdir keys");                     //Creates folder, append -p for no error if already exists.
+system("mkdir keys");                     //Creates folder, append -p inside quotes for no error if folder already exists.
 system("mkdir /home/nikolay/Desktop/F");  //Creates folder elsewhere.
 system("mkdir keys/Other");               //Creates folder within a folder.
-out_stream.open("keys/file_1");           //File I/O in folders.
-out_stream.open("/home/nikolay/keys/a");  //File I/O in folders elsewhere.
+out_stream.open("./keys/file_1");         //File I/O in folders in working dir.
+out_stream.open("./home/nikolay/keys/a"); //File I/O in folders in working dir + elsewhere.
+
+                 ^^  simply always include ./ so chdir() will work, you'll need it one day.
 
 MKDIR WITH VARIABLE:
+~~~~~~~~~~~~~~~~~~~~
 #include <sys/stat.h> //For mkdir() (creating folders using variable.)
 mkdir(file_name, 0777);
 
 MKDIR WITH VARIABLE, WITHOUT INCLUDE DIRECTIVES:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 char folder_name[100] = {"mkdir Folder_1"};
 system(folder_name);
 
 REMOVING:
+~~~~~~~~~
 remove("file_name");              //as actual file. Add path as above if in folder.
 remove(file_name);                //as variable for file (char array.)
 system("rm -r /path_to_FOLDER");  //as directory.
 
 WEB:
+~~~~
 system("wget -q https://github.com/compromise-evident/Authorship/archive/refs/heads/main.zip");
 
 DECOMPRESS:
+~~~~~~~~~~~
 system("unzip -qq main.zip");
 
 AS VARIABLE:
+~~~~~~~~~~~~
 char groupOTP[100] = {"wget -q https://github.com/compromise-evident/groupOTP/archive/refs/heads/main.zip"};
 system(groupOTP);
 
 RUN ANOTHER C++ PROGRAM:
-system("/home/user/Desktop/Authorship");   //That Authorship file is the executable made by Geany or with the g++ command.
+~~~~~~~~~~~~~~~~~~~~~~~~
+system("/home/user/Desktop/Authorship");   //That Authorship file is the executable made by Geany or with the g++ command (both produce the fame file.)
 
 WRITE TERMINAL OUTPUT TO FILE INSTEAD:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 system("sha256sum main.zip > hash_file");
 
-//Basically, any bash commands will work in C++ if wrapped in system("");  See ss64.com/bash/
+..........Basically, any bash commands will work in C++ if wrapped in system("");  See ss64.com/bash/
+
+SOME DIR TO LOOK AT:
+~~~~~~~~~~~~~~~~~~~~
+C4droid-exported apk default dir (actual?): content://com.android.externalstorage.documents/tree/primary:Android/data/com.my_app_name/files
+C4droid-exported apk default dir          : /storage/emulated/0/Android/data/com.my_app_name/files
+
+CHANGE WORKING DIR:
+~~~~~~~~~~~~~~~~~~~
+#include <unistd.h> //for chdir()
+chdir("/home/user/Desktop/my_folder");
+
+or
+
+chdir(path_to_file);
+
+now, you can do:
+
+char path_to_file[10000] = {"./FOLDER/file_1"};
+out_stream.open(path_to_file);
+
+and it creates "file_1" in /home/user/Desktop/my_folder/FOLDER
+
+and of course:
+
+out_stream.open("file_2");
+
+creates file_2 in /home/user/Desktop/my_folder
+
+what this means: just chdir(); and C4droid will export apk where things like out_stream.open("./my_folder"); are accessed FROM THE NEW WORKING DIR!
 */
 
 
@@ -935,12 +975,13 @@ system("sha256sum main.zip > hash_file");
 
 
 
-/*    __________________________________________________________________________________________________________________________________
-     /                                                                                                                                  \
-    |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-    |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-    |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-     \_________________________________________________________________________________________________________________________________*/
+/*        __________________________________________________________________________________________________________________________________
+         /                                                                                                                                  \
+        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
+        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
+        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
+         \__________________________________________________________________________________________________________________________________/
+*/
 
 /* True C++ data type specs WITHOUT unspecified behavior so far.
 ________________________________________________________________________________________________________________________
@@ -979,12 +1020,13 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 
 
 
-/*    __________________________________________________________________________________________________________________________________
-     /                                                                                                                                  \
-    |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-    |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-    |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-     \_________________________________________________________________________________________________________________________________*/
+/*        __________________________________________________________________________________________________________________________________
+         /                                                                                                                                  \
+        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
+        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
+        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
+         \__________________________________________________________________________________________________________________________________/
+*/
 
 /* GNU+Linux tools.
 
@@ -1030,12 +1072,13 @@ xz-utils               >CLI  Compress/decompress .xz files (especially downloade
 
 
 
-/*    __________________________________________________________________________________________________________________________________
-     /                                                                                                                                  \
-    |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-    |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-    |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-     \_________________________________________________________________________________________________________________________________*/
+/*        __________________________________________________________________________________________________________________________________
+         /                                                                                                                                  \
+        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
+        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
+        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
+         \__________________________________________________________________________________________________________________________________/
+*/
 
 /* GNU+Linux commands.
 
