@@ -20,4 +20,4 @@ Raw analysis of any file.
   <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/Terminal.png">
 </p>
 
-[Auditing in the browser?](https://coliru.stacked-crooked.com/a/6078a8d76dad294d)
+[Auditing in the browser?](https://coliru.stacked-crooked.com/a/eed34bea4fd1d021)
