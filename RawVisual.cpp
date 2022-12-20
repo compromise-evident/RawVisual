@@ -118,6 +118,7 @@ int main()
 	//Tests directory.
 	out_stream.open(path_to_out_file);
 	out_stream << "\n(RawVisual test file)\n\n"
+	           << ""
 	           << "Overwrites this if directory permissive, else analysis file\n"
 	           << "not created in given path but in DEFAULT WORKING directory.\n";
 	out_stream.close();
@@ -173,20 +174,16 @@ int main()
 	cin >> bytes_to_skip;
 	
 	//Adjusts Bytes to skip if user enters invalid.
-	if(bytes_to_skip >= quick_total_bytes)
-	{	if     (quick_total_bytes == 1) {bytes_to_skip = 0                      ;}
-		else if(quick_total_bytes  > 1) {bytes_to_skip = (quick_total_bytes - 1);}
-	}
-	
-	if(bytes_to_skip < 0) {bytes_to_skip = 0;}
+	if((bytes_to_skip  < 0)
+	|| (bytes_to_skip >= quick_total_bytes)) {bytes_to_skip = 0;}
 	
 	cout << "How many to  see? ";
 	long long bytes_to_see;
 	cin >> bytes_to_see;
 	
 	//Adjusts Bytes to see if user enters invalid. Auto-cut-offs exist where displaying Bytes (rounds 1 & 2.)
-	if(bytes_to_see < 1)                  {bytes_to_see = 1                 ;}
-	if(bytes_to_see > 999999999999999999) {bytes_to_see = 999999999999999999;}
+	if((bytes_to_see < 0)
+	|| (bytes_to_see > quick_total_bytes)) {bytes_to_see = 999999999999999999;}
 	
 	//Begins file write.
 	out_stream.open(path_to_out_file);
@@ -339,7 +336,7 @@ int main()
 	{	if(distribution[a] != 0) {distinct_bytes++;}
 	}
 	
-	//Displays occurrence and counts distinct.
+	//Writes occurrence and counts distinct.
 	out_stream << "\n\n";
 	int stop_early_if_text_file = 256;
 	if(location_of_special_character == -1) {stop_early_if_text_file = 131;}
@@ -407,10 +404,10 @@ int main()
 		if(distribution[a] > maximum) {maximum = distribution[a];}
 	}
 	
-	//Displays average, minimum, and maximum.
+	//Writes average, minimum, and maximum.
 	out_stream << "\navg: " << (total_bytes / distinct_bytes) << ", min: " << minimum << ", max: " << maximum << " (of present)\n\n";
 	
-	//Displays location of special character.
+	//Writes location of special character.
 	if(location_of_special_character == -1) {out_stream << "No Bytes outside of the standard 9, 10, 13, and 32-126\n\n"                              ;}
 	else                                    {out_stream << "Byte# " << location_of_special_character << " is the 1st that isn't 9, 10, 13, or 32-126";}
 	
@@ -432,15 +429,15 @@ int main()
 		}
 	}
 	
-	//Displays the number of special characters & how many distinct.
+	//Writes the number of special characters & how many distinct.
 	if(location_of_special_character != -1)
 	{	out_stream << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct)\n\n";}
 	
-	//Displays total and distinct.
+	//Writes total and distinct.
 	if(total_bytes == 1) {out_stream << total_bytes << " Byte total, "  << distinct_bytes << " distinct\n\n";}
 	else                 {out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct\n\n";}
 	
-	//Displays displayed and skipped.
+	//Writes displayed and skipped.
 	if(bytes_to_see >= total_bytes) {out_stream << (total_bytes - bytes_to_skip) << " displayed ";}
 	else                            {out_stream << bytes_to_see                  << " displayed ";}
 	
@@ -504,11 +501,11 @@ int main()
 	}
 	in_stream.close();
 	
-	//Reporting total again to end of ind-ID list.
+	//Writes total again to end of ind-ID list.
 	out_stream << "\n(" << total_bytes << "-Byte file size)\n";
 	out_stream.close();
 	
-	//Reporting where analysis file was saved to.
+	//Prints where analysis file was saved to.
 	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
 	else                              {cout << "\nAnalysis file now resides in DEFAULT WORKING directory.\n";}
 }
