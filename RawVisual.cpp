@@ -486,8 +486,11 @@ int main()
 	
 	
 	//Prints where analysis file was saved to.
-	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n"               ;}
-	else                              {cout << "\nAnalysis file now resides in DEFAULT WORKING directory.\n";}
+	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
+	else
+	{	cout << "\nAnalysis file now resides in DEFAULT WORKING directory\n"
+		     << "because we cannot get write-permission to given path.\n";
+	}
 	
 	/*Analysis only continues.
 	
