@@ -362,7 +362,7 @@ int main()
 	}
 	
 	//Calculates average, minimum, and maximum.
-	long long minimum = 999999999999999999;
+	long long minimum = 9223372036854775807;
 	long long maximum = 0;
 	for(int a = 0; a < 256; a++)
 	{	if((distribution[a] < minimum) && (distribution[a] > 0)) {minimum = distribution[a];}
@@ -476,7 +476,7 @@ int main()
 	in_stream.close();
 	
 	//Writes total again to end of ind-ID list.
-	out_stream << "\n(" << total_bytes << "-Byte file size)\n";
+	out_stream << "\n" << total_bytes << "-Byte file\n";
 	out_stream.close();
 	
 	
