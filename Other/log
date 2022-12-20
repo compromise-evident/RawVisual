@@ -1,10 +1,19 @@
-/*	RawVisual log
+RawVisual log
 
 
+
+Version 5.0.0   Analyzed written to file only. Output dir: attempts dir of given
+                file and if not allowed then writes analysis file to default dir
+                (working dir.)Added "bytes_to_skip" so Bytes can be skipped, and
+                "bytes_to_see" so only that  quantity  will be analyzed & saved.
+                User may enter ridiculous values, there are catch-alls for that.
+                Minimalist, simpler. These features  alone  allow you to see all
+                Bytes, single Bytes, and intervals.  Added + edited ref in .cpp.
+                Monday, December 19 2022
 
 Version 4.0.0   Write ALL to file (live choice). Added checking: md5sum,sha1sum,
                 sha256sum, and sha512sum.
-                Monday, December 18, 2022
+                Sunday, December 18 2022
 
 Version 3.0.0   Loops your entry of: how many file Bytes to display, and whether
                 you want to display them as int or actual, omitting non-standard
@@ -15,4 +24,4 @@ Version 2.0.1   Adjusted comments for Android. ByteVisual.apk added. C4droid ok.
                 Monday, December 12 2022
 
 Version 2.0.0   Prints characters, \r, \n, \t next to occurrence for extra help.
-                Sunday, November 27 2022    */
+                Sunday, November 27 2022
