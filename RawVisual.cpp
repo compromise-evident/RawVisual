@@ -200,7 +200,7 @@ int main()
 	
 	//writes file hash of file to temporary files.
 	char bash_md5sum[10050] = {"md5sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_md5sum[a + 7] = path_to_file[a];} //..........For md5sum
+	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_md5sum[a    +  7] = path_to_file[a];} //..........For md5sum
 	bash_md5sum[path_to_file_null_bookmark +  7] = ' ';
 	bash_md5sum[path_to_file_null_bookmark +  8] = '>';
 	bash_md5sum[path_to_file_null_bookmark +  9] = ' ';
@@ -209,7 +209,7 @@ int main()
 	system(bash_md5sum);
 	
 	char bash_sha1sum[10050] = {"sha1sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha1sum[a + 8] = path_to_file[a];} //..........For sha1sum
+	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha1sum[a   +  8] = path_to_file[a];} //..........For sha1sum
 	bash_sha1sum[path_to_file_null_bookmark +  8] = ' ';
 	bash_sha1sum[path_to_file_null_bookmark +  9] = '>';
 	bash_sha1sum[path_to_file_null_bookmark + 10] = ' ';
@@ -406,8 +406,8 @@ int main()
 	if(bytes_to_see >= total_bytes) {out_stream << (total_bytes - bytes_to_skip) << " displayed ";}
 	else                            {out_stream << bytes_to_see                  << " displayed ";}
 	
-	if     (bytes_to_skip == 0) {out_stream << "(" << bytes_to_skip << " skipped)\n\n";}
-	else if(bytes_to_skip == 1) {out_stream << "(first Byte skipped)\n\n"             ;}
+	if     (bytes_to_skip == 0) {out_stream << "(" << bytes_to_skip << " skipped)\n\n"      ;}
+	else if(bytes_to_skip == 1) {out_stream << "(first Byte skipped)\n\n"                   ;}
 	else                        {out_stream << "(first " << bytes_to_skip << " skipped)\n\n";}
 	
 	
@@ -486,7 +486,7 @@ int main()
 	
 	
 	//Prints where analysis file was saved to.
-	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
+	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n"               ;}
 	else                              {cout << "\nAnalysis file now resides in DEFAULT WORKING directory.\n";}
 	
 	/*Analysis only continues.
