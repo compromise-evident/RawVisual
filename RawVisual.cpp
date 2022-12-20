@@ -105,22 +105,25 @@ int main()
 	//Preparing out file stream.
 	path_to_out_file[path_to_file_null_bookmark     ] = '-';
 	path_to_out_file[path_to_file_null_bookmark +  1] = 'V';
-	path_to_out_file[path_to_file_null_bookmark +  2] = 'i';
-	path_to_out_file[path_to_file_null_bookmark +  3] = 's';
-	path_to_out_file[path_to_file_null_bookmark +  4] = 'u';
-	path_to_out_file[path_to_file_null_bookmark +  5] = 'a';
-	path_to_out_file[path_to_file_null_bookmark +  6] = 'l';
+	path_to_out_file[path_to_file_null_bookmark +  2] = 'I';
+	path_to_out_file[path_to_file_null_bookmark +  3] = 'S';
+	path_to_out_file[path_to_file_null_bookmark +  4] = 'U';
+	path_to_out_file[path_to_file_null_bookmark +  5] = 'A';
+	path_to_out_file[path_to_file_null_bookmark +  6] = 'L';
 	path_to_out_file[path_to_file_null_bookmark +  7] = '.';
 	path_to_out_file[path_to_file_null_bookmark +  8] = 't';
 	path_to_out_file[path_to_file_null_bookmark +  9] = 'x';
 	path_to_out_file[path_to_file_null_bookmark + 10] = 't';
 	
-	//Tests & notifies about out directory.
+	//Tests directory.
 	out_stream.open(path_to_out_file);
-	out_stream << "test";
+	out_stream << "\n(RawVisual test file)\n\n"
+	           << "Overwrites this if directory permissive, else analysis file\n"
+	           << "not created in given path but in DEFAULT WORKING directory.\n";
 	out_stream.close();
 	
 	in_stream.open(path_to_out_file);
+	bool written_to_given_path = true;
 	if(in_stream.fail() == true)
 	{	//..........Renaming path_to_out_file with actual file name for out_stream to default working directory.
 		int temp_name_beginning = path_to_file_location_of_actual_file_name_beginning;
@@ -135,30 +138,55 @@ int main()
 		
 		path_to_out_file[path_to_out_file_null_bookmark     ] = '-';
 		path_to_out_file[path_to_out_file_null_bookmark +  1] = 'V';
-		path_to_out_file[path_to_out_file_null_bookmark +  2] = 'i';
-		path_to_out_file[path_to_out_file_null_bookmark +  3] = 's';
-		path_to_out_file[path_to_out_file_null_bookmark +  4] = 'u';
-		path_to_out_file[path_to_out_file_null_bookmark +  5] = 'a';
-		path_to_out_file[path_to_out_file_null_bookmark +  6] = 'l';
+		path_to_out_file[path_to_out_file_null_bookmark +  2] = 'I';
+		path_to_out_file[path_to_out_file_null_bookmark +  3] = 'S';
+		path_to_out_file[path_to_out_file_null_bookmark +  4] = 'U';
+		path_to_out_file[path_to_out_file_null_bookmark +  5] = 'A';
+		path_to_out_file[path_to_out_file_null_bookmark +  6] = 'L';
 		path_to_out_file[path_to_out_file_null_bookmark +  7] = '.';
 		path_to_out_file[path_to_out_file_null_bookmark +  8] = 't';
 		path_to_out_file[path_to_out_file_null_bookmark +  9] = 'x';
 		path_to_out_file[path_to_out_file_null_bookmark + 10] = 't';
 		path_to_out_file[path_to_out_file_null_bookmark + 11] ='\0';
 		
-		cout   << "Analysis file will be written to DEFAULT WORKING directory.\n\n";
+		written_to_given_path = false;
 	}
-	else {cout << "Analysis file will be written to given directory.\n\n";}
 	in_stream.close();
 	
 	//Asks user for information for later, last interaction with user.
-	cout << "How many Bytes to skip? ";
+	//First displays file size using quicker, dedicated run.
+	long long quick_total_bytes = 0;
+	char garbage_byte;
+	in_stream.open(path_to_file);
+	in_stream.get(garbage_byte);
+	for(; in_stream.eof() == false;)
+	{	in_stream.get(garbage_byte);
+		quick_total_bytes++;
+	}
+	in_stream.close();
+	
+	if(quick_total_bytes == 1) {cout << "\n" << quick_total_bytes << " Byte total.\n" ;}
+	else                       {cout << "\n" << quick_total_bytes << " Bytes total.\n";}
+	
+	cout << "How many to skip? ";
 	long long bytes_to_skip;
 	cin >> bytes_to_skip;
 	
-	cout << "How many Bytes to  see? ";
+	//Adjusts Bytes to skip if user enters invalid.
+	if(bytes_to_skip >= quick_total_bytes)
+	{	if     (quick_total_bytes == 1) {bytes_to_skip = 0                      ;}
+		else if(quick_total_bytes  > 1) {bytes_to_skip = (quick_total_bytes - 1);}
+	}
+	
+	if(bytes_to_skip < 0) {bytes_to_skip = 0;}
+	
+	cout << "How many to  see? ";
 	long long bytes_to_see;
 	cin >> bytes_to_see;
+	
+	//Adjusts Bytes to see if user enters invalid. Auto-cut-offs exist where displaying Bytes (rounds 1 & 2.)
+	if(bytes_to_see < 1)                  {bytes_to_see = 1                 ;}
+	if(bytes_to_see > 999999999999999999) {bytes_to_see = 999999999999999999;}
 	
 	//Begins file write.
 	out_stream.open(path_to_out_file);
@@ -213,7 +241,6 @@ int main()
 	//Retrieving md5sum
 	in_stream.open("m");
 	out_stream << "md5sum\n";
-	char garbage_byte;
 	for(int a = 0; a < 32; a++)
 	{	in_stream.get(garbage_byte);
 		out_stream << char(garbage_byte);
@@ -394,12 +421,17 @@ int main()
 	if(location_of_special_character != -1)
 	{	out_stream << "\n(non-standard Bytes present; " << special_character_sum << " total, " << distinct_special_characters << " distinct)\n\n";}
 	
-	//Displays total, distinct, and skipped.
-	out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct, " << bytes_to_skip << " skipped, ";
+	//Displays total and distinct.
+	if(total_bytes == 1) {out_stream << total_bytes << " Byte total, "  << distinct_bytes << " distinct\n\n";}
+	else                 {out_stream << total_bytes << " Bytes total, " << distinct_bytes << " distinct\n\n";}
 	
-	//Displays displayed.
-	if(bytes_to_see >= total_bytes) {out_stream << total_bytes  << " displayed.\n\n";}
-	else                            {out_stream << bytes_to_see << " displayed.\n\n";}
+	//Displays displayed and skipped.
+	if(bytes_to_see >= total_bytes) {out_stream << (total_bytes - bytes_to_skip) << " displayed ";}
+	else                            {out_stream << bytes_to_see                  << " displayed ";}
+	
+	if     (bytes_to_skip == 0) {out_stream << "(" << bytes_to_skip << " skipped)\n\n";}
+	else if(bytes_to_skip == 1) {out_stream << "(first Byte skipped)\n\n"             ;}
+	else                        {out_stream << "(first " << bytes_to_skip << " skipped)\n\n";}
 	
 	out_stream << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
 	           << " >>>>>>>>>>>>>>>> Only char 9, 10, 13, and 32-126 >>>>>>>>>>>>>>>>>\n"
@@ -456,7 +488,14 @@ int main()
 		in_stream.get(temp_file_byte);
 	}
 	in_stream.close();
+	
+	//Reporting total again to end of ind-ID list.
+	out_stream << "\n(" << total_bytes << "-Byte file size)\n";
 	out_stream.close();
+	
+	//Reporting where analysis file was saved to.
+	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
+	else                              {cout << "\nAnalysis file now resides in DEFAULT WORKING directory.\n";}
 }
 
 
