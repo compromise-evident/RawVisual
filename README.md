@@ -20,7 +20,7 @@ Complete raw analysis of any file + reference in the cpp.
 
 [Auditing in the browser?](https://coliru.stacked-crooked.com/a/f4a7d867806aead2)
 
-# Sample file
+# Creates a file about your file:
 
 ```text
 
