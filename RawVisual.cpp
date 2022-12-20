@@ -333,16 +333,23 @@ int main()
 		largest_tally /= 10;
 	}
 	
-	//Displays occurrence and counts distinct.
-	out_stream << "\n\n";
+	//Calculates distinct Bytes.
 	int distinct_bytes = 0;
 	for(int a = 0; a < 256; a++)
+	{	if(distribution[a] != 0) {distinct_bytes++;}
+	}
+	
+	//Displays occurrence and counts distinct.
+	out_stream << "\n\n";
+	int stop_early_if_text_file = 256;
+	if(location_of_special_character == -1) {stop_early_if_text_file = 131;}
+	for(int a = 0; a < stop_early_if_text_file; a++)
 	{	     if(a <  10) {out_stream << "occurrence of   " << a << ": ";}
 		else if(a < 100) {out_stream << "occurrence of  "  << a << ": ";}
 		else             {out_stream << "occurrence of "   << a << ": ";}
 		
 		if(distribution[a] == 0) {out_stream << "-";}
-		else {distinct_bytes++;   out_stream << distribution[a];}
+		else                     {out_stream << distribution[a];}
 		
 		//..........Gets digit length of tally.
 		int length_of_tally = 1;
@@ -382,6 +389,14 @@ int main()
 		}
 		
 		out_stream << "\n";
+	}
+	
+	if(location_of_special_character == -1)
+	{	out_stream << "...\n"
+		           << "occurrence of 252: -\n"
+		           << "occurrence of 253: -\n"
+		           << "occurrence of 254: -\n"
+		           << "occurrence of 255: -\n";
 	}
 	
 	//Calculates average, minimum, and maximum.
