@@ -183,7 +183,7 @@ int main()
 	
 	//Adjusts Bytes to see if user enters invalid. Auto-cut-offs exist where displaying Bytes (rounds 1 & 2.)
 	if((bytes_to_see < 0)
-	|| (bytes_to_see > quick_total_bytes)) {bytes_to_see = 999999999999999999;}
+	|| (bytes_to_see > quick_total_bytes)) {bytes_to_see = 9223372036854775807;}
 	
 	//Begins file write.
 	out_stream.open(path_to_out_file);
@@ -238,46 +238,30 @@ int main()
 	//Retrieving md5sum
 	in_stream.open("m");
 	out_stream << "md5sum\n";
-	for(int a = 0; a < 32; a++)
-	{	in_stream.get(garbage_byte);
-		out_stream << char(garbage_byte);
-	}
+	for(int a = 0; a < 32; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
 	out_stream << "\n\n";
 	in_stream.close();
 	
 	//Retrieving sha1sum
 	in_stream.open("1");
 	out_stream << "sha1sum\n";
-	for(int a = 0; a < 40; a++)
-	{	in_stream.get(garbage_byte);
-		out_stream << char(garbage_byte);
-	}
+	for(int a = 0; a < 40; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
 	out_stream << "\n\n";
 	in_stream.close();
 	
 	//Retrieving sha256sum
 	in_stream.open("2");
 	out_stream << "sha256sum\n";
-	for(int a = 0; a < 64; a++)
-	{	in_stream.get(garbage_byte);
-		out_stream << char(garbage_byte);
-	}
+	for(int a = 0; a < 64; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
 	out_stream << "\n\n";
 	in_stream.close();
 	
 	//Retrieving sha512sum
 	in_stream.open("5");
 	out_stream << "sha512sum\n";
-	for(int a = 0; a < 64; a++)
-	{	in_stream.get(garbage_byte);
-		out_stream << char(garbage_byte);
-	}
-	
+	for(int a = 0; a < 64; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
 	out_stream << "\n";
-	for(int a = 0; a < 64; a++)
-	{	in_stream.get(garbage_byte);
-		out_stream << char(garbage_byte);
-	}
+	for(int a = 0; a < 64; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
 	in_stream.close();
 	
 	remove("m"); remove("1"); remove("2"); remove("5"); //..........Removes temporary hash files.
@@ -360,30 +344,11 @@ int main()
 		length_of_tally = (length_of_largest_tally - length_of_tally);
 		length_of_tally++;
 		
-		if(a == 9)
-		{	for(int a = 0; a < length_of_tally; a++) {out_stream << " ";}
-			out_stream << "tab";
-		}
-		
-		if(a == 10)
-		{	for(int a = 0; a < length_of_tally; a++) {out_stream << " ";}
-			out_stream << "new line for Linux";
-		}
-		
-		if(a == 13)
-		{	for(int a = 0; a < length_of_tally; a++) {out_stream << " ";}
-			out_stream << "new line for Mac";
-		}
-		
-		if(a == 32)
-		{	for(int a = 0; a < length_of_tally; a++) {out_stream << " ";}
-			out_stream << "space";
-		}
-		
-		if((a > 32) && (a < 127))
-		{	for(int a = 0; a < length_of_tally; a++) {out_stream << " ";}
-			out_stream << char(a);
-		}
+		if (a ==  9)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "tab"               ;}
+		if (a == 10)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "new line for Linux";}
+		if (a == 13)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "new line for Mac"  ;}
+		if (a == 32)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "space"             ;}
+		if((a  > 32) && (a < 127)) {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << char(a)             ;}
 		
 		out_stream << "\n";
 	}
@@ -401,7 +366,7 @@ int main()
 	long long maximum = 0;
 	for(int a = 0; a < 256; a++)
 	{	if((distribution[a] < minimum) && (distribution[a] > 0)) {minimum = distribution[a];}
-		if(distribution[a] > maximum) {maximum = distribution[a];}
+		if (distribution[a] > maximum)                           {maximum = distribution[a];}
 	}
 	
 	//Writes average, minimum, and maximum.
@@ -445,15 +410,17 @@ int main()
 	else if(bytes_to_skip == 1) {out_stream << "(first Byte skipped)\n\n"             ;}
 	else                        {out_stream << "(first " << bytes_to_skip << " skipped)\n\n";}
 	
+	
+	
+	
+	
+	
+	
+	//First round writes readable.
 	out_stream << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
 	           << " >>>>>>>>>>>>>>>> Only char 9, 10, 13, and 32-126 >>>>>>>>>>>>>>>>>\n"
 	           << "//////////////////////////////////////////////////////////////////\n\n";
 	
-	
-	
-	
-	
-	//First round with readable.
 	in_stream.open(path_to_file);
 	for(long long a = 0; a < bytes_to_skip; a++) {in_stream.get(garbage_byte);}
 	in_stream.get(temp_file_byte);
@@ -469,11 +436,18 @@ int main()
 		in_stream.get(temp_file_byte);
 	}
 	in_stream.close();
+	
+	
+	
+	
+	
+	
+	
+	//Second round writes integer IDs + standard ref.
 	out_stream << "\n\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
 	           << " >>>>>>>>>>>>>>>> Index, int ID, char if standard >>>>>>>>>>>>>>>>>\n"
 	           << "//////////////////////////////////////////////////////////////////\n\n";
 	
-	//Second round with integer ID.
 	in_stream.open(path_to_file);
 	for(long long a = 0; a < bytes_to_skip; a++) {in_stream.get(garbage_byte);}
 	bytes_to_skip++;
@@ -505,9 +479,24 @@ int main()
 	out_stream << "\n(" << total_bytes << "-Byte file size)\n";
 	out_stream.close();
 	
+	
+	
+	
+	
+	
+	
 	//Prints where analysis file was saved to.
 	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
 	else                              {cout << "\nAnalysis file now resides in DEFAULT WORKING directory.\n";}
+	
+	/*Analysis only continues.
+	
+	const  - guesses file type based on statistical analysis as information is gathered with this tool.
+	update   Determining-info includes: distinct_special_characters, their quantity vs. total (recognizable ratio)
+	         as I have seen already.
+	
+	v5.1.0 - reconstructs original file using only the analyzed version as produced by this tool
+	         (if not all Bytes are included, any Bytes included will be used.) */
 }
 
 
