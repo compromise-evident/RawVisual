@@ -2,7 +2,7 @@
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
-/*  Version 5.0.0   All files are text files in byte quantity.  char takes input
+/*  Version 6.0.0  All files are a  singular  string of Bytes.  char takes input
 using its 256 storage values -128 to 127. See bottom for extensive byte details.
 Depending on byte endings and encoding,  some char may show up here as  multiple
 separate items--for which multiple occurrence counters tick once. This issue may
@@ -13,20 +13,19 @@ If you select a special character in Geany,  you can see the stats at the bottom
 if you create files strictly using C++,  out_stream.put(-1) for example, you get
 one byte as expected. However, if you copy and paste that char, that new file is
 now two bytes in size--holding one character.  Safely, and without adjusting for
-the \r\n fuckery of copy/paste & other OSes, you may use  96 characters--the tab
+the \r\n problems of copy/paste & other OSes, you may use 96 characters--the tab
 being 9--to create files that can't be  corrupted as they're re-formatted across
 the web until finally reaching your device,  such as an  Authorship.public file.
-When in doubt,use only characters 9 and 32-126 for  un-fuckable  file integrity.
+When in doubt,use only characters 9 and 32-126 for unproblematic file integrity.
 See char  13  and  10  in the table below if your files need to be  copy/pasted.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   WARNING: storage other than spinning-disk drives cannot be easily overwritten.
-           Adjusted for Android, my tools are less safe on those modern devices.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you wish to deal with bytes as numbers  0 to 255  (as done here, in Multiway,
-schemeOTP, groupOTP, Allornothing, RICIN, RICINgauss, and RICINoptic)   then use
-this line to convert the signed char value, but first create an integer/unsigned
+groupOTP, schemeOTP, Allornothing, RICIN, RICINgauss, and RICINoptic)   then use
+this line to convert the (signed char) value, but first create an int / unsigned
 char destination such as  int file_byte_normal;
 
 
@@ -46,7 +45,28 @@ else                       {out_stream.put(file_byte_normal - 256);}
 
 
 Now you can perform mathematical operations & modular arithmetic such as mod 256
-which returns a value 0 to 255--accounting for 256 total items--0 is item 1.  */
+which returns a value  0  to  255--accounting for 256 total items--0 is item  1.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to run the program  -  Software package repositories for GNU+Linux operating
+systems have all the tools you can imagine. Open a terminal and use this command
+as root to install Geany and g++ on your computer: apt install geany g++   Geany
+is a fast & lightweight text editor and Integrated Development Environment where
+you can write and run code. g++ is the GNU compiler for C++ which allows written
+code to run. The compiler operates in the background and displays errors in your
+code as you will see in the lower Geany box. Make a new folder somewhere on your
+machine. Paste this code into Geany. For clarity in auditing, enable indentation
+guides: go to View >> Show Indentation Guides. Save the document as anything.cpp
+within the newly-created folder. Use these shortcuts to run the program: F9, F5.
+You may paste over this code with other  .cpp files, or open a new tab & repeat.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to make an executable with g++  -  Save this program as anything.cpp, open a
+terminal, and type g++ then space. Drag & drop this saved file into the terminal
+and its directory will be  appended to your pending entry. Click on the terminal
+and press enter.   a.out now resides in the user directory, you may rename it to
+anything.  To run that executable, simply drag and drop it into a terminal, then
+click on the terminal and press enter.  Reminder:  executable's effect-directory
+is /home/user or where you put the executable. Opening  .cpp  files in Geany and
+hitting F9 creates the same executable--movable, renameable, drag & droppable.*/
 
 #include <fstream>
 #include <iostream>
@@ -56,11 +76,30 @@ int main()
 {	ifstream in_stream;
 	ofstream out_stream;
 	
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//                                                                                                                          |
+	bool hash_mode = true;        //DEFAULT = TRUE. Hash called by system(); fail if                    no hash if broken >     |
+	//                            path_to_file contains bad char, but this option                                               |
+	//                            exists because hash are slow for large files.
+	//                                                                                            reconstructs file from        |
+	bool extraction_mode = false; //DEFAULT = FALSE. Else you may extract the original              -VISUAL.txt if broken >     |
+	//                            file from its -VISUAL.txt file. Just enter path to any                                        |
+	//                            -VISUAL.txt and you'll get the original if all Bytes
+	//                            were examined, else only extract present any Bytes.
+	//
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
 	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
-	cout << "\n(Complete raw analysis of any file.)"
-	     << "\nDrag & drop file into terminal or enter path:\n\n";
+	if(extraction_mode == true)
+	{	cout << "\n ~~~~~~~~~~~~~(EXTRACTION MODE)~~~~~~~~~~~~~"
+		     << "\nDrag & drop file into terminal or enter path:\n\n";
+	}
+	else
+	{	cout << "\n(Complete raw analysis of any file.)"
+		     << "\nDrag & drop file into terminal or enter path:\n\n";
+	}
 	
 	char  path_to_file[10000];
 	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';} //Fills path_to_file[] with null.
@@ -92,6 +131,160 @@ int main()
 	int path_to_file_null_bookmark;
 	for(int a = 0; a < 10000; a++) {if(path_to_file[a] == '\0') {path_to_file_null_bookmark = a; break;}}
 	
+	//Reconstructs original file from its  -VISUAL.txt  version  (writes any present Bytes, even if not all are present.)
+	//This  if()  looks for  2  markers  in the  -VISUAL.txt  file so it knows where to begin extracting and where to stop
+	//reading: '»' (extraction begins), and 'f' (extraction ends). That 'f' is on the last text line, it's the only time
+	// there's an 'f' immediately after '='. You may erase everything outside of those 2 markers (» and the last f.)
+	char temp_file_byte;
+	int  temp_file_byte_normal;
+	if(extraction_mode == true)
+	{	//..........Checks if given file is a -VISUAL.txt.
+		//..........Eats Bytes until 1st char composing '»'
+		int VISUAL_file_identfying_string[86] = {0};
+		in_stream.open(path_to_file);
+		in_stream.get(temp_file_byte);
+		for(; in_stream.eof() == false;)
+		{	temp_file_byte_normal = temp_file_byte;
+			if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
+			
+			in_stream.get(temp_file_byte);
+			if(temp_file_byte_normal == 194) {break;}
+		}
+		
+		//..........Fills VISUAL_file_identifying_string.
+		for(int a = 0; in_stream.eof() == false; a++)
+		{	temp_file_byte_normal = temp_file_byte;
+			if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
+			
+			VISUAL_file_identfying_string[a] = temp_file_byte_normal;
+			if(a > 86) {break;}
+			in_stream.get(temp_file_byte);
+		}
+		
+		bool existence_of_187                        = true;
+		bool existence_of_16_greater_than_characters = true;
+		bool existence_of_new_line                   = true;
+		bool existence_of_66_slash_characters        = true;
+		bool existence_of_last_2_new_lines           = true;
+		
+		//..........Checks for 2nd char composing '»'
+		if(VISUAL_file_identfying_string[0] != 187) {existence_of_187 = false;}
+		
+		//..........Checks for 16 '>'
+		for(int a = 1; a < 17; a++)
+		{	if(VISUAL_file_identfying_string[a] != '>')
+			{	existence_of_16_greater_than_characters = false;
+				break;
+			}
+		}
+		
+		//Checks for new line.
+		if(VISUAL_file_identfying_string[17] != '\n') {existence_of_new_line = false;}
+		
+		//..........Checks for 66 slash.
+		for(int a = 18; a < 84; a++)
+		{	if(VISUAL_file_identfying_string[a] != '/')
+			{	existence_of_66_slash_characters = false;
+				break;
+			}
+		}
+		
+		//..........Checks for last 2 new lines.
+		if((VISUAL_file_identfying_string[84] != '\n')
+		&& (VISUAL_file_identfying_string[85] != '\n')) {existence_of_last_2_new_lines = false;}
+		
+		//..........Checks whole string.
+		if((existence_of_187                        == false)
+		|| (existence_of_16_greater_than_characters == false)
+		|| (existence_of_new_line                   == false)
+		|| (existence_of_66_slash_characters        == false)
+		|| (existence_of_last_2_new_lines           == false)) {cout << "\nWrong file.\n\n"; in_stream.close(); return 0;}
+		
+		//..........Checks if "-VISUAL.txt" is appended to given file name.
+		if((path_to_file[path_to_file_null_bookmark - 11] == '-')
+		&& (path_to_file[path_to_file_null_bookmark - 10] == 'V')
+		&& (path_to_file[path_to_file_null_bookmark -  9] == 'I')
+		&& (path_to_file[path_to_file_null_bookmark -  8] == 'S')
+		&& (path_to_file[path_to_file_null_bookmark -  7] == 'U')
+		&& (path_to_file[path_to_file_null_bookmark -  6] == 'A')
+		&& (path_to_file[path_to_file_null_bookmark -  5] == 'L')
+		&& (path_to_file[path_to_file_null_bookmark -  4] == '.')
+		&& (path_to_file[path_to_file_null_bookmark -  3] == 't')
+		&& (path_to_file[path_to_file_null_bookmark -  2] == 'x')
+		&& (path_to_file[path_to_file_null_bookmark -  1] == 't')) {path_to_file_null_bookmark -= 11;}
+		
+		//..........Prepares out file stream.
+		path_to_file[path_to_file_null_bookmark     ] = '-';
+		path_to_file[path_to_file_null_bookmark +  1] = 'X';
+		path_to_file[path_to_file_null_bookmark +  2] = 'T';
+		path_to_file[path_to_file_null_bookmark +  3] = 'R';
+		path_to_file[path_to_file_null_bookmark +  4] = 'A';
+		path_to_file[path_to_file_null_bookmark +  5] = 'C';
+		path_to_file[path_to_file_null_bookmark +  6] = 'T';
+		path_to_file[path_to_file_null_bookmark +  7] ='\0';
+		out_stream.open(path_to_file);
+		
+		
+		
+		
+		
+		//..........Extracts & writes to out file.
+		for(; in_stream.eof() == false;)
+		{	//..........Corrects
+			temp_file_byte_normal = temp_file_byte;
+			if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
+			
+			//..........Skips index.
+			for(; temp_file_byte_normal != '=';)
+			{	in_stream.get(temp_file_byte);
+				
+				//..........Corrects
+				temp_file_byte_normal = temp_file_byte;
+				if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
+			}
+			
+			//..........Gets 3 digits (Byte's integer-identification.)
+			int int_ID = 0;
+			int int_ID_digits[3];
+			in_stream.get(temp_file_byte);
+			for(int a = 0; a < 3; a++)
+			{	//..........Corrects
+				temp_file_byte_normal = temp_file_byte;
+				if(temp_file_byte_normal < 0) {temp_file_byte_normal += 256;}
+				
+				//..........If character reference '=' but detecting the new line immediately after.
+				if(temp_file_byte_normal == '\n') {break;}
+				
+				//..........If last text line "n=file size".
+				if(temp_file_byte_normal == 'f') {in_stream.close(); out_stream.close(); cout << "\nExtracted file now resides in given path.\n\n"; return 0;}
+				
+				//..........Checks if space then corrects.
+				if(temp_file_byte_normal == ' ') {temp_file_byte_normal  =  0;}
+				else                             {temp_file_byte_normal -= 48;}
+				
+				//..........Loads array with digits.
+				int_ID_digits[a] = temp_file_byte_normal;
+				in_stream.get(temp_file_byte);
+			}
+			
+			//..........Continues if ref '='
+			if(temp_file_byte_normal == '\n') {in_stream.get(temp_file_byte); continue;}
+			
+			//..........Assembles int ID.
+			int_ID += (int_ID_digits[0] * 100);
+			int_ID += (int_ID_digits[1] *  10);
+			int_ID +=  int_ID_digits[2]       ;
+			
+			if((int_ID < 0) || (int_ID > 255)) {cout << "\nBad file, can't continue.\n\n"; in_stream.close(); out_stream.close(); return 0;}
+			
+			//..........WRITES THE BYTE!
+			if(int_ID < 128) {out_stream.put(int_ID      );}
+			else             {out_stream.put(int_ID - 256);}
+			
+			in_stream.get(temp_file_byte);
+		}
+	}
+	
 	//Gets location of the first file name character.
 	int path_to_file_location_of_actual_file_name_beginning;
 	for(int a = (path_to_file_null_bookmark - 1); path_to_file[a] != '/'; a--)
@@ -120,7 +313,7 @@ int main()
 	out_stream << "\n(RawVisual test file)\n\n"
 	           << ""
 	           << "Overwrites this if directory permissive, else analysis file\n"
-	           << "not created in given path but in DEFAULT WORKING directory.\n";
+	           << "not created in given path but in DEFAULT WORKING DIRECTORY.\n";
 	out_stream.close();
 	
 	in_stream.open(path_to_out_file);
@@ -157,11 +350,10 @@ int main()
 	//Asks user for information for later, last interaction with user.
 	//First displays file size using quicker, dedicated run.
 	long long quick_total_bytes = 0;
-	char garbage_byte;
 	in_stream.open(path_to_file);
-	in_stream.get(garbage_byte);
+	in_stream.get(temp_file_byte);
 	for(; in_stream.eof() == false;)
-	{	in_stream.get(garbage_byte);
+	{	in_stream.get(temp_file_byte);
 		quick_total_bytes++;
 	}
 	in_stream.close();
@@ -195,84 +387,106 @@ int main()
 	{	out_stream << path_to_file[path_to_file_location_of_actual_file_name_beginning];
 	}
 	
-	out_stream << "\nAnalytics tool: RawVisual v5.0.0\n"
+	out_stream << "\nAnalytics tool: RawVisual v6.0.0\n"
 	           << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"; //Do not consume 68 width + \n; just don't exceed 67.
 	
-	//writes file hash of file to temporary files.
-	char bash_md5sum[10050] = {"md5sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_md5sum[a    +  7] = path_to_file[a];} //..........For md5sum
-	bash_md5sum[path_to_file_null_bookmark +  7] = ' ';
-	bash_md5sum[path_to_file_null_bookmark +  8] = '>';
-	bash_md5sum[path_to_file_null_bookmark +  9] = ' ';
-	bash_md5sum[path_to_file_null_bookmark + 10] = 'm';
-	bash_md5sum[path_to_file_null_bookmark + 11] ='\0';
-	system(bash_md5sum);
+	//Checks if in file path is approximately POSIX.
+	bool bash_compliance_of_path_to_file = true;
+	for(int a = 0; path_to_file[a] != '\0'; a++)
+	{	if((path_to_file[a] =='\t')
+		|| (path_to_file[a] =='\n')
+		|| (path_to_file[a] == ' ')
+		|| (path_to_file[a] == '"')
+		|| (path_to_file[a] == '$')
+		|| (path_to_file[a] == '&')
+		|| (path_to_file[a] =='\'')
+		|| (path_to_file[a] == '(')
+		|| (path_to_file[a] == ')')
+		|| (path_to_file[a] == ';')
+		|| (path_to_file[a] == '<')
+		|| (path_to_file[a] == '>')
+		|| (path_to_file[a] =='\\')
+		|| (path_to_file[a] == '`')
+		|| (path_to_file[a] == '|')) {bash_compliance_of_path_to_file = false; break;}
+	}
 	
-	char bash_sha1sum[10050] = {"sha1sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha1sum[a   +  8] = path_to_file[a];} //..........For sha1sum
-	bash_sha1sum[path_to_file_null_bookmark +  8] = ' ';
-	bash_sha1sum[path_to_file_null_bookmark +  9] = '>';
-	bash_sha1sum[path_to_file_null_bookmark + 10] = ' ';
-	bash_sha1sum[path_to_file_null_bookmark + 11] = '1';
-	bash_sha1sum[path_to_file_null_bookmark + 12] ='\0';
-	system(bash_sha1sum);
+	if((hash_mode == true) && (bash_compliance_of_path_to_file == true))
+	{	//Writes file hash of file to temporary files.
+		char bash_md5sum[10050] = {"md5sum "};
+		for(int a = 0; path_to_file[a] != '\0'; a++) {bash_md5sum[a    +  7] = path_to_file[a];} //..........For md5sum
+		bash_md5sum[path_to_file_null_bookmark +  7] = ' ';
+		bash_md5sum[path_to_file_null_bookmark +  8] = '>';
+		bash_md5sum[path_to_file_null_bookmark +  9] = ' ';
+		bash_md5sum[path_to_file_null_bookmark + 10] = 'm';
+		bash_md5sum[path_to_file_null_bookmark + 11] ='\0';
+		system(bash_md5sum);
+		
+		char bash_sha1sum[10050] = {"sha1sum "};
+		for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha1sum[a   +  8] = path_to_file[a];} //..........For sha1sum
+		bash_sha1sum[path_to_file_null_bookmark +  8] = ' ';
+		bash_sha1sum[path_to_file_null_bookmark +  9] = '>';
+		bash_sha1sum[path_to_file_null_bookmark + 10] = ' ';
+		bash_sha1sum[path_to_file_null_bookmark + 11] = '1';
+		bash_sha1sum[path_to_file_null_bookmark + 12] ='\0';
+		system(bash_sha1sum);
+		
+		char bash_sha256sum[10050] = {"sha256sum "};
+		for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha256sum[a + 10] = path_to_file[a];} //..........For sha256sum
+		bash_sha256sum[path_to_file_null_bookmark + 10] = ' ';
+		bash_sha256sum[path_to_file_null_bookmark + 11] = '>';
+		bash_sha256sum[path_to_file_null_bookmark + 12] = ' ';
+		bash_sha256sum[path_to_file_null_bookmark + 13] = '2';
+		bash_sha256sum[path_to_file_null_bookmark + 14] ='\0';
+		system(bash_sha256sum);
+		
+		char bash_sha512sum[10050] = {"sha512sum "};
+		for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha512sum[a + 10] = path_to_file[a];} //..........For sha512sum
+		bash_sha512sum[path_to_file_null_bookmark + 10] = ' ';
+		bash_sha512sum[path_to_file_null_bookmark + 11] = '>';
+		bash_sha512sum[path_to_file_null_bookmark + 12] = ' ';
+		bash_sha512sum[path_to_file_null_bookmark + 13] = '5';
+		bash_sha512sum[path_to_file_null_bookmark + 14] ='\0';
+		system(bash_sha512sum);
+		
+		//Retrieving md5sum
+		in_stream.open("m");
+		out_stream << "md5sum\n";
+		for(int a = 0; a < 32; a++) {in_stream.get(temp_file_byte); out_stream << char(temp_file_byte);}
+		out_stream << "\n\n";
+		in_stream.close();
+		
+		//Retrieving sha1sum
+		in_stream.open("1");
+		out_stream << "sha1sum\n";
+		for(int a = 0; a < 40; a++) {in_stream.get(temp_file_byte); out_stream << char(temp_file_byte);}
+		out_stream << "\n\n";
+		in_stream.close();
+		
+		//Retrieving sha256sum
+		in_stream.open("2");
+		out_stream << "sha256sum\n";
+		for(int a = 0; a < 64; a++) {in_stream.get(temp_file_byte); out_stream << char(temp_file_byte);}
+		out_stream << "\n\n";
+		in_stream.close();
+		
+		//Retrieving sha512sum
+		in_stream.open("5");
+		out_stream << "sha512sum\n";
+		for(int a = 0; a < 64; a++) {in_stream.get(temp_file_byte); out_stream << char(temp_file_byte);}
+		out_stream << "\n";
+		for(int a = 0; a < 64; a++) {in_stream.get(temp_file_byte); out_stream << char(temp_file_byte);}
+		in_stream.close();
+		
+		remove("m"); remove("1"); remove("2"); remove("5"); //..........Removes temporary hash files.
+	}
 	
-	char bash_sha256sum[10050] = {"sha256sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha256sum[a + 10] = path_to_file[a];} //..........For sha256sum
-	bash_sha256sum[path_to_file_null_bookmark + 10] = ' ';
-	bash_sha256sum[path_to_file_null_bookmark + 11] = '>';
-	bash_sha256sum[path_to_file_null_bookmark + 12] = ' ';
-	bash_sha256sum[path_to_file_null_bookmark + 13] = '2';
-	bash_sha256sum[path_to_file_null_bookmark + 14] ='\0';
-	system(bash_sha256sum);
-	
-	char bash_sha512sum[10050] = {"sha512sum "};
-	for(int a = 0; path_to_file[a] != '\0'; a++) {bash_sha512sum[a + 10] = path_to_file[a];} //..........For sha512sum
-	bash_sha512sum[path_to_file_null_bookmark + 10] = ' ';
-	bash_sha512sum[path_to_file_null_bookmark + 11] = '>';
-	bash_sha512sum[path_to_file_null_bookmark + 12] = ' ';
-	bash_sha512sum[path_to_file_null_bookmark + 13] = '5';
-	bash_sha512sum[path_to_file_null_bookmark + 14] ='\0';
-	system(bash_sha512sum);
-	
-	//Retrieving md5sum
-	in_stream.open("m");
-	out_stream << "md5sum\n";
-	for(int a = 0; a < 32; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
-	out_stream << "\n\n";
-	in_stream.close();
-	
-	//Retrieving sha1sum
-	in_stream.open("1");
-	out_stream << "sha1sum\n";
-	for(int a = 0; a < 40; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
-	out_stream << "\n\n";
-	in_stream.close();
-	
-	//Retrieving sha256sum
-	in_stream.open("2");
-	out_stream << "sha256sum\n";
-	for(int a = 0; a < 64; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
-	out_stream << "\n\n";
-	in_stream.close();
-	
-	//Retrieving sha512sum
-	in_stream.open("5");
-	out_stream << "sha512sum\n";
-	for(int a = 0; a < 64; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
-	out_stream << "\n";
-	for(int a = 0; a < 64; a++) {in_stream.get(garbage_byte); out_stream << char(garbage_byte);}
-	in_stream.close();
-	
-	remove("m"); remove("1"); remove("2"); remove("5"); //..........Removes temporary hash files.
+	if((hash_mode == true) && (bash_compliance_of_path_to_file == true)) {out_stream << "\n\n";}
 	
 	//Fills distribution[] and calculates total_bytes.
 	int location_counter = 1;
 	int location_of_special_character = -1;
 	bool count_until_special_character = true;
 	
-	char temp_file_byte;
-	int  temp_file_byte_normal;
 	long long distribution[256] = {0};
 	long long total_bytes = 0;
 	in_stream.open(path_to_file);
@@ -321,7 +535,6 @@ int main()
 	}
 	
 	//Writes occurrence and counts distinct.
-	out_stream << "\n\n";
 	int stop_early_if_text_file = 256;
 	if(location_of_special_character == -1) {stop_early_if_text_file = 131;}
 	for(int a = 0; a < stop_early_if_text_file; a++)
@@ -422,7 +635,7 @@ int main()
 	           << "//////////////////////////////////////////////////////////////////\n\n";
 	
 	in_stream.open(path_to_file);
-	for(long long a = 0; a < bytes_to_skip; a++) {in_stream.get(garbage_byte);}
+	for(long long a = 0; a < bytes_to_skip; a++) {in_stream.get(temp_file_byte);}
 	in_stream.get(temp_file_byte);
 	for(long long a = 0; a < bytes_to_see; a++)
 	{	if((in_stream.eof() == true) || (a == bytes_to_see)) {break;}
@@ -444,12 +657,13 @@ int main()
 	
 	
 	//Second round writes integer IDs + standard ref.
+	//Special char » is added (194 & 187)to know where this begins, so extracting file from -VISUAL.txt is easy.
 	out_stream << "\n\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
-	           << " >>>>>>>>>>>>>>>> Index, int ID, char if standard >>>>>>>>>>>>>>>>>\n"
+	           << " >>>>>>>>>>>>>>>> Index, int ID, char if standard " << char(194) << char(187) << ">>>>>>>>>>>>>>>>\n"
 	           << "//////////////////////////////////////////////////////////////////\n\n";
 	
 	in_stream.open(path_to_file);
-	for(long long a = 0; a < bytes_to_skip; a++) {in_stream.get(garbage_byte);}
+	for(long long a = 0; a < bytes_to_skip; a++) {in_stream.get(temp_file_byte);}
 	bytes_to_skip++;
 	in_stream.get(temp_file_byte);
 	for(long long a = 0; a < bytes_to_see; a++)
@@ -476,7 +690,7 @@ int main()
 	in_stream.close();
 	
 	//Writes total again to end of ind-ID list.
-	out_stream << "\n" << total_bytes << "-Byte file\n";
+	out_stream << "\n" << total_bytes << "=file size\n";
 	out_stream.close();
 	
 	
@@ -488,18 +702,16 @@ int main()
 	//Prints where analysis file was saved to.
 	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
 	else
-	{	cout << "\nAnalysis file now resides in DEFAULT WORKING directory\n"
-		     << "because we cannot get write-permission to given path.\n";
+	{	cout << "\nAnalysis file now resides in DEFAULT WORKING DIRECTORY\n"
+		     << "because we cannot get write-permission to given path.\n"
+		     << "APK: /storage/emulated/0/Android/data/com.rawvisual/files\n";
 	}
 	
 	/*Analysis only continues.
 	
 	const  - guesses file type based on statistical analysis as information is gathered with this tool.
 	update   Determining-info includes: distinct_special_characters, their quantity vs. total (recognizable ratio)
-	         as I have seen already.
-	
-	v5.1.0 - reconstructs original file using only the analyzed version as produced by this tool
-	         (if not all Bytes are included, any Bytes included will be used.) */
+	         as I have seen already. */
 }
 
 
@@ -860,8 +1072,8 @@ system("sha256sum main.zip > hash_file");
 
 SOME DIR TO LOOK AT:
 ~~~~~~~~~~~~~~~~~~~~
-C4droid-exported apk default dir (actual?): content://com.android.externalstorage.documents/tree/primary:Android/data/com.my_app_name/files
-C4droid-exported apk default dir          : /storage/emulated/0/Android/data/com.my_app_name/files
+C4droid-exported apk's default dir (actual?): content://com.android.externalstorage.documents/tree/primary:Android/data/com.my_app_name/files
+C4droid-exported apk's default dir          : /storage/emulated/0/Android/data/com.my_app_name/files
 
 CHANGE WORKING DIR:
 ~~~~~~~~~~~~~~~~~~~
