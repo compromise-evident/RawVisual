@@ -876,4 +876,4 @@ IHDR
 ```
 
 # Try extraction_mode = true;
-Now extract the original or partial file from the analyzed version. (This means you can share any file as plaintext by sharing its analyzed version--containing not only raw analytics, but integer-IDs of every included Byte.
+Now extract the original or partial file from the analyzed version. (This means you can share any file as plaintext by sharing its analyzed version as created with RawVisual--containing not only raw analytics, but integer-IDs of every included Byte.
