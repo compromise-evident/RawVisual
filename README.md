@@ -5,14 +5,8 @@ Complete raw analysis of any file + reference in the cpp.
 
 
 <p align="center">
-  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/RawVisual_icon.png" width="175">
+  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/RawVisual_icon.png" width="205">
 </p>
-
-<p align="center">
-  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/App.png">
-</p>
-
-(RawVisual.apk was made from RawVisual.cpp and RawVisual_icon.png using C4droid)
 
 <p align="center">
   <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/Terminal.png">
@@ -26,7 +20,7 @@ Complete raw analysis of any file + reference in the cpp.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Analyzing file: screenshot.png
-Analytics tool: RawVisual v5.0.0
+Analytics tool: RawVisual v6.0.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 md5sum
@@ -323,7 +317,7 @@ IHDR
 &!5@4	 A	@ Ft3#uapD*$ XHNDmQeD){IENDB`
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
- >>>>>>>>>>>>>>>> Index, int ID, char if standard >>>>>>>>>>>>>>>>>
+ >>>>>>>>>>>>>>>> Index, int ID, char if standard »>>>>>>>>>>>>>>>>
 //////////////////////////////////////////////////////////////////
 
 1=137
@@ -877,6 +871,6 @@ IHDR
 549= 96 `
 550=130
 
-550-Byte file
+550=file size
 
 ```
