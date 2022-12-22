@@ -6,7 +6,8 @@ Version 6.0.0   Extraction mode! Retrieve original / partial file, directly from
                 a -VISUAL.txt file. So you can share any file as  plaintext just
                 by letting RawVisual create the analysis txt file. Now checks if
                 path_to_file is bash-compliant so if bad characters are present,
-                system calls to hash are not made so you won't see errors.
+                system() calls to hash are not made so you won't see errors. And
+                You have the option to disable hash (slow for huge files.)
                 Thursday, December 22 2022
 
 Version 5.0.0   Analyzed written to file only. Output dir: attempts dir of given
