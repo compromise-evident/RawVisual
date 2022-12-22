@@ -1167,7 +1167,7 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 
 /* GNU+Linux tools.
 
-apt install actiona artha audacity bleachbit exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gnome-screenshot gparted gqrx-sdr inkscape krita openshot qasmixer vlc xz-utils
+apt install actiona artha audacity bleachbit exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gnome-screenshot gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
 
 actiona                 GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                   GUI  Offline thesaurus & dictionary.
@@ -1200,6 +1200,7 @@ inkscape                GUI  Powerful vector graphics manipulation.
 krita                   GUI  Advanced digital art creator.
 openshot                GUI  Video editor and advanced frame dispenser.
 qasmixer                GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
+shotwell                GUI  Image viewer+editor with edit options right on the home of each image.
 vlc                     GUI  Universal media interface (good for music & video, safely plays corrupted and partly-downloaded video, plays streams from online source.)
 xz-utils               >CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.    */
 
