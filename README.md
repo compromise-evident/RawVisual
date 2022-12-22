@@ -874,3 +874,6 @@ IHDR
 550=file size
 
 ```
+
+# Try extraction_mode = true;
+Now extract the original or partial file from the analyzed version. This means you can share any file as plaintext--the analyzed version contains not only raw analytics, but integer-IDs of every included Byte.
