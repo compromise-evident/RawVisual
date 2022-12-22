@@ -1167,7 +1167,7 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 
 /* GNU+Linux tools.
 
-apt install actiona artha audacity bleachbit exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted gqrx-sdr inkscape krita openshot qasmixer vlc xz-utils
+apt install actiona artha audacity bleachbit exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gnome-screenshot gparted gqrx-sdr inkscape krita openshot qasmixer vlc xz-utils
 
 actiona                 GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                   GUI  Offline thesaurus & dictionary.
@@ -1179,6 +1179,7 @@ geany-plugin-automark   GUI  Global highlighting of what's selected or at cursor
 geany-plugin-spellcheck GUI  Grammar (Geany, overwrite hot-key to Ctrl+G to help remember.)
 g++                    >CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
 gnome-paint             GUI  Beautiful replacement for the proprietary garbage ms-paint.
+gnome-screenshot        CLI  Excellent border transparent stuff.
 
 gparted                 GUI  GNU partition editor (wipe & format any storage device without fail.) How to in 3 quick steps (right-click & unmount drive first):
                              1. Erase everything. If errors, your fault; keep unplugging, plugging in, erasing, & clicking ignore. Apply operations (green check-mark.)
