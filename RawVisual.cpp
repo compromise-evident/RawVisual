@@ -86,7 +86,7 @@ int main()
 	//                            file from its analyzed version. Just enter path to any                                        |
 	//                            analysis file and you'll get the original if all Bytes
 	//                            were examined, else only extract present Bytes. Files to
- 	//                            be extracted need not necessarily be named  -VISUAL.txt.
+	//                            be extracted need not necessarily be named  -VISUAL.txt.
 	//
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
