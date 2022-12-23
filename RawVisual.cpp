@@ -85,7 +85,8 @@ int main()
 	bool extraction_mode = false; //DEFAULT = FALSE. Else you may extract the original                 analyzed if broken >     |
 	//                            file from its analyzed version. Just enter path to any                                        |
 	//                            analysis file and you'll get the original if all Bytes
-	//                            were examined, else only extract present Bytes.
+	//                            were examined, else only extract present Bytes. Files to
+ 	//                            be extracted need not necessarily be named  -VISUAL.txt.
 	//
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
