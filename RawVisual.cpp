@@ -82,10 +82,10 @@ int main()
 	//                            path_to_file contains bad char, but this option                                               |
 	//                            exists because hash are slow for large files.
 	//                                                                                            reconstructs file from        |
-	bool extraction_mode = false; //DEFAULT = FALSE. Else you may extract the original              -VISUAL.txt if broken >     |
-	//                            file from its -VISUAL.txt file. Just enter path to any                                        |
-	//                            -VISUAL.txt and you'll get the original if all Bytes
-	//                            were examined, else only extract present any Bytes.
+	bool extraction_mode = false; //DEFAULT = FALSE. Else you may extract the original                 analyzed if broken >     |
+	//                            file from its analyzed version. Just enter path to any                                        |
+	//                            analysis file and you'll get the original if all Bytes
+	//                            were examined, else only extract present Bytes.
 	//
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
