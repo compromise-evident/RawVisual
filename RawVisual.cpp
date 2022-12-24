@@ -1231,7 +1231,7 @@ apt-mark unhold package_name   (undo above)
 apt-mark showhold              (shows what's on hold)
 
 lsblk           (list block devices) (do lsblk -f to see names)
-chmod           (change file/directory permissions)
+chmod           (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
 passwd          (change passwd for user)
 passwd root     (change passwd for root)
 g++             (create executable) (then enter dir to run)   Also you may drag & drop file into terminal to give path: '/path/to/file'
