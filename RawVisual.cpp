@@ -1023,14 +1023,16 @@ Dec	Hex	 Binary      HTML   Char  Description                  C++ file read/wri
 
 FOLDERS/FILES:
 ~~~~~~~~~~~~~~
-system("ls > my_list.txt");               //Creates a text file in running dir--containing a list of file names in that same dir (standard "ls" command in GNU+Linux.)
-system("mkdir keys");                     //Creates folder, append -p inside quotes for no error if folder already exists.
-system("mkdir /home/nikolay/Desktop/F");  //Creates folder elsewhere.
-system("mkdir keys/Other");               //Creates folder within a folder.
-out_stream.open("./keys/file_1");         //File I/O in folders in working dir.
-out_stream.open("./home/nikolay/keys/a"); //File I/O in folders in working dir + elsewhere.
+system("ls > my_list.txt");                   //Creates a text file in running dir--containing a list of file names in that same dir (standard "ls" command in GNU+Linux.)
+system("mkdir keys");                         //Creates folder, append -p inside quotes for no error if folder already exists.
+system("mkdir /home/nikolay/Desktop/F");      //Creates folder elsewhere.
+system("mkdir keys/Other");                   //Creates folder within a folder.
 
-                 ^^  simply always include ./ so chdir() will work, you'll need it one day.
+out_stream.open("keys/file_1");               //File I/O in folders in working dir.
+out_stream.open("/home/nikolay/keys/a");      //File I/O in folders elsewhere.
+out_stream.open("/media/nikolay/USB_name/a"); //File I/O in USB drive.
+
+^Confirmed on both Debian and Devuan (Dec 31 2022)
 
 MKDIR WITH VARIABLE:
 ~~~~~~~~~~~~~~~~~~~~
@@ -1080,25 +1082,6 @@ CHANGE WORKING DIR:
 ~~~~~~~~~~~~~~~~~~~
 #include <unistd.h> //for chdir()
 chdir("/home/user/Desktop/my_folder");
-
-or
-
-chdir(path_to_file);
-
-now, you can do:
-
-char path_to_file[10000] = {"./FOLDER/file_1"};
-out_stream.open(path_to_file);
-
-and it creates "file_1" in /home/user/Desktop/my_folder/FOLDER
-
-and of course:
-
-out_stream.open("file_2");
-
-creates file_2 in /home/user/Desktop/my_folder
-
-what this means: just chdir(); and C4droid will export apk where things like out_stream.open("./my_folder"); are accessed FROM THE NEW WORKING DIR!
 
 APPEND TO FILE
 ~~~~~~~~~~~~~~~~~
