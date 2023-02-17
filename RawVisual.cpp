@@ -1151,13 +1151,14 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 
 /* GNU+Linux tools.
 
-apt install actiona artha audacity bleachbit exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gnome-screenshot gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
+apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gnome-screenshot gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
 
 actiona                 GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                   GUI  Offline thesaurus & dictionary.
 audacity                GUI  Audio editor & sound recorder.
 bleachbit               GUI  Wipe logs & all kinds of stuff.
 exiv2                  >CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
+fswebcam               >CLI  take pictures using USB/built-in webcams in the terminal. Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. To use connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.)
 geany                   GUI  Fast & lightweight IDE & text editor (if src looks weird on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended.)
 geany-plugin-automark   GUI  Global highlighting of what's selected or at cursor (Geany.)
 geany-plugin-spellcheck GUI  Grammar (Geany, overwrite hot-key to Ctrl+G to help remember.)
