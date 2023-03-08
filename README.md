@@ -5,7 +5,7 @@ Complete raw analysis of any file + reference in the cpp.
 
 
 <p align="center">
-  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/RawVisual_icon.png" width="205">
+  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/RawVisual_icon_daf674474f6536cbcc7fead9f37bc3f1d3bcca29217f5e17235cf0e264370881.png" width="205">
 </p>
 
 <p align="center">
