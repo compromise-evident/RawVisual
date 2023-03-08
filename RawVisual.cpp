@@ -73,33 +73,59 @@ hitting F9 creates the same executable--movable, renameable, drag & droppable.*/
 using namespace std;
 
 int main()
-{	ifstream in_stream;
-	ofstream out_stream;
+{	//                               user knobs
 	
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	/*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\  /////////////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\    ////////////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\      ///////////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\        //////////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\            ////////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\              ///////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                  /////////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\\\\\                      ///////////////////////////
+	\\\\\\\\\\\\\\\\\\\\\\\                              ///////////////////////
+	\\\\\\\\\\\\\\\\\\                                        ////////////////*/
+	
+	
 	//                                                                                                                          |
-	bool hash_mode = true;        //DEFAULT = TRUE. Hash called by system(); fail if                    no hash if broken >     |
-	//                            path_to_file contains bad char, but this option                                               |
-	//                            exists because hash are slow for large files.
-	//                                                                                            reconstructs file from        |
-	bool extraction_mode = false; //DEFAULT = FALSE. Else you may extract the original                 analyzed if broken >     |
-	//                            file from its analyzed version. Just enter path to any                                        |
-	//                            analysis file and you'll get the original if all Bytes
-	//                            were examined, else only extract present Bytes. Files to
-	//                            be extracted need not necessarily be named  -VISUAL.txt.
-	//
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	bool hash_mode = true;        //DEFAULT = TRUE. Hash called by system() fail                        no hash if broken >     |
+	//                            if path_to_file has bad char,  but this option                                                |
+	//                            exists because  hash are slow for large files.
+	//                                                                                                                          |
+	bool extraction_mode = false; //DEFAULT = FALSE.  Else you may  extract  the                   reconstructs file from >     |
+	//                            original file from its analyzed version.  Just                     analyzed if broken         |
+	//                            enter path to any analysis file and you'll get
+	//                            the original--if all Bytes were examined, else
+	//                            only extracts  any present Bytes.  Files to be
+	//                            extracted need not be named  *****-VISUAL.txt.
+	
+	
+	/*////////////////                                          \\\\\\\\\\\\\\\\
+	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
+	///////////////////////////                      \\\\\\\\\\\\\\\\\\\\\\\\\\\
+	/////////////////////////////                  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	///////////////////////////////              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	////////////////////////////////            \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//////////////////////////////////        \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	///////////////////////////////////      \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	////////////////////////////////////    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	/////////////////////////////////////  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	//////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+	
+	ifstream in_stream;
+	ofstream out_stream;
 	
 	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
 	if(extraction_mode == true)
 	{	cout << "\n ~~~~~~~~~~~~~(EXTRACTION MODE)~~~~~~~~~~~~~"
-		     << "\nDrag & drop file into terminal or enter path:\n\n";
+		     << "\nDrag & drop file into terminal or enter path:\n";
 	}
 	else
 	{	cout << "\n(Complete raw analysis of any file.)"
-		     << "\nDrag & drop file into terminal or enter path:\n\n";
+		     << "\nDrag & drop file into terminal or enter path:\n";
 	}
 	
 	char  path_to_file[10000];
