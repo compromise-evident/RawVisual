@@ -9,7 +9,7 @@ Complete raw analysis of any file + reference in the cpp.
 </p>
 
 <p align="center">
-  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/Terminal.png">
+  <img src="https://raw.githubusercontent.com/compromise-evident/RawVisual/main/Other/RawVisual_terminal_e3efab62ef6c6625811a87cd93b372ccaa07731ef91f4c3ed4c9e050840b40a5.png">
 </p>
 
 [Auditing in the browser?](https://coliru.stacked-crooked.com/a/39d78804f6d0b57e)
