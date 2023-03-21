@@ -20,7 +20,7 @@ When in doubt,use only characters 9 and 32-126 for unproblematic file integrity.
 See char  13  and  10  in the table below if your files need to be  copy/pasted.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  WARNING: storage other than spinning-disk drives cannot be easily overwritten.
+ WARNING: storage other than spinning-disk drives cannot be easily overwritten.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you wish to deal with bytes as numbers  0 to 255  (as done here, in Multiway,
@@ -1109,9 +1109,13 @@ CHANGE WORKING DIR:
 #include <unistd.h> //for chdir()
 chdir("/home/user/Desktop/my_folder");
 
-APPEND TO FILE
+APPEND TO FILE:
 ~~~~~~~~~~~~~~~~~
 out_stream.open(path_to_file, ios::app);
+
+DO NOT OPTIMIZE VAR:
+~~~~~~~~~~~~~~~~~
+volatile int a; //Useful for eliminating timing interference for things like writes to disk. (Used in RICINscpa to ensure pause between writes to HDD.)
 
 */
 
