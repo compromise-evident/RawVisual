@@ -884,5 +884,5 @@ but integer-IDs of every included Byte.)
 
 If you chose to see only n Bytes through normal use of RawVisual, only those
 Bytes will be extracted with extraction mode, meaning you recreated the file
-from the extracted version except it only contains what you chose to see,
+from the analyzed version except it only contains what you chose to see,
 like the first 5,000 Bytes or characters.
