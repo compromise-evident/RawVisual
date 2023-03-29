@@ -887,5 +887,5 @@ Bytes will be extracted with extraction mode, meaning you recreated the file
 from the analyzed version except it only contains what you chose to see,
 like the first 5,000 Bytes or characters.
 
-Additionally, you can manually change integer IDs in the analyzed version
-so that the extracted file contains that Byte where you placed it.
+Additionally, you can manually change integer IDs in the analysis file
+so that the extracted file then contains your Byte exactly where you placed it.
