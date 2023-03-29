@@ -886,3 +886,6 @@ If you chose to see only n Bytes through normal use of RawVisual, only those
 Bytes will be extracted with extraction mode, meaning you recreated the file
 from the analyzed version except it only contains what you chose to see,
 like the first 5,000 Bytes or characters.
+
+Additionally, you can manually change integer IDs in the analyzed version
+so that the extracted file contains that Byte where you placed it.
