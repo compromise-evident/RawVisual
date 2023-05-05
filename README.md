@@ -14,6 +14,9 @@ Complete raw analysis of any file + reference in the cpp.
 
 [Auditing in the browser?](https://coliru.stacked-crooked.com/a/27d8c433995053ae)
 
+<br>
+<br>
+
 # Creates a file about your file:
 
 ```text
@@ -874,6 +877,9 @@ IHDR
 550=file size
 
 ```
+
+<br>
+<br>
 
 # Try extraction_mode = true;
 
