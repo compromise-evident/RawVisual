@@ -5,10 +5,6 @@ Complete raw analysis of any file + reference in the cpp.
 
 
 <p align="center">
-  <img src="https://github.com/compromise-evident/RawVisual/blob/main/Other/RawVisual_icon_daf674474f6536cbcc7fead9f37bc3f1d3bcca29217f5e17235cf0e264370881.png" width="205">
-</p>
-
-<p align="center">
   <img src="https://raw.githubusercontent.com/compromise-evident/RawVisual/main/Other/RawVisual_terminal_e3efab62ef6c6625811a87cd93b372ccaa07731ef91f4c3ed4c9e050840b40a5.png">
 </p>
 
