@@ -1,8 +1,9 @@
-/// RawVisual - complete raw analysis of any file.
+/// RawVisual - complete raw analysis of any file + reference in the cpp.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
-/*  Version 6.0.0  All files are a  singular  string of Bytes.  char takes input
+/* Version 6.0.0
+All files are singular strings of Bytes. Type char (signed) takes all file input
 using its 256 storage values -128 to 127. See bottom for extensive byte details.
 Depending on byte endings and encoding,  some char may show up here as  multiple
 separate items--for which multiple occurrence counters tick once. This issue may
@@ -45,28 +46,7 @@ else                       {out_stream.put(file_byte_normal - 256);}
 
 
 Now you can perform mathematical operations & modular arithmetic such as mod 256
-which returns a value  0  to  255--accounting for 256 total items--0 is item  1.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-How to run the program  -  Software package repositories for GNU+Linux operating
-systems have all the tools you can imagine. Open a terminal and use this command
-as root to install Geany and g++ on your computer: apt install geany g++   Geany
-is a fast & lightweight text editor and Integrated Development Environment where
-you can write and run code. g++ is the GNU compiler for C++ which allows written
-code to run. The compiler operates in the background and displays errors in your
-code as you will see in the lower Geany box. Make a new folder somewhere on your
-machine. Paste this code into Geany. For clarity in auditing, enable indentation
-guides: go to View >> Show Indentation Guides. Save the document as anything.cpp
-within the newly-created folder. Use these shortcuts to run the program: F9, F5.
-You may paste over this code with other  .cpp files, or open a new tab & repeat.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-How to make an executable with g++  -  Save this program as anything.cpp, open a
-terminal, and type g++ then space. Drag & drop this saved file into the terminal
-and its directory will be  appended to your pending entry. Click on the terminal
-and press enter.   a.out now resides in the user directory, you may rename it to
-anything.  To run that executable, simply drag and drop it into a terminal, then
-click on the terminal and press enter.  Reminder:  executable's effect-directory
-is /home/user or where you put the executable. Opening  .cpp  files in Geany and
-hitting F9 creates the same executable--movable, renameable, drag & droppable.*/
+which returns a value 0 to 255--accounting for 256 total items--0 is item 1.  */
 
 #include <fstream>
 #include <iostream>
@@ -87,7 +67,6 @@ int main()
 	\\\\\\\\\\\\\\\\\\\\\\\                              ///////////////////////
 	\\\\\\\\\\\\\\\\\\                                        ////////////////*/
 	
-	
 	//                                                                                                                          |
 	bool hash_mode = true;        //DEFAULT = TRUE. Hash called by system() fail                        no hash if broken >     |
 	//                            if path_to_file has bad char,  but this option                                                |
@@ -100,8 +79,7 @@ int main()
 	//                            only extracts  any present Bytes.  Files to be
 	//                            extracted need not be named  *****-VISUAL.txt.
 	
-	
-	/*////////////////                                          \\\\\\\\\\\\\\\\
+	/*////////////////                                        \\\\\\\\\\\\\\\\\\
 	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
 	///////////////////////////                      \\\\\\\\\\\\\\\\\\\\\\\\\\\
 	/////////////////////////////                  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -1074,7 +1052,7 @@ REMOVING:
 ~~~~~~~~~
 remove("file_name");              //as actual file. Add path as above if in folder.
 remove(file_name);                //as variable for file (char array.)
-system("rm -r /path_to_FOLDER");  //as directory.
+system("rm -r -f /path_to_FOLDER");  //as directory.
 
 WEB:
 ~~~~
@@ -1250,3 +1228,45 @@ passwd          (change passwd for user)
 passwd root     (change passwd for root)
 g++             (create executable) (then enter dir to run)   Also you may drag & drop file into terminal to give path: '/path/to/file'
 dd              (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.*/
+
+
+
+
+
+
+
+
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                              TLDR: run it                              '###
+##                                                                            ##
+#,                                                                            ,#
+#'                              apt install g++                               '#
+##                           g++ /path/this_file.cpp                          ##
+###,                          /path/resulting_file                          ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
+
+/*How to alter this code - Software package repositories for GNU+Linux operating
+systems have all the tools you can imagine. Open a terminal and use this command
+as root to install Geany and g++ on your computer: apt install geany g++   Geany
+is a fast & lightweight text editor and Integrated Development Environment where
+you can write and run code. g++ is the GNU compiler for C++  (industry standard)
+which creates an executable file out of written code. It also displays errors in
+code as you will see in the lower Geany box. Make a new folder somewhere on your
+machine. Paste this code into Geany. For clarity in auditing, enable indentation
+guides: go to View >> Show Indentation Guides. Save the document as anything.cpp
+within the newly-created folder. Use these shortcuts to run the program: F9, F5.
+Once  F9  is used, it needs not be used again unless you had modified this code.
+You may paste over this code with other  .cpp files, or open a new tab & repeat.
+Additionally, executables created by the  F9  command can be drag & dropped into
+terminals (lazy directory pasting) so the executable can run.  exe is in folder.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to make an executable with g++  -  Save this program as anything.cpp, open a
+terminal, and type g++ then space. Drag & drop this saved file into the terminal
+and its directory will be  appended to your pending entry. Click on the terminal
+and press enter.   a.out now resides in the user directory, you may rename it to
+anything.  To run that executable, simply drag and drop it into a terminal, then
+click on the terminal and press enter.  Reminder:  executable's effect-directory
+is /home/user or where you put the executable. Opening  .cpp  files in Geany and
+hitting F9 creates the same executable--movable, renameable, drag & droppable.*/
