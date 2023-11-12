@@ -1050,8 +1050,8 @@ system(folder_name);
 
 REMOVING:
 ~~~~~~~~~
-remove("file_name");              //as actual file. Add path as above if in folder.
-remove(file_name);                //as variable for file (char array.)
+remove("file_name");                 //as actual file. Add path as above if in folder.
+remove(file_name);                   //as variable for file (char array.)
 system("rm -r -f /path_to_FOLDER");  //as directory.
 
 WEB:
