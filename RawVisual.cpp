@@ -1222,12 +1222,13 @@ apt-mark hold package_name     (stop updates to this package)
 apt-mark unhold package_name   (undo above)
 apt-mark showhold              (shows what's on hold)
 
-lsblk           (list block devices) (do lsblk -f to see names)
-chmod           (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
-passwd          (change passwd for user)
-passwd root     (change passwd for root)
-g++             (create executable) (then enter dir to run)   Also you may drag & drop file into terminal to give path: '/path/to/file'
-dd              (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.*/
+lsblk                      (list block devices) (do lsblk -f to see names)
+chmod                      (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
+passwd                     (change passwd for user)
+passwd root                (change passwd for root)
+g++                        (create executable) (then enter dir to run)   Also you may drag & drop file into terminal to give path: '/path/to/file'
+dd                         (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.
+sudo dmidecode -t memory   (list RAM devices - as root only)    */
 
 
 
