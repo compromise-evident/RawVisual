@@ -1,4 +1,4 @@
-/// RawVisual - complete raw analysis of any file + reference in the cpp.
+/// RawVisual - stats & complete raw analysis of any file + extensive reference in source.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
@@ -726,22 +726,23 @@ int main()
 
 
 
-/*        __________________________________________________________________________________________________________________________________
-         /                                                                                                                                  \
-        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-         \__________________________________________________________________________________________________________________________________/
-*/
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                                                                            ##
+#,                                    ASCII                                   ,#
+#'                                                                            '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
 /* ALL ASCII ARE FULL BYTES OR 8 BITS! ALL FILES ARE STRINGS OF BYTES!
 The tilde character for example is 01111110 having first bit as zero
 since it's unused, but it must still be there so as not to break the
 rule of every Byte being 8 bits! You had always used extended ASCII.
 
-
 Dec	Hex	 Binary      HTML   Char  Description                  C++ file read/write
-
 
   0  00  00000000     &#0;  NUL   Null                         out_stream.put(0);   or   out_stream << '\0';
   1  01  00000001     &#1;  SOH   Start of Header              out_stream.put(1);
@@ -1000,13 +1001,7 @@ Dec	Hex	 Binary      HTML   Char  Description                  C++ file read/wri
 254  FE  11111110   &#254;  þ                                  out_stream.put(254);  or   out_stream.put(-2);
 255  FF  11111111   &#255;  ÿ                                  out_stream.put(255);  or   out_stream.put(-1);
 
-
-    ####*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*####
-    ##'                                         '##
-    #       With negatives (signed), order =      #
-    #        0 up to 127 then  -128 up to -1      #
-    ##,                                         ,##
-    ####*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##*/
+With negatives (signed), order = 0 up to 127   then   -128 up to -1       */
 
 
 
@@ -1015,17 +1010,18 @@ Dec	Hex	 Binary      HTML   Char  Description                  C++ file read/wri
 
 
 
-/*        __________________________________________________________________________________________________________________________________
-         /                                                                                                                                  \
-        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-         \__________________________________________________________________________________________________________________________________/
-*/
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                                                                            ##
+#,                   Other C++ commands for files & folders                   ,#
+#'                                                                            '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/* Other C++ commands for files & folders:
-
-FOLDERS/FILES:
+/* FOLDERS/FILES:
 ~~~~~~~~~~~~~~
 system("ls > my_list.txt");                   //Creates a text file in running dir--containing a list of file names in that same dir (standard "ls" command in GNU+Linux.)
 system("mkdir keys");                         //Creates folder, append -p inside quotes for no error if folder already exists.
@@ -1093,9 +1089,7 @@ out_stream.open(path_to_file, ios::app);
 
 DO NOT OPTIMIZE VAR:
 ~~~~~~~~~~~~~~~~~
-volatile int a; //Useful for eliminating timing interference for things like writes to disk. (Used in RICINscpa to ensure pause between writes to HDD.)
-
-*/
+volatile int a; //Useful for eliminating timing interference for things like writes to disk. (Used in RICINscpa to ensure pause between writes to HDD.)   */
 
 
 
@@ -1104,16 +1098,18 @@ volatile int a; //Useful for eliminating timing interference for things like wri
 
 
 
-/*        __________________________________________________________________________________________________________________________________
-         /                                                                                                                                  \
-        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-         \__________________________________________________________________________________________________________________________________/
-*/
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                                                                            ##
+#,        True C++ data type specs WITHOUT unspecified behavior so far        ,#
+#'                                                                            '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/* True C++ data type specs WITHOUT unspecified behavior so far.
-________________________________________________________________________________________________________________________
+/*________________________________________________________________________________________________________________________
 char           -128 to
                 127
 
@@ -1149,74 +1145,76 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 
 
 
-/*        __________________________________________________________________________________________________________________________________
-         /                                                                                                                                  \
-        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-         \__________________________________________________________________________________________________________________________________/
-*/
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                                                                            ##
+#,                               GNU+Linux tools                              ,#
+#'                                                                            '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/* GNU+Linux tools.
+/* Old : apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
+   KDE : apt install exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted vlc xz-utils     Geany: Preferences > Tools: replace "x-terminal-emulator" with "konsole"
 
-apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gnome-screenshot gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
+actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
+artha                    GUI  Offline thesaurus & dictionary.
+audacity                 GUI  Audio editor & sound recorder.
+bleachbit                GUI  Wipe logs & all kinds of stuff.
+exiv2                   *CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
+fswebcam                *CLI  take pictures using USB/built-in webcams in the terminal. Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. To use connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.
+geany                    GUI  Fast & lightweight IDE & text editor (if src looks weird on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended.)
+geany-plugin-automark    GUI  Global highlighting of what's selected or at cursor (Geany.)
+geany-plugin-spellcheck  GUI  Grammar (Geany, overwrite hot-key to Ctrl+G to help remember.)
+g++                     *CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
+gnome-paint              GUI  Beautiful replacement for the proprietary garbage ms-paint.
 
-actiona                 GUI  Tool to emulate human activity without programming or using suspected tools.)
-artha                   GUI  Offline thesaurus & dictionary.
-audacity                GUI  Audio editor & sound recorder.
-bleachbit               GUI  Wipe logs & all kinds of stuff.
-exiv2                  >CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
-fswebcam               >CLI  take pictures using USB/built-in webcams in the terminal. Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. To use connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.
-geany                   GUI  Fast & lightweight IDE & text editor (if src looks weird on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended.)
-geany-plugin-automark   GUI  Global highlighting of what's selected or at cursor (Geany.)
-geany-plugin-spellcheck GUI  Grammar (Geany, overwrite hot-key to Ctrl+G to help remember.)
-g++                    >CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
-gnome-paint             GUI  Beautiful replacement for the proprietary garbage ms-paint.
-gnome-screenshot        CLI  Excellent border transparent stuff.
+gparted                  GUI  GNU partition editor for wiping & formatting any storage device without fail.
+                             1. Right-click & unmount drive fist if needed (in gparted.)
+                             2. Delete all chunks & partitions.   Apply. Errors = missing partition table. Ignore them.
+                             3. Device >> Create Partition Table. Apply. Errors = missing partition table. Ignore them.
+                             4. Partition >> New.                 Apply. Errors = missing partition table. Ignore them.
+                                - If errors, unplug drive, plug back in, and restart from #1 once again.
+                                - If ext4, only root can write to the drive (extra security.) To fix it:
+                                  lsblk                       (see the drive's temporary tag e.g. "sdb")
+                                  su                          (become super-user which is root)
+                                  chmod 777 /media/user/tag   (replace "user" and "tag")
+                             
+                             IMPORTANT: after writing to drives, always "eject/safely remove".
+                                        Drives can slow way down when hot. Give them time to move data from on-board cache to
+                                        non-volatile. Leave drives plugged in for hours if transferring big files / burning isos!
+                             REMINDER: secure storage should always be spinning-disk drives for practical overwriting abilities!
 
-gparted                 GUI  GNU partition editor (wipe & format any storage device without fail.) How to in 3 quick steps (right-click & unmount drive first):
-                             1. Erase everything. If errors, your fault; keep unplugging, plugging in, erasing, & clicking ignore. Apply operations (green check-mark.)
-                             2. Go to Device >> Create Partition Table... and hit apply. This is the vital step you've always missed.
-                             3. Go to Partition >> New. Use file system: fat32 (for max compatibility.) Apply operations (green check-mark.)
-                             IMPORTANT: always use the software "eject/safely remove" features so they can tell you if the device is not busy,
-                                        otherwise you can corrupt & set it to read-only (still refresh-able with this powerful program.)
-                                        Some flash/SSD devices have on-board RAM as a cache; a computer might tell you that it's ok to
-                                        unplug the device but it might still be busy transferring data from its cache to its storage.
-                                        Let it sit there. This happens during big operations such as iso burning with the dd command.
-                                        As the flash card/USB stick gets hot, write speeds begin to crawl while SLOWLY retrieving from
-                                        its cache which is full. And so it needs to sit there until the cache is empty. Let it sit and
-                                        and receive power otherwise the transfer is corrupted and the OS image will fail as it boots.
-                             REMINDER: secure main drives and storage should always be spinning disk drives for overwriting abilities!
-
-gqrx-sdr                GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for RTL-SDR.
-inkscape                GUI  Powerful vector graphics manipulation.
-krita                   GUI  Advanced digital art creator.
-openshot                GUI  Video editor and advanced frame dispenser.
-qasmixer                GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
-shotwell                GUI  Image viewer+editor with edit options right on the home of each image.
-vlc                     GUI  Universal media interface (good for music & video, safely plays corrupted and partly-downloaded video, plays streams from online source.)
-xz-utils               >CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.    */
-
-
-
-
-
+gqrx-sdr                 GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for RTL-SDR.
+inkscape                 GUI  Powerful vector graphics manipulation.
+krita                    GUI  Advanced digital art creator.
+openshot                 GUI  Video editor and advanced frame dispenser.
+qasmixer                 GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
+shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
+vlc                      GUI  Universal media interface (good for music & video, safely plays corrupted and partly-downloaded video, plays streams from online source.)
+xz-utils                *CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.    */
 
 
 
-/*        __________________________________________________________________________________________________________________________________
-         /                                                                                                                                  \
-        |  ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅ  |
-        |  ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤  |
-        |  ¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥  |
-         \__________________________________________________________________________________________________________________________________/
-*/
 
-/* GNU+Linux commands.
 
-sha1sum /path/to/file     Also you may drag & drop file into terminal to give path: '/path/to/file'
-sha256sum /path/to/file   Also you may drag & drop file into terminal to give path: '/path/to/file'
-sha512sum /path/to/file   Also you may drag & drop file into terminal to give path: '/path/to/file'
+
+
+
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                                                                            ##
+#,                             GNU+Linux commands                             ,#
+#'                                                                            '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
+
+/* md5sum, sha1sum, sha256sum, sha512sum (generate hash of file)
 
 apt-mark hold package_name     (stop updates to this package)
 apt-mark unhold package_name   (undo above)
