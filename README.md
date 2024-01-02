@@ -1,5 +1,5 @@
 <!--
-Stats & complete raw analysis of any file + reference in source.
+Stats & complete raw analysis of any file + extensive reference in source.
 -->
 
 
