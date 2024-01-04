@@ -1,5 +1,5 @@
 <!--
-Stats & complete raw analysis of any file + extensive reference in source.
+See raw, stats, & just the 98 text characters of any file + extensive reference in source.
 -->
 
 
