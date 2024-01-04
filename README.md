@@ -8,7 +8,7 @@ See raw, stats, & just the 98 text characters of any file + extensive reference 
   <img src="https://raw.githubusercontent.com/compromise-evident/RawVisual/main/Other/RawVisual_terminal_e3efab62ef6c6625811a87cd93b372ccaa07731ef91f4c3ed4c9e050840b40a5.png">
 </p>
 
-[Auditing in the browser?](https://coliru.stacked-crooked.com/a/76e57eff58255fac)
+[Auditing in the browser?](https://coliru.stacked-crooked.com/a/330d8299e706ae88)
 
 <br>
 <br>
