@@ -1,4 +1,4 @@
-/// RawVisual - stats & complete raw analysis of any file + extensive reference in source.
+/// RawVisual - see raw, stats, & just the 98 text characters of any file + extensive reference in source.
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
@@ -29,21 +29,16 @@ groupOTP, schemeOTP, Allornothing, RICIN, RICINgauss, and RICINoptic)   then use
 this line to convert the (signed char) value, but first create an int / unsigned
 char destination such as  int file_byte_normal;
 
-
         char file_byte;
         int  file_byte_normal;
         in_stream.get(file_byte);
         file_byte_normal = file_byte;
 >>>>    if(file_byte_normal < 0) {file_byte_normal += 256;}
 
-
-
-
 and write-back to file:
 
 if(file_byte_normal < 128) {out_stream.put(file_byte_normal      );}
 else                       {out_stream.put(file_byte_normal - 256);}
-
 
 Now you can perform mathematical operations & modular arithmetic such as mod 256
 which returns a value 0 to 255--accounting for 256 total items--0 is item 1.  */
@@ -94,7 +89,7 @@ int main()
 	ifstream in_stream;
 	ofstream out_stream;
 	
-	cout << " \n\n"; //Because misalignment upon landscape mode on Android.
+	cout << " \n\n"; //..........Because misalignment upon landscape mode on Android.
 	
 	//Gets path to file from user.
 	if(extraction_mode == true)
@@ -106,20 +101,58 @@ int main()
 		     << "\nDrag & drop file into terminal or enter path:\n";
 	}
 	
-	char  path_to_file[10000];
-	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';} //Fills path_to_file[] with null.
-	cin.getline(path_to_file, 10000);
-	if(path_to_file[0] == '\0') {cout << "\nNo path given.\n"; return 0;}
-	
-	//Fixes path to file if drag & dropped (removes single quotes for ex:)   '/home/nikolay/my documents/main.zip'
-	if(path_to_file[0] == '\'')
-	{	for(int a = 0; a < 10000; a++)
-		{	path_to_file[a] = path_to_file[a + 1];
-			if(path_to_file[a] == '\'')
-			{	path_to_file[a    ] = '\0';
-				path_to_file[a + 1] = '\0';
-				path_to_file[a + 2] = '\0';
+	//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
+	//..........not being cleared, meaning you can have options before this, where the user presses enter.
+	char path_to_file[10000] = {'\0'};
+	{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
+		cin.getline(path_to_file, 10000);
+		if(path_to_file[0] == '\0')
+		{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
+			cin.getline(path_to_file, 10000);
+		}
+		if(path_to_file[0] == '\0') {cout << "\nNo path given.\n"; return 0;}
+		
+		//..........Removes last space in path_to_file[].
+		bool existence_of_last_space = false;
+		for(int a = 9999; a > 0; a--)
+		{	if(path_to_file[a] != '\0')
+			{	if(path_to_file[a] == ' ') {path_to_file[a] = '\0'; existence_of_last_space = true;}
 				break;
+			}
+		}
+		
+		//..........Removes encapsulating single-quotes in path_to_file[].
+		bool existence_of_encapsulating_single_quotes = false;
+		if(path_to_file[0] == '\'')
+		{	for(int a = 0; a < 9999; a++)
+			{	path_to_file[a] = path_to_file[a + 1];
+				if(path_to_file[a] == '\0') 
+				{	if(path_to_file[a - 1] != '\'') {cout << "\nBad path.\n"; return 0;}
+					path_to_file[a - 1] = '\0';
+					existence_of_encapsulating_single_quotes = true;
+					break;
+				}
+			}
+		}
+		
+		//..........Replaces all "'\''" with "'" in path_to_file[].
+		int single_quote_quantity = 0;
+		for(int a = 0; a < 10000; a++)
+		{	if(path_to_file[a] == '\'') {single_quote_quantity++;}
+		}
+		
+		if((single_quote_quantity                     >    0)
+		&& (existence_of_last_space                  == true)
+		&& (existence_of_encapsulating_single_quotes == true))
+		{	if((single_quote_quantity % 3) != 0) {cout << "\nBad path.\n"; return 0;}
+			
+			for(int a = 0; a < 9997; a++)
+			{	if(path_to_file[a] == '\'')
+				{	int temp = (a + 1);
+					for(; temp < 9997; temp++)
+					{	path_to_file[temp] = path_to_file[temp + 3];
+					}
+				}
 			}
 		}
 	}
@@ -135,6 +168,10 @@ int main()
 	//Gets location of the first encountered end-null coming from the left in path_to_file[].
 	int path_to_file_null_bookmark;
 	for(int a = 0; a < 10000; a++) {if(path_to_file[a] == '\0') {path_to_file_null_bookmark = a; break;}}
+	
+	
+	
+	
 	
 	//Reconstructs original file from its  -VISUAL.txt  version  (writes any present Bytes, even if not all are present.)
 	//This  if()  looks for  2  markers  in the  -VISUAL.txt  file so it knows where to begin extracting and where to stop
@@ -183,7 +220,7 @@ int main()
 			}
 		}
 		
-		//Checks for new line.
+		//..........Checks for new line.
 		if(VISUAL_file_identfying_string[17] != '\n') {existence_of_new_line = false;}
 		
 		//..........Checks for 66 slash.
@@ -228,10 +265,6 @@ int main()
 		path_to_file[path_to_file_null_bookmark +  6] = 'T';
 		path_to_file[path_to_file_null_bookmark +  7] ='\0';
 		out_stream.open(path_to_file);
-		
-		
-		
-		
 		
 		//..........Extracts & writes to out file.
 		for(; in_stream.eof() == false;)
@@ -289,6 +322,10 @@ int main()
 			in_stream.get(temp_file_byte);
 		}
 	}
+	
+	
+	
+	
 	
 	//Gets location of the first file name character.
 	int path_to_file_location_of_actual_file_name_beginning;
@@ -385,7 +422,7 @@ int main()
 	//Begins file write.
 	out_stream.open(path_to_out_file);
 	out_stream << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-		       << "Analyzing file: "; //Do not exceed width of 67 (do not consume 68 width + \n.)
+		       << "Analyzing file: "; //..........Do not exceed width of 67 (do not consume 68 width + \n.)
 	
 	//Writes only file name.
 	for(; path_to_file_location_of_actual_file_name_beginning < path_to_file_null_bookmark; path_to_file_location_of_actual_file_name_beginning++)
@@ -393,7 +430,7 @@ int main()
 	}
 	
 	out_stream << "\nAnalytics tool: RawVisual v6.0.0\n"
-	           << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"; //Do not consume 68 width + \n; just don't exceed 67.
+	           << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"; //..........Do not consume 68 width + \n; just don't exceed 67.
 	
 	//Checks if in file path is approximately POSIX.
 	bool bash_compliance_of_path_to_file = true;
@@ -415,9 +452,9 @@ int main()
 		|| (path_to_file[a] == '|')) {bash_compliance_of_path_to_file = false; break;}
 	}
 	
+	//Writes file hash of file to temporary files.
 	if((hash_mode == true) && (bash_compliance_of_path_to_file == true))
-	{	//Writes file hash of file to temporary files.
-		char bash_md5sum[10050] = {"md5sum "};
+	{	char bash_md5sum[10050] = {"md5sum "};
 		for(int a = 0; path_to_file[a] != '\0'; a++) {bash_md5sum[a    +  7] = path_to_file[a];} //..........For md5sum
 		bash_md5sum[path_to_file_null_bookmark +  7] = ' ';
 		bash_md5sum[path_to_file_null_bookmark +  8] = '>';
@@ -628,13 +665,7 @@ int main()
 	else if(bytes_to_skip == 1) {out_stream << "(first Byte skipped)\n\n"                   ;}
 	else                        {out_stream << "(first " << bytes_to_skip << " skipped)\n\n";}
 	
-	
-	
-	
-	
-	
-	
-	//First round writes readable.
+	//First of 2 rounds writes readable.
 	out_stream << "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
 	           << " >>>>>>>>>>>>>>>> Only char 9, 10, 13, and 32-126 >>>>>>>>>>>>>>>>>\n"
 	           << "//////////////////////////////////////////////////////////////////\n\n";
@@ -655,13 +686,7 @@ int main()
 	}
 	in_stream.close();
 	
-	
-	
-	
-	
-	
-	
-	//Second round writes integer IDs + standard ref.
+	//Second of 2 rounds: writes integer IDs + standard ref.
 	//Special char » is added (194 & 187)to know where this begins, so extracting file from -VISUAL.txt is easy.
 	out_stream << "\n\n\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n"
 	           << " >>>>>>>>>>>>>>>> Index, int ID, char if standard " << char(194) << char(187) << ">>>>>>>>>>>>>>>>\n"
@@ -698,12 +723,6 @@ int main()
 	out_stream << "\n" << total_bytes << "=file size\n";
 	out_stream.close();
 	
-	
-	
-	
-	
-	
-	
 	//Prints where analysis file was saved to.
 	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
 	else
@@ -711,12 +730,6 @@ int main()
 		     << "because we cannot get write-permission to given path.\n"
 		     << "APK: /storage/emulated/0/Android/data/com.rawvisual/files\n";
 	}
-	
-	/*Analysis only continues.
-	
-	const  - guesses file type based on statistical analysis as information is gathered with this tool.
-	update   Determining-info includes: distinct_special_characters, their quantity vs. total (recognizable ratio)
-	         as I have seen already. */
 }
 
 
@@ -1156,8 +1169,8 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/* Old : apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
-   KDE : apt install exiv2 geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted vlc xz-utils     Geany: Preferences > Tools: replace "x-terminal-emulator" with "konsole"
+/*MATE : apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
+   KDE : apt install exiv2 g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted mate-terminal vlc     Geany: Preferences > Tools: replace "x-terminal-emulator" with "mate-terminal"
 
 actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                    GUI  Offline thesaurus & dictionary.
@@ -1227,6 +1240,94 @@ passwd root                (change passwd for root)
 g++                        (create executable) (then enter dir to run)   Also you may drag & drop file into terminal to give path: '/path/to/file'
 dd                         (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.
 sudo dmidecode -t memory   (list RAM devices - as root only)    */
+
+
+
+
+
+
+
+
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                       Drag-n-drop path into terminal                       ##
+#,                      even if "enter"  was not cleared                      ,#
+#'                       or path contains single-quotes                       '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
+
+/*	//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
+	//..........not being cleared, meaning you can have options before this, where the user presses enter.
+	char path_to_file[10000] = {'\0'};
+	{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
+		cin.getline(path_to_file, 10000);
+		if(path_to_file[0] == '\0')
+		{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
+			cin.getline(path_to_file, 10000);
+		}
+		if(path_to_file[0] == '\0') {cout << "\nNo path given.\n"; return 0;}
+		
+		//..........Removes last space in path_to_file[].
+		bool existence_of_last_space = false;
+		for(int a = 9999; a > 0; a--)
+		{	if(path_to_file[a] != '\0')
+			{	if(path_to_file[a] == ' ') {path_to_file[a] = '\0'; existence_of_last_space = true;}
+				break;
+			}
+		}
+		
+		//..........Removes encapsulating single-quotes in path_to_file[].
+		bool existence_of_encapsulating_single_quotes = false;
+		if(path_to_file[0] == '\'')
+		{	for(int a = 0; a < 9999; a++)
+			{	path_to_file[a] = path_to_file[a + 1];
+				if(path_to_file[a] == '\0') 
+				{	if(path_to_file[a - 1] != '\'') {cout << "\nBad path.\n"; return 0;}
+					path_to_file[a - 1] = '\0';
+					existence_of_encapsulating_single_quotes = true;
+					break;
+				}
+			}
+		}
+		
+		//..........Replaces all "'\''" with "'" in path_to_file[].
+		int single_quote_quantity = 0;
+		for(int a = 0; a < 10000; a++)
+		{	if(path_to_file[a] == '\'') {single_quote_quantity++;}
+		}
+		
+		if((single_quote_quantity                     >    0)
+		&& (existence_of_last_space                  == true)
+		&& (existence_of_encapsulating_single_quotes == true))
+		{	if((single_quote_quantity % 3) != 0) {cout << "\nBad path.\n"; return 0;}
+			
+			for(int a = 0; a < 9997; a++)
+			{	if(path_to_file[a] == '\'')
+				{	int temp = (a + 1);
+					for(; temp < 9997; temp++)
+					{	path_to_file[temp] = path_to_file[temp + 3];
+					}
+				}
+			}
+		}
+	}
+
+Now do in_stream.open(path_to_file);
+
+Why all this trouble? Here's what default terminals do with drag-n-dropped paths (Jan 2024.)
+    containing:         posix             non-posix         single-quote (posix or not)
+drag-n-dropped:         /hello            /hello&           /hel'lo
+
+LXQt                    '/hello'█         '/hello&'█        '/hel'\''lo'█
+Xfce                    '/hello'█         '/hello&'█        '/hel'\''lo'█
+MATE                    '/hello'█         '/hello&'█        '/hel'\''lo'█
+Cinnamon                '/hello'█         '/hello&'█        '/hel'\''lo'█
+Gnome                   '/hello'█         '/hello&'█        '/hel'\''lo'█
+KDE                     /hello█           '/hello&'█        '/hel'\''lo'█
+LXDE                    no drag-n-drop */
 
 
 
