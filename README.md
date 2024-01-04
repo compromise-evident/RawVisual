@@ -1,5 +1,5 @@
 <!--
-See raw, stats, & just the 98 text characters of any file + extensive reference in source.
+/// RawVisual - see raw, stats, & just the 98 text characters of any file + extensive reference in source.
 -->
 
 
