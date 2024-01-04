@@ -2,7 +2,7 @@
 /// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
 
 
-/* Version 6.0.0
+/* Version 6.0.1
 All files are singular strings of Bytes. Type char (signed) takes all file input
 using its 256 storage values -128 to 127. See bottom for extensive byte details.
 Depending on byte endings and encoding,  some char may show up here as  multiple
@@ -429,7 +429,7 @@ int main()
 	{	out_stream << path_to_file[path_to_file_location_of_actual_file_name_beginning];
 	}
 	
-	out_stream << "\nAnalytics tool: RawVisual v6.0.0\n"
+	out_stream << "\nAnalytics tool: RawVisual v6.0.1\n"
 	           << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"; //..........Do not consume 68 width + \n; just don't exceed 67.
 	
 	//Checks if in file path is approximately POSIX.
