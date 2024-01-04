@@ -2,13 +2,18 @@ RawVisual log
 
 
 
+Version 6.0.1   Universal drag-n-drop; gets path then fixes it if drag-n-dropped
+                regardless of single-quote presence & "enter" not being cleared,
+                meaning you can have options before it where user presses enter.
+                Jan 3 2024
+
 Version 6.0.0   Extraction mode! Retrieve original / partial file, directly from
                 a -VISUAL.txt file. So you can share any file as  plaintext just
                 by letting RawVisual create the analysis txt file. Now checks if
                 path_to_file is bash-compliant so if bad characters are present,
                 system() calls to hash are not made so you won't see errors. And
                 You have the option to disable hash (slow for huge files.)
-                Thursday, December 22 2022
+                Dec 22 2022
 
 Version 5.0.0   Analyzed written to file only. Output dir: attempts dir of given
                 file and if not allowed then writes analysis file to default dir
@@ -17,19 +22,19 @@ Version 5.0.0   Analyzed written to file only. Output dir: attempts dir of given
                 User may enter ridiculous values, there are catch-alls for that.
                 Minimalist, simpler. These features  alone  allow you to see all
                 Bytes, single Bytes, and intervals.  Added + edited ref in .cpp.
-                Monday, December 19 2022
+                Dec 19 2022
 
 Version 4.0.0   Write ALL to file (live choice). Added checking: md5sum,sha1sum,
                 sha256sum, and sha512sum.
-                Sunday, December 18 2022
+                Dec 18 2022
 
 Version 3.0.0   Loops your entry of: how many file Bytes to display, and whether
                 you want to display them as int or actual, omitting non-standard
                 since Android terminal corrups from special char even with sane.
-                Thursday, December 15 2022
+                Dec 15 2022
 
 Version 2.0.1   Adjusted comments for Android. ByteVisual.apk added. C4droid ok.
-                Monday, December 12 2022
+                Dec 12 2022
 
 Version 2.0.0   Prints characters, \r, \n, \t next to occurrence for extra help.
-                Sunday, November 27 2022
+                Nov 27 2022
