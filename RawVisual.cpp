@@ -1,5 +1,5 @@
-/// RawVisual - see raw, stats, & just the 98 text characters of any file + extensive reference in source.
-/// Nikolay Valentinovich Repnitskiy - License: WTFPLv2+ (wtfpl.net)
+/// RawVisual - see raw, stats, & just the 98 text characters
+///             of any file + extensive reference in source.
 
 
 /* Version 6.0.1
@@ -1318,6 +1318,7 @@ sudo dmidecode -t memory   (list RAM devices - as root only)    */
 Now do in_stream.open(path_to_file);
 
 Why all this trouble? Here's what default terminals do with drag-n-dropped paths (Jan 2024.)
+FYI - ls cannot handle single-quotes in paths but it will at least tell you about it.
     containing:         posix             non-posix         single-quote (posix or not)
 drag-n-dropped:         /hello            /hello&           /hel'lo
 
