@@ -1170,7 +1170,7 @@ in_stream.get() for signed char gives the same -128 to 127 file items which acco
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
 /*MATE : apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
-   KDE : apt install exiv2 g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted mate-terminal vlc     Geany: Preferences > Tools: replace "x-terminal-emulator" with "mate-terminal"
+   KDE : apt install exiv2 g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted mate-terminal vlc     Geany: Preferences > Tools: replace "x-terminal-emulator" with "mate-terminal"     Terminal: Text=#00EFFF, Background=#020618
 
 actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                    GUI  Offline thesaurus & dictionary.
