@@ -1318,7 +1318,8 @@ sudo dmidecode -t memory   (list RAM devices - as root only)    */
 Now do in_stream.open(path_to_file);
 
 Why all this trouble? Here's what default terminals do with drag-n-dropped paths (Jan 2024.)
-FYI - ls cannot handle single-quotes in paths but it will at least tell you about it.
+FYI - ls calls by C++ cannot handle single-quotes in paths but it will at least tell you about it.
+FYI - sha256... calls by C++ cannot handle non-posix paths but it will complain.
     containing:         posix             non-posix         single-quote (posix or not)
 drag-n-dropped:         /hello            /hello&           /hel'lo
 
