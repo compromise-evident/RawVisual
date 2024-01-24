@@ -1207,7 +1207,11 @@ openshot                 GUI  Video editor and advanced frame dispenser.
 qasmixer                 GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
 shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
 vlc                      GUI  Universal media interface (good for music & video, safely plays corrupted and partly-downloaded video, plays streams from online source.)
-xz-utils                *CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.    */
+xz-utils                *CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.
+
+tesseract-ocr           *CLI  Recognize text from image. Use: tesseract image.jpg my_words
+qrencode                *CLI  Make qr code. Use: qrencode -o output.png "my text, no ! char."
+zbar-tools              *CLI  Read qr code. Use: zbarimg image.png    */
 
 
 
