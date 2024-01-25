@@ -1027,7 +1027,7 @@ With negatives (signed), order = 0 up to 127   then   -128 up to -1       */
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
-#,                   Other C++ commands for files & folders                   ,#
+#,                             Files & folders C++                            ,#
 #'                                                                            '#
 ##                                                                            ##
 ###,                                                                        ,###
@@ -1115,53 +1115,6 @@ volatile int a; //Useful for eliminating timing interference for things like wri
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
-#,        True C++ data type specs WITHOUT unspecified behavior so far        ,#
-#'                                                                            '#
-##                                                                            ##
-###,                                                                        ,###
-#####,.                                                                  .,#####
-##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
-
-/*________________________________________________________________________________________________________________________
-char           -128 to
-                127
-
-                  0 to
-                255                               (unsigned)                      256   total items for signed/unsigned.
-________________________________________________________________________________________________________________________
-short          -32,768 to
-                32,767
-
-                     0 to
-                65,535                            (unsigned)                      256^2 total items for signed/unsigned.
-________________________________________________________________________________________________________________________
-int            -2,147,483,648 to
-                2,147,483,647
-
-                            0 to
-                4,294,967,295                     (unsigned)                      256^4 total items for signed/unsigned.
-________________________________________________________________________________________________________________________
-long long      -9,223,372,036,854,775,807 to
-                9,223,372,036,854,775,807
-
-                                        0 to                                      256^8    total items for signed.
-               18,446,744,073,709,551,615         (unsigned)                      256^8 -1 total items for unsigned.
-________________________________________________________________________________________________________________________
-
-Init above/below these bounds means C++ will sometimes automatically convert to some inverse without telling you.
-in_stream.get() for signed char gives the same -128 to 127 file items which accounts for 256 different file items.*/
-
-
-
-
-
-
-
-
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
-#####'`                                                                  `'#####
-###'                                                                        '###
-##                                                                            ##
 #,                               GNU+Linux tools                              ,#
 #'                                                                            '#
 ##                                                                            ##
@@ -1210,42 +1163,28 @@ vlc                      GUI  Universal media interface (good for music & video,
 xz-utils                *CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.
 
 tesseract-ocr           *CLI  Recognize text from image. Use: tesseract image.jpg my_words
-qrencode                *CLI  Make qr code. Use: qrencode -o output.png "my text, no ! char."
-zbar-tools              *CLI  Read qr code. Use: zbarimg image.png
-xdg-open                *CLI  Open image. Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
-pkill                   *CLI  Close image. Use: pkill -f "eog your_image_file.jpg"                            (Comes pre-installed.)    */
-
-
-
-
-
-
-
-
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
-#####'`                                                                  `'#####
-###'                                                                        '###
-##                                                                            ##
-#,                             GNU+Linux commands                             ,#
-#'                                                                            '#
-##                                                                            ##
-###,                                                                        ,###
-#####,.                                                                  .,#####
-##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
-
-/* md5sum, sha1sum, sha256sum, sha512sum (generate hash of file)
+qrencode                *CLI  Make qr code.              Use: qrencode -o output.png "my text, no ! char."
+zbar-tools              *CLI  Read qr code.              Use: zbarimg image.png
+xdg-open                *CLI  Open image.                Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
+pkill                   *CLI  Close image.               Use: pkill -f "eog your_image_file.jpg"                            (Comes pre-installed.)
 
 apt-mark hold package_name     (stop updates to this package)
 apt-mark unhold package_name   (undo above)
 apt-mark showhold              (shows what's on hold)
+lsblk                          (list block devices) (do lsblk -f to see names)
+chmod                          (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
+passwd                         (change passwd for user)
+passwd root                    (change passwd for root)
+g++                            (create executable from .cpp) append "-lgmp" for GMP-using C++. (#include <gmp.h> after apt install libgmp-dev) (In Geany, append "-lgmp" to compile & build commands.)
+dd                             (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.
+sudo dmidecode -t memory       (list RAM devices - as root only)
 
-lsblk                      (list block devices) (do lsblk -f to see names)
-chmod                      (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
-passwd                     (change passwd for user)
-passwd root                (change passwd for root)
-g++                        (create executable) (then enter dir to run)   Also you may drag & drop file into terminal to give path: '/path/to/file'
-dd                         (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.
-sudo dmidecode -t memory   (list RAM devices - as root only)    */
+Record as raw audio for 7 seconds using sox:     system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
+Convert raw audio (any file) to .wav using sox:  system("sox -r 44100 -e unsigned -b 8 -c 1 my_file.raw -t wav out_file.wav");
+Get length of .wav file in seconds using sox:    system("sox my_audio.wav -n stat 2>&1 | grep 'Length' > seconds.txt");
+Play audio file through vlc then close vlc:      system("vlc my_audio.wav --play-and-exit 2>/dev/null &");
+Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");
+(For C++, else use quoted in terminal.)*/
 
 
 
@@ -1336,3 +1275,50 @@ Cinnamon                '/hello'█         '/hello&'█        '/hel'\''lo'█
 Gnome                   '/hello'█         '/hello&'█        '/hel'\''lo'█
 KDE                     /hello█           '/hello&'█        '/hel'\''lo'█
 LXDE                    no drag-n-drop */
+
+
+
+
+
+
+
+
+/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#####'`                                                                  `'#####
+###'                                                                        '###
+##                                                                            ##
+#,        True C++ data type specs WITHOUT unspecified behavior so far        ,#
+#'                                                                            '#
+##                                                                            ##
+###,                                                                        ,###
+#####,.                                                                  .,#####
+##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
+
+/*________________________________________________________________________________________________________________________
+char           -128 to
+                127
+
+                  0 to
+                255                               (unsigned)                      256   total items for signed/unsigned.
+________________________________________________________________________________________________________________________
+short          -32,768 to
+                32,767
+
+                     0 to
+                65,535                            (unsigned)                      256^2 total items for signed/unsigned.
+________________________________________________________________________________________________________________________
+int            -2,147,483,648 to
+                2,147,483,647
+
+                            0 to
+                4,294,967,295                     (unsigned)                      256^4 total items for signed/unsigned.
+________________________________________________________________________________________________________________________
+long long      -9,223,372,036,854,775,807 to
+                9,223,372,036,854,775,807
+
+                                        0 to                                      256^8    total items for signed.
+               18,446,744,073,709,551,615         (unsigned)                      256^8 -1 total items for unsigned.
+________________________________________________________________________________________________________________________
+
+Init above/below these bounds means C++ will sometimes automatically convert to some inverse without telling you.
+in_stream.get() for signed char gives the same -128 to 127 file items which accounts for 256 different file items.*/
