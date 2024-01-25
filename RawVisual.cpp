@@ -1163,11 +1163,11 @@ vlc                      GUI  Universal media interface (good for music & video,
 xz-utils                *CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.
 
 tesseract-ocr           *CLI  Recognize text from image.  Use: tesseract image.jpg my_words   (To make it look for specific char hence improve accuracy & efficiency, use: tesseract image.png output.txt --tessedit_char_whitelist=0123456789RSTXYZ)
-qrcode-terminal         *CLI  Make & show qr in terminal. Use: qrcode-terminal 'my_text'      (do apt install qrcode-terminal)
+qrcode-terminal         *CLI  Make & show qr in terminal. Use: qrcode-terminal 'my_text'
 qrencode                *CLI  Make qr code.               Use: qrencode -o output.png "my text, no ! char."
 zbar-tools              *CLI  Read qr code.               Use: zbarimg image.png
 xdg-open                *CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
-pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                            (Comes pre-installed.)
+pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
 
 apt-mark hold package_name     (stop updates to this package)
 apt-mark unhold package_name   (undo above)
