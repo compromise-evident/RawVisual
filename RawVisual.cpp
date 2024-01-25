@@ -1211,7 +1211,9 @@ xz-utils                *CLI  Compress/decompress .xz files (especially download
 
 tesseract-ocr           *CLI  Recognize text from image. Use: tesseract image.jpg my_words
 qrencode                *CLI  Make qr code. Use: qrencode -o output.png "my text, no ! char."
-zbar-tools              *CLI  Read qr code. Use: zbarimg image.png    */
+zbar-tools              *CLI  Read qr code. Use: zbarimg image.png
+xdg-open                *CLI  Open image. Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
+pkill                   *CLI  Close image. Use: pkill -f "eog your_image_file.jpg"                            (Comes pre-installed.)    */
 
 
 
