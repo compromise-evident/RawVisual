@@ -89,17 +89,8 @@ int main()
 	ifstream in_stream;
 	ofstream out_stream;
 	
-	cout << " \n\n"; //..........Because misalignment upon landscape mode on Android.
-	
 	//Gets path to file from user.
-	if(extraction_mode == true)
-	{	cout << "\n ~~~~~~~~~~~~~(EXTRACTION MODE)~~~~~~~~~~~~~"
-		     << "\nDrag & drop file into terminal or enter path:\n";
-	}
-	else
-	{	cout << "\n(Complete raw analysis of any file.)"
-		     << "\nDrag & drop file into terminal or enter path:\n";
-	}
+	cout << "\nDrop/enter file: ";
 	
 	//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
 	//..........not being cleared, meaning you can have options before this, where the user presses enter.
@@ -724,11 +715,11 @@ int main()
 	out_stream.close();
 	
 	//Prints where analysis file was saved to.
-	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n";}
+	if(written_to_given_path == true) {cout << "\nAnalysis file now resides in given path.\n\n\n";}
 	else
 	{	cout << "\nAnalysis file now resides in DEFAULT WORKING DIRECTORY\n"
 		     << "because we cannot get write-permission to given path.\n"
-		     << "APK: /storage/emulated/0/Android/data/com.rawvisual/files\n";
+		     << "APK: /storage/emulated/0/Android/data/com.rawvisual/files\n\n\n";
 	}
 }
 
