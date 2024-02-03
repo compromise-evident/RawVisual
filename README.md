@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/compromise-evident/RawVisual/main/Other/RawVisual_terminal_e3efab62ef6c6625811a87cd93b372ccaa07731ef91f4c3ed4c9e050840b40a5.png">
+  <img src="https://raw.githubusercontent.com/compromise-evident/RawVisual/main/Other/Terminal_67448f29049847e66948eadf0cd39b9d.png">
 </p>
 
 <br>
