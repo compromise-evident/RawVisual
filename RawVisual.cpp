@@ -1196,7 +1196,9 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/*	//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
+/*
+
+	//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
 	//..........not being cleared, meaning you can have options before this, where the user presses enter.
 	char path_to_file[10000] = {'\0'};
 	{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
@@ -1250,10 +1252,14 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 				}
 			}
 		}
+		
+		in_stream.open(path_to_file);
+		if(in_stream.fail() == true) {cout << "\nNo such file or directory.\n"; in_stream.close(); return 0;}
+		in_stream.close();
 	}
 
-Now do in_stream.open(path_to_file);
 
+Now do in_stream.open(path_to_file);
 Why all this trouble? Here's what default terminals do with drag-n-dropped paths (Jan 2024.)
 FYI - ls calls by C++ cannot handle single-quotes in paths but it will at least tell you about it.
 FYI - sha256... calls by C++ cannot handle non-posix paths but it will complain.
