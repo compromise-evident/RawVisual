@@ -11,7 +11,7 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Analyzing file: screenshot.png
-Analytics tool: RawVisual v6.0.0
+Analytics tool: RawVisual v6.0.1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 md5sum
