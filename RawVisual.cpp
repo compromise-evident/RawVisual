@@ -1167,6 +1167,7 @@ passwd root                    (change passwd for root)
 g++                            (create executable from .cpp) append "-lgmp" for GMP-using C++. (#include <gmp.h> after apt install libgmp-dev) (In Geany, append "-lgmp" to compile & build commands.)
 dd                             (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.
 sudo dmidecode -t memory       (list RAM devices - as root only)
+dmesg --notime -wd             (list USB device info live - as root only)
 
 Record as raw audio for 7 seconds using sox:     system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
 Convert raw audio (any file) to .wav using sox:  system("sox -r 44100 -e unsigned -b 8 -c 1 my_file.raw -t wav out_file.wav");
