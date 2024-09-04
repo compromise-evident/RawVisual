@@ -1103,7 +1103,7 @@ zbar-tools              *CLI  Read qr code.               Use: zbarimg image.png
 xdg-open                *CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
 pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
 libgmp-dev              *LIB  GNU Multiple Precision Arithmetic Library. (Append "-lgmp" to both compile & build commands in Geany, or then compile: "g++ /path_to.cpp -lgmp"   Don't forget to #include <gmp.h> in the .cpp.)
-python3-torch           *LIB  PyTorch (META's open-source Machine Learning library.)
+python3-torch           *LIB  PyTorch (META's python-only open-source Machine Learning library.)
 
 Commands:
 apt-mark hold package_name     (stop updates to this package)
