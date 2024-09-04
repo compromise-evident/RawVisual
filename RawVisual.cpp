@@ -3,45 +3,15 @@
 
 
 /* Version 6.0.1
-All files are singular strings of Bytes. Type char (signed) takes all file input
-using its 256 storage values -128 to 127. See bottom for extensive byte details.
-Depending on byte endings and encoding,  some char may show up here as  multiple
-separate items--for which multiple occurrence counters tick once. This issue may
-come from  special  characters such as those copied and pasted from  LibreOffice
-writer. Regular text files normally contain a  9, 10, 13, and 32-126 ASCII char.
-If you select a special character in Geany,  you can see the stats at the bottom
-"sel:3" for example,  which means this one char is composed of three bytes.  And
-if you create files strictly using C++,  out_stream.put(-1) for example, you get
-one byte as expected. However, if you copy and paste that char, that new file is
-now two bytes in size--holding one character.  Safely, and without adjusting for
-the \r\n problems of copy/paste & other OSes, you may use 96 characters--the tab
-being 9--to create files that can't be  corrupted as they're re-formatted across
-the web until finally reaching your device,  such as an  Authorship.public file.
-When in doubt,use only characters 9 and 32-126 for unproblematic file integrity.
-See char  13  and  10  in the table below if your files need to be  copy/pasted.
+The 98 standard characters are  9 (tab), 10 (new line Linux), 13 (new line Mac),
+and 32-126 (the typical 95 characters).  All files are a single string of bytes.
+Type char takes file byte input using its 256 values -128 to 127.  There's hope:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C++ to deal with file bytes as numbers 0 to 255:
+in_stream.get(file_byte); int normal_byte = (file_byte + 128);
 
- WARNING: storage other than spinning-disk drives cannot be easily overwritten.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you wish to deal with bytes as numbers  0 to 255  (as done here, in Multiway,
-groupOTP, schemeOTP, Allornothing, RICIN, RICINgauss, and RICINoptic)   then use
-this line to convert the (signed char) value, but first create an int / unsigned
-char destination such as  int file_byte_normal;
-
-        char file_byte;
-        int  file_byte_normal;
-        in_stream.get(file_byte);
-        file_byte_normal = file_byte;
->>>>    if(file_byte_normal < 0) {file_byte_normal += 256;}
-
-and write-back to file:
-
-if(file_byte_normal < 128) {out_stream.put(file_byte_normal      );}
-else                       {out_stream.put(file_byte_normal - 256);}
-
-Now you can perform mathematical operations & modular arithmetic such as mod 256
-which returns a value 0 to 255--accounting for 256 total items--0 is item 1.  */
+C++ to write that to file:
+out_stream.put(normal_byte - 128);                                            */
 
 #include <fstream>
 #include <iostream>
@@ -59,17 +29,10 @@ int main()
 	\\\\\\\\\\\\\\\\\\\\\\\                              ///////////////////////
 	\\\\\\\\\\\\\\\\\\                                        ////////////////*/
 	
-	//                                                                                                                          |
-	bool hash_mode = true;        //DEFAULT = TRUE. Hash called by system() fail                        no hash if broken >     |
-	//                            if path_to_file has bad char,  but this option                                                |
-	//                            exists because  hash are slow for large files.
-	//                                                                                                                          |
-	bool extraction_mode = false; //DEFAULT = FALSE.  Else you may  extract  the                   reconstructs file from >     |
-	//                            original file from its analyzed version.  Just                     analyzed if broken         |
-	//                            enter path to any analysis file and you'll get
-	//                            the original--if all Bytes were examined, else
-	//                            only extracts  any present Bytes.  Files to be
-	//                            extracted need not be named  *****-VISUAL.txt.
+	bool hash_mode = true; //Set to false for no file hash.
+	
+	bool extraction_mode = false; //Set to true to create a new file from any -VISUAL.txt
+	//file. It will contain  only the bytes you chose to "see" in that -VISUAL.txt.
 	
 	/*////////////////                                        \\\\\\\\\\\\\\\\\\
 	///////////////////////                              \\\\\\\\\\\\\\\\\\\\\\\
@@ -1110,38 +1073,21 @@ volatile int a; //Useful for eliminating timing interference for things like wri
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/*MATE : apt install actiona artha audacity bleachbit exiv2 fswebcam geany geany-plugin-automark geany-plugin-spellcheck g++ gnome-paint gparted gqrx-sdr inkscape krita openshot qasmixer shotwell vlc xz-utils
-   KDE : apt install exiv2 g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted mate-terminal vlc     Geany: Preferences > Tools: replace "x-terminal-emulator" with "mate-terminal"     Terminal: Text=#00EFFF, Background=#020618
+/*Personal: apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted shotwell vlc
 
 actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                    GUI  Offline thesaurus & dictionary.
 audacity                 GUI  Audio editor & sound recorder.
-bleachbit                GUI  Wipe logs & all kinds of stuff.
+bleachbit                GUI  Wipe logs & what not.
 exiv2                   *CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
-fswebcam                *CLI  take pictures using USB/built-in webcams in the terminal. Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. To use connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.
-geany                    GUI  Fast & lightweight IDE & text editor (if src looks weird on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended.)
+fswebcam                *CLI  Take pictures using USB-connected Android phone or USB-connected webcam or built-in webcam. (Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. If phone: swipe down & see webcam option in USB connection pop-up. To use USB-connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.)   (And for automated capture, see github.com/compromise-evident/WhatNot/blob/main/quick-security-camera.cpp)
+geany                    GUI  Fast & lightweight IDE & text editor (if src tabs are cooked on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended. That's \r\n.)
 geany-plugin-automark    GUI  Global highlighting of what's selected or at cursor (Geany.)
-geany-plugin-spellcheck  GUI  Grammar (Geany, overwrite hot-key to Ctrl+G to help remember.)
+geany-plugin-spellcheck  GUI  Grammar (Geany, overwrite hot-key to Ctrl+g to help remember: g for grammar.)
 g++                     *CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
-gnome-paint              GUI  Beautiful replacement for the proprietary garbage ms-paint.
-
-gparted                  GUI  GNU partition editor for wiping & formatting any storage device without fail.
-                             1. Right-click & unmount drive fist if needed (in gparted.)
-                             2. Delete all chunks & partitions.   Apply. Errors = missing partition table. Ignore them.
-                             3. Device >> Create Partition Table. Apply. Errors = missing partition table. Ignore them.
-                             4. Partition >> New.                 Apply. Errors = missing partition table. Ignore them.
-                                - If errors, unplug drive, plug back in, and restart from #1 once again.
-                                - If ext4, only root can write to the drive (extra security.) To fix it:
-                                  lsblk                       (see the drive's temporary tag e.g. "sdb")
-                                  su                          (become super-user which is root)
-                                  chmod 777 /media/user/tag   (replace "user" and "tag")
-                             
-                             IMPORTANT: after writing to drives, always "eject/safely remove".
-                                        Drives can slow way down when hot. Give them time to move data from on-board cache to
-                                        non-volatile. Leave drives plugged in for hours if transferring big files / burning isos!
-                             REMINDER: secure storage should always be spinning-disk drives for practical overwriting abilities!
-
-gqrx-sdr                 GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for RTL-SDR.
+gnome-paint              GUI  Beautiful replacement for ms-paint.
+gparted                  GUI  GNU partition editor for formatting storage device without fail. (Create partition table before final formatting!)
+gqrx-sdr                 GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for the RTL-SDR dongle.
 inkscape                 GUI  Powerful vector graphics manipulation.
 krita                    GUI  Advanced digital art creator.
 openshot                 GUI  Video editor and advanced frame dispenser.
@@ -1156,7 +1102,10 @@ qrencode                *CLI  Make qr code.               Use: qrencode -o outpu
 zbar-tools              *CLI  Read qr code.               Use: zbarimg image.png
 xdg-open                *CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
 pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
+libgmp-dev              *LIB  GNU Multiple Precision Arithmetic Library. (Append "-lgmp" to both compile & build commands in Geany, or then compile: "g++ /path_to.cpp -lgmp"   Don't forget to #include <gmp.h> in the .cpp.)
+python3-torch           *LIB  PyTorch (META's open-source Machine Learning library.)
 
+Commands:
 apt-mark hold package_name     (stop updates to this package)
 apt-mark unhold package_name   (undo above)
 apt-mark showhold              (shows what's on hold)
@@ -1164,17 +1113,17 @@ lsblk                          (list block devices) (do lsblk -f to see names)
 chmod                          (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
 passwd                         (change passwd for user)
 passwd root                    (change passwd for root)
-g++                            (create executable from .cpp) append "-lgmp" for GMP-using C++. (#include <gmp.h> after apt install libgmp-dev) (In Geany, append "-lgmp" to compile & build commands.)
-dd                             (convert and copy a file) (dd if=/path of=/dev/sdb   for iso.) Also you may drag & drop file into terminal to give path: '/path/to/file'   Use command lsblk to see names of devices.
+g++                            (create executable from .cpp) (g++ path_to.cpp   or hit F9 in Geany.)
+dd                             (iso to thumbdrive) (dd if=/path.iso of=/dev/sdb) Use command lsblk to see names of devices, "sdb" is usially the thumbdrive name to put iso onto, else use what lsblk says it is.
 sudo dmidecode -t memory       (list RAM devices - as root only)
 dmesg --notime -wd             (list USB device info live - as root only)
 
+Commands for C++. For terminal: use what's in quotes:
 Record as raw audio for 7 seconds using sox:     system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
 Convert raw audio (any file) to .wav using sox:  system("sox -r 44100 -e unsigned -b 8 -c 1 my_file.raw -t wav out_file.wav");
 Get length of .wav file in seconds using sox:    system("sox my_audio.wav -n stat 2>&1 | grep 'Length' > seconds.txt");
 Play audio file through vlc then close vlc:      system("vlc my_audio.wav --play-and-exit 2>/dev/null &");
-Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");
-(For C++, else use quoted in terminal.)*/
+Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");   */
 
 
 
@@ -1258,9 +1207,9 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 
 
 Now do in_stream.open(path_to_file);
-Why all this trouble? Here's what default terminals do with drag-n-dropped paths (Jan 2024.)
+Why all this trouble? Here's what default terminals do with paths given by drag-n-dropping items into terminal (Jan 2024.)
 FYI - ls calls by C++ cannot handle single-quotes in paths but it will at least tell you about it.
-FYI - sha256... calls by C++ cannot handle non-posix paths but it will complain.
+FYI - sha256sum... calls by C++ cannot handle non-posix paths but it will complain.
     containing:         posix             non-posix         single-quote (posix or not)
 drag-n-dropped:         /hello            /hello&           /hel'lo
 
