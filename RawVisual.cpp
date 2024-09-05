@@ -1073,7 +1073,7 @@ volatile int a; //Useful for eliminating timing interference for things like wri
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/*Personal: apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted shotwell vlc
+/*Personal: apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted imagemagick shotwell vlc
 
 actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                    GUI  Offline thesaurus & dictionary.
@@ -1088,6 +1088,7 @@ g++                     *CLI  GNU compiler for C++ (runs C++ in Geany, industry 
 gnome-paint              GUI  Beautiful replacement for ms-paint.
 gparted                  GUI  GNU partition editor for formatting storage device without fail. (Create partition table before final formatting!)
 gqrx-sdr                 GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for the RTL-SDR dongle.
+imagemagick             *CLI  Convert images and all kinds of stuff. (Use "mogrify" or "convert path_to.bmp out.jpg".)
 inkscape                 GUI  Powerful vector graphics manipulation.
 krita                    GUI  Advanced digital art creator.
 openshot                 GUI  Video editor and advanced frame dispenser.
