@@ -1,5 +1,7 @@
-/// RawVisual - see raw, stats, & just the 98 text characters                   Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
-///             of any file + extensive reference in source.
+/// RawVisual - creates analysis file about your file. See byte ID,             Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
+///             index, stats, & just the 98 text characters. Contains
+///             extensive reference in source; this tool should be
+///             the first tab in every serious programmer's editor.
 
 
 /* Version 6.0.1
