@@ -1,7 +1,7 @@
 /// RawVisual - creates analysis file about your file. See byte ID,             Run it: "apt install g++ geany". Open this in Geany. Hit F9 once. F5 to run.
 ///             index, stats, & just the 98 text characters. Contains
-///             reference in source; this tool should be the first
-///             tab in every serious programmer's editor.
+///             extensive reference in source; this tool should
+///             always be the first tab in your editor.
 
 
 /* Version 6.0.1
