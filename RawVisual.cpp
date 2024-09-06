@@ -8,10 +8,15 @@ and 32-126 (the typical 95 characters).  All files are a single string of bytes.
 Type char takes file byte input using its 256 values -128 to 127.  There's hope:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C++ to deal with file bytes as numbers 0 to 255:
-in_stream.get(file_byte); int normal_byte = (file_byte + 128);
+char file_byte;
+int  file_byte_normal;
+in_stream.get(file_byte);
+file_byte_normal = file_byte;
+if(file_byte_normal < 0) {file_byte_normal += 256;}     //"file_byte_normal" is the actual byte as the byte ID. Note to self: DO NOT MODIFY! ONLY THIS IS CORRECT!
 
 C++ to write that to file:
-out_stream.put(normal_byte - 128);                                            */
+if(file_byte_normal < 128) {out_stream.put(file_byte_normal      );}
+else                       {out_stream.put(file_byte_normal - 256);}          */
 
 #include <fstream>
 #include <iostream>
