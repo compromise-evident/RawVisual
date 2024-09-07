@@ -1108,6 +1108,7 @@ xdg-open                *CLI  Open image.                 Use: xdg-open your_ima
 pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
 libgmp-dev              *LIB  GMP - GNU Multiple Precision Arithmetic Library. Run it: "apt install g++ geany libgmp-dev". Append "-lgmp" to Geany's compile & build commands. Open this in Geany. Hit F9 once. F5 to run. Or compile: g++ /this.cpp -lgmp     Don't forget to add "#include <gmp.h>" in that .cpp file!
 python3-torch           *LIB  PyTorch - META's python-only open-source Machine Learning library. Run it: "apt install python3-torch geany". Open this in Geany. Go to Build, Set Build Commands, Execute, and replace "python" with "python3". Hit F5 to run.
+libdlib-dev             *LIB  dlib - C++ open-source Machine Learning library. Run it: "apt install g++ geany libdlib-dev". Append "-ldlib" to Geany's compile & build commands. Open this in Geany. Hit F9 once. F5 to run. Or compile: g++ /this.cpp -ldlib     Don't forget to add "#include <dlib/dnn.h>" in that .cpp file!
 
 Commands:
 apt-mark hold package_name     (stop updates to this package)
