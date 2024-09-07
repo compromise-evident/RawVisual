@@ -1106,7 +1106,7 @@ qrencode                *CLI  Make qr code.               Use: qrencode -o outpu
 zbar-tools              *CLI  Read qr code.               Use: zbarimg image.png
 xdg-open                *CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
 pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
-libgmp-dev              *LIB  GMP - GNU Multiple Precision Arithmetic Library. Run it: "apt install g++ geany libgmp-dev". Append "-lgmp" to Geany's compile & build commands. Open this in Geany. Hit F9 once. F5 to run. Or compile: g++ /this.cpp -lgmp
+libgmp-dev              *LIB  GMP - GNU Multiple Precision Arithmetic Library. Run it: "apt install g++ geany libgmp-dev". Append "-lgmp" to Geany's compile & build commands. Open this in Geany. Hit F9 once. F5 to run. Or compile: g++ /this.cpp -lgmp     Don't forget to add "#include <gmp.h>" in that .cpp file!
 python3-torch           *LIB  PyTorch - META's python-only open-source Machine Learning library. Run it: "apt install python3-torch geany". Open this in Geany. Go to Build, Set Build Commands, Execute, and replace "python" with "python3". Hit F5 to run.
 
 Commands:
