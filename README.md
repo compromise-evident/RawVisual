@@ -1,3 +1,5 @@
+Run it: ```apt install g++ geany```. Open the .cpp in Geany. Hit F9 once. F5 to run.
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/compromise-evident/RawVisual/main/Other/Terminal_67448f29049847e66948eadf0cd39b9d.png">
 </p>
