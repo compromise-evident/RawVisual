@@ -5,8 +5,8 @@
 
 
 /* Version 6.0.1
-The 98 standard characters are  9 (tab), 10 (new line Linux), 13 (new line Mac),
-and 32-126 (the typical 95 characters).  All files are a single string of bytes.
+The 98 standard characters are 9 (tab), 10 (new line for Linux/Mac), 13 (new
+line for Windows if followed by 10),  and 32-126 (the typical  95 characters).
 Type char takes file byte input using its 256 values -128 to 127.  There's hope:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 C++ to deal with file bytes as numbers 0 to 255:
@@ -52,11 +52,11 @@ Dec	Hex	  Binary   Char  Description
   6  06  00000110  ACK   Acknowledge                  out_stream.put(6);
   7  07  00000111  BEL   Bell                         out_stream.put(7);
   8  08  00001000  BS    Backspace                    out_stream.put(8);
-  9  09  00001001  HT    Horizontal Tab               out_stream.put(9);    or   out_stream << '\t';   (Tab.)
- 10  0A  00001010  LF    Line Feed                    out_stream.put(10);   or   out_stream << '\n';   (Enter key on Linux.) Moves cursor down a line.
+  9  09  00001001  HT    Horizontal Tab               out_stream.put(9);    or   out_stream << '\t';   (Tab)
+ 10  0A  00001010  LF    Line Feed                    out_stream.put(10);   or   out_stream << '\n';   (New line for Linux/Mac)
  11  0B  00001011  VT    Vertical Tab                 out_stream.put(11);
  12  0C  00001100  FF    Form Feed                    out_stream.put(12);
- 13  0D  00001101  CR    Carriage Return              out_stream.put(13);   or   out_stream << '\r';   (Enter key on Mac.) Moves cursor to beginning of line. And on Windows: "\r\n" where enter key is 13 & 10 combined. Why? On the type-writer, in order to press enter, you must do both; move the contraption down a line, THEN move the contraption to the beginning of the line. And so it stuck around to waste disk space when \n would suffice.
+ 13  0D  00001101  CR    Carriage Return              out_stream.put(13);   or   out_stream << '\r';   (New line for Windows if followed by 10)
  14  0E  00001110  SO    Shift Out                    out_stream.put(14);
  15  0F  00001111  SI    Shift In                     out_stream.put(15);
  16  10  00010000  DLE   Data Link Escape             out_stream.put(16);
@@ -1143,11 +1143,11 @@ int main()
 		length_of_tally = (length_of_largest_tally - length_of_tally);
 		length_of_tally++;
 		
-		if (a ==  9)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "tab"               ;}
-		if (a == 10)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "new line for Linux";}
-		if (a == 13)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "new line for Mac"  ;}
-		if (a == 32)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "space"             ;}
-		if((a  > 32) && (a < 127)) {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << char(a)             ;}
+		if (a ==  9)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "tab"                                   ;}
+		if (a == 10)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "new line for Linux/Mac"                ;}
+		if (a == 13)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "new line for Windows if followed by 10";}
+		if (a == 32)               {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << "space"                                 ;}
+		if((a  > 32) && (a < 127)) {for(int a = 0; a < length_of_tally; a++) {out_stream << " ";} out_stream << char(a)                                 ;}
 		
 		out_stream << "\n";
 	}
