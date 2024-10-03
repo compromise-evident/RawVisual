@@ -39,10 +39,10 @@ occurrence of   6: 5
 occurrence of   7: 3
 occurrence of   8: 8
 occurrence of   9: 2  tab
-occurrence of  10: 2  new line for Linux
+occurrence of  10: 2  new line for Linux/Mac
 occurrence of  11: 2
 occurrence of  12: 2
-occurrence of  13: 7  new line for Mac
+occurrence of  13: 7  new line for Windows if followed by 10
 occurrence of  14: 2
 occurrence of  15: 3
 occurrence of  16: -
