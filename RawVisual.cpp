@@ -430,7 +430,10 @@ out_stream.open(path_to_file, ios::app);
 
 DO NOT OPTIMIZE VAR:
 ~~~~~~~~~~~~~~~~~
-volatile int a; //Useful for eliminating timing interference for things like writes to disk. (Used in RICINscpa to ensure pause between writes to HDD.)   */
+volatile int a; //Useful for eliminating timing interference for things like writes to disk.
+
+cout.setstate(ios::failbit); //Disables cout.
+cout.clear();                //Restores cout.      */
 
 
 
