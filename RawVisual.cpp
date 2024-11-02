@@ -496,7 +496,7 @@ passwd                         (change passwd for user)
 passwd root                    (change passwd for root)
 g++                            (create executable from .cpp) (g++ path_to.cpp   or hit F9 in Geany.)
 dd                             (iso to thumbdrive) (dd if=/path.iso of=/dev/sdb) Use command lsblk to see names of devices, "sdb" is usially the thumbdrive name to put iso onto, else use what lsblk says it is.
-sudo dmidecode -t memory       (list RAM devices - as root only)
+sudo dmidecode -t memory       (list computer specs as root)   options: bios, system, baseboard, chassis, processor, memory, cache, connector, slot
 dmesg --notime -wd             (list USB device info live - as root only)
 
 Commands for C++. For terminal: use what's in quotes:
