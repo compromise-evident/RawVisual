@@ -453,7 +453,7 @@ cout.clear();                //Restores cout.      */
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/*Personal: apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted imagemagick shotwell vlc
+/*Personal: apt install exiv2 g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted imagemagick lightdm-settings shotwell vlc
 
 actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
 artha                    GUI  Offline thesaurus & dictionary.
@@ -461,16 +461,17 @@ audacity                 GUI  Audio editor & sound recorder.
 bleachbit                GUI  Wipe logs & what not.
 exiv2                   *CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
 fswebcam                *CLI  Take pictures using USB-connected Android phone or USB-connected webcam or built-in webcam. (Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. If phone: swipe down & see webcam option in USB connection pop-up. To use USB-connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.)   (And for automated capture, see github.com/compromise-evident/WhatNot/blob/main/quick-security-camera.cpp)
+g++                     *CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
 geany                    GUI  Fast & lightweight IDE & text editor (if src tabs are cooked on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended. That's \r\n.)
 geany-plugin-automark    GUI  Global highlighting of what's selected or at cursor (Geany.)
 geany-plugin-spellcheck  GUI  Grammar (Geany, overwrite hot-key to Ctrl+g to help remember: g for grammar.)
-g++                     *CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
 gnome-paint              GUI  Beautiful replacement for ms-paint.
 gparted                  GUI  GNU partition editor for formatting storage device without fail. (Create partition table before final formatting!)
 gqrx-sdr                 GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for the RTL-SDR dongle.
 imagemagick             *CLI  Convert images and all kinds of stuff. (Use "mogrify" or "convert path_to.bmp out.jpg".)
 inkscape                 GUI  Powerful vector graphics manipulation.
 krita                    GUI  Advanced digital art creator.
+lightdm-settings         GUI  Auto-login. Usage: in Control Center, open Login Window, go to Users, type in username in Username field, then restart.
 openshot                 GUI  Video editor and advanced frame dispenser.
 qasmixer                 GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
 shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
