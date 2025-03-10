@@ -1,7 +1,7 @@
-/// RawVisual - creates analysis file about your file. See byte ID,             Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
-///             index, stats, & just the 98 text characters. Contains
-///             extensive reference in source; this tool should
-///             always be the first tab in your editor.
+// RawVisual - creates analysis file about your file. See byte ID,              Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+//             index, stats, & just the 98 text characters. Contains
+//             extensive reference in source; this tool should
+//             always be the first tab in your editor.
 
 
 /* Version 6.0.1
@@ -323,26 +323,27 @@ char           -128 to
                 127
 
                   0 to
-                255                               (unsigned)                      256   total items for signed/unsigned.
-________________________________________________________________________________________________________________________
+                255                               (unsigned)                                256   total items for signed/unsigned.
+______________________________________________________________________________________________________________________________________________________
 short          -32,768 to
                 32,767
 
                      0 to
-                65,535                            (unsigned)                      256^2 total items for signed/unsigned.
-________________________________________________________________________________________________________________________
+                65,535                            (unsigned)                             65,536   total items for signed/unsigned. (256^2)
+______________________________________________________________________________________________________________________________________________________
 int            -2,147,483,648 to
                 2,147,483,647
 
                             0 to
-                4,294,967,295                     (unsigned)                      256^4 total items for signed/unsigned.
-________________________________________________________________________________________________________________________
+                4,294,967,295                     (unsigned)                      4,294,967,296   total items for signed/unsigned. (256^4)
+______________________________________________________________________________________________________________________________________________________
 long long      -9,223,372,036,854,775,807 to
                 9,223,372,036,854,775,807
 
-                                        0 to                                      256^8    total items for signed.
-               18,446,744,073,709,551,615         (unsigned)                      256^8 -1 total items for unsigned.
-________________________________________________________________________________________________________________________*/
+                                        0 to                         18,446,744,073,709,551,615   total items for signed.          (256^8 -1)
+               18,446,744,073,709,551,615         (unsigned)         18,446,744,073,709,551,616   total items for unsigned.        (256^8)
+______________________________________________________________________________________________________________________________________________________
+*/
 
 
 
