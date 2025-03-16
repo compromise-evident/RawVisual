@@ -1,26 +1,17 @@
-// RawVisual - creates analysis file about your file. See byte ID,              Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
-//             index, stats, & just the 98 text characters. Contains
-//             extensive reference in source; this tool should
-//             always be the first tab in your editor.
-
-
-/* Version 6.0.1
-The 98 standard characters are 9 (tab), 10 (new line for Linux/Mac), 13 (new
+/*The 98 standard characters are 9 (tab), 10 (new line for Linux/Mac), 13 (new
 line for Windows if followed by 10),  and 32-126 (the typical  95 characters).
 Type char takes file byte input using its 256 values -128 to 127.  There's hope:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C++ to deal with file bytes as numbers 0 to 255:
+C++ to deal with file bytes as numbers 0 to 255 (their actual ID):
 char file_byte;
 int  file_byte_normal;
 in_stream.get(file_byte);
 file_byte_normal = file_byte;
 if(file_byte_normal < 0) {file_byte_normal += 256;}
 
-C++ to write that to file:
+And to write that to file:
 if(file_byte_normal < 128) {out_stream.put(file_byte_normal      );}
-else                       {out_stream.put(file_byte_normal - 256);}
-
-"file_byte_normal" is the actual byte as the real byte ID (decimal.)          */
+else                       {out_stream.put(file_byte_normal - 256);}          */
 
 
 
@@ -526,70 +517,14 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#######*/
 
-/*
+/*  //Gets path, fixes it, tries it.
+	cout << "\nDrop/enter file or folder:\n";
+	char path[100000] = {'\0'}; cin.getline(path, 100000); if(path[0] == '\0') {cin.getline(path, 100000);}
+	if(path[0] == '\'') {for(int bm = 0, a = 0; a < 100000; a++) {if(path[a] != '\'') {path[bm] = path[a]; if(path[bm] == '\\') {path[bm] = '\'';} bm++;}}}
+	for(int a = 99999; a >= 0; a--) {if(path[a] != '\0') {if(path[a] == ' ') {path[a] = '\0';} break;}}
+	in_stream.open(path); if(in_stream.fail() == true) {cout << "\nNo path " << path << "\n"; return 0;} in_stream.close();
 
-	//..........Gets path then fixes it if drag-n-dropped, regardless of single-quote presence and "enter"
-	//..........not being cleared, meaning you can have options before this, where the user presses enter.
-	char path_to_file[10000] = {'\0'};
-	{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
-		cin.getline(path_to_file, 10000);
-		if(path_to_file[0] == '\0')
-		{	for(int a = 0; a < 10000; a++) {path_to_file[a] = '\0';}
-			cin.getline(path_to_file, 10000);
-		}
-		if(path_to_file[0] == '\0') {cout << "\nNo path given.\n"; return 0;}
-		
-		//..........Removes last space in path_to_file[].
-		bool existence_of_last_space = false;
-		for(int a = 9999; a > 0; a--)
-		{	if(path_to_file[a] != '\0')
-			{	if(path_to_file[a] == ' ') {path_to_file[a] = '\0'; existence_of_last_space = true;}
-				break;
-			}
-		}
-		
-		//..........Removes encapsulating single-quotes in path_to_file[].
-		bool existence_of_encapsulating_single_quotes = false;
-		if(path_to_file[0] == '\'')
-		{	for(int a = 0; a < 9999; a++)
-			{	path_to_file[a] = path_to_file[a + 1];
-				if(path_to_file[a] == '\0') 
-				{	if(path_to_file[a - 1] != '\'') {cout << "\nBad path.\n"; return 0;}
-					path_to_file[a - 1] = '\0';
-					existence_of_encapsulating_single_quotes = true;
-					break;
-				}
-			}
-		}
-		
-		//..........Replaces all "'\''" with "'" in path_to_file[].
-		int single_quote_quantity = 0;
-		for(int a = 0; a < 10000; a++)
-		{	if(path_to_file[a] == '\'') {single_quote_quantity++;}
-		}
-		
-		if((single_quote_quantity                     >    0)
-		&& (existence_of_last_space                  == true)
-		&& (existence_of_encapsulating_single_quotes == true))
-		{	if((single_quote_quantity % 3) != 0) {cout << "\nBad path.\n"; return 0;}
-			
-			for(int a = 0; a < 9997; a++)
-			{	if(path_to_file[a] == '\'')
-				{	int temp = (a + 1);
-					for(; temp < 9997; temp++)
-					{	path_to_file[temp] = path_to_file[temp + 3];
-					}
-				}
-			}
-		}
-		
-		in_stream.open(path_to_file);
-		if(in_stream.fail() == true) {cout << "\nNo such file or directory.\n"; in_stream.close(); return 0;}
-		in_stream.close();
-	}
-
-
-Now do in_stream.open(path_to_file);
+Now do in_stream.open(path_to_file);    (Not supported: space at end of path if path entered manually, backslash in path.)
 Why all this trouble? Here's what default terminals do with paths given by drag-n-dropping items into terminal (Jan 2024.)
 FYI - ls calls by C++ cannot handle single-quotes in paths but it will at least tell you about it.
 FYI - sha256sum... calls by C++ cannot handle non-posix paths but it will complain.
@@ -602,7 +537,7 @@ MATE                    '/hello'█         '/hello&'█        '/hel'\''lo'█
 Cinnamon                '/hello'█         '/hello&'█        '/hel'\''lo'█
 Gnome                   '/hello'█         '/hello&'█        '/hel'\''lo'█
 KDE                     /hello█           '/hello&'█        '/hel'\''lo'█
-LXDE                    no drag-n-drop */
+LXDE                    no drag-n-drop*/
 
 
 
@@ -611,6 +546,12 @@ LXDE                    no drag-n-drop */
 
 
 
+//RawVisual - creates analysis file about your file. See byte ID,               Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+//index, stats, & just the 98 text characters. Contains
+//extensive reference in source; this tool should
+//always be the first tab in your editor.
+
+//Version 6.0.1
 #include <fstream>
 #include <iostream>
 using namespace std;
