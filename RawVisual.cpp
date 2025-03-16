@@ -524,7 +524,7 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 	for(int a = 99999; a >= 0; a--) {if(path[a] != '\0') {if(path[a] == ' ') {path[a] = '\0';} break;}}
 	in_stream.open(path); if(in_stream.fail() == true) {cout << "\nNo path " << path << "\n"; return 0;} in_stream.close();
 
-Now do in_stream.open(path_to_file);    (Not supported: space at end of path if path entered manually, backslash in path.)
+Now do in_stream.open(path);    (Not supported: space at end of path if path entered manually, backslash in path.)
 Why all this trouble? Here's what default terminals do with paths given by drag-n-dropping items into terminal (Jan 2024.)
 FYI - ls calls by C++ cannot handle single-quotes in paths but it will at least tell you about it.
 FYI - sha256sum... calls by C++ cannot handle non-posix paths but it will complain.
