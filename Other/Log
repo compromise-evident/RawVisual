@@ -2,6 +2,12 @@ RawVisual
 
 
 
+Version 7.0.0   Minimalist code, output. Raw bytes & their combos are searchable
+                because nothing else is added to each,  so you can select lines.
+                No \r char output;Linux & Mac use \n, Windows deny the standard.
+                Added occurrences; bits 0,1. Speed improvements,  total rewrite.
+                2025_03_22 (Mar 22 2025)
+
 Version 6.0.1   Universal drag-n-drop; gets path then fixes it if drag-n-dropped
                 regardless of single-quote presence & "enter" not being cleared,
                 meaning you can have options before it where user presses enter.
