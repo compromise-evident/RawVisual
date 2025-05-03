@@ -564,7 +564,8 @@ Get length of .wav file in seconds using sox:    system("sox my_audio.wav -n sta
 Play audio file through vlc then close vlc:      system("vlc my_audio.wav --play-and-exit 2>/dev/null &");
 Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");
 
-Personal: apt install exiv2 g++ geany geany-plugin-automark geany-plugin-spellcheck gnome-paint gparted imagemagick lightdm-settings shotwell vlc
+Personal:
+apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings shotwell vlc
 Max GitHub repo description length so all words show: ~193. */
 
 
