@@ -528,6 +528,7 @@ imagemagick             *CLI  Convert images and all kinds of stuff. (Use "mogri
 inkscape                 GUI  Powerful vector graphics manipulation.
 krita                    GUI  Advanced digital art creator.
 lightdm-settings         GUI  Auto-login. Usage: in Control Center, open Login Window, go to Users, type in username in Username field, then restart.
+mate-tweak               GUI  Remove home folder from desktop, disable folders that show up on desktop when USB stick is inserted.
 openshot                 GUI  Video editor and advanced frame dispenser.
 qasmixer                 GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
 shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
@@ -565,7 +566,7 @@ Play audio file through vlc then close vlc:      system("vlc my_audio.wav --play
 Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");
 
 Personal:
-apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings shotwell vlc
+apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell vlc
 Max GitHub repo description length so all words show: ~193. */
 
 
