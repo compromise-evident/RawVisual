@@ -1,7 +1,6 @@
-//RawVisual - version 7.0.0                                                     Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
-/*Creates a minimalist analysis file about your file.
-Occurrence, raw, text. This cpp contains an extensive
-reference; should be the first tab in your editor.*/
+/*Version 7.0.0 - Creates a minimalist analysis file about                      Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+your file. Occurrence, raw, text. This cpp contains an
+extensive reference; should be the first tab in your editor.*/
 
 #include <fstream>
 #include <iostream>
