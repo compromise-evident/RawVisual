@@ -564,9 +564,10 @@ Get length of .wav file in seconds using sox:    system("sox my_audio.wav -n sta
 Play audio file through vlc then close vlc:      system("vlc my_audio.wav --play-and-exit 2>/dev/null &");
 Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");
 
-Personal:
+Personal Devuan install:
 apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell vlc
-Max GitHub repo description length so all words show: ~193. */
+No 5-second countdown: log in as root, change 5 to 0 in file "/etc/default/grub", then do "update-grub".
+If MacBook Pro: physically swap keyboard keys "fn" and "left Ctrl", log in as root, create file "/etc/modprobe.d/hid_apple.conf" with content "options hid_apple swap_fn_leftctrl=1 fnmode=2", then do "sudo update-initramfs -u -k all".   */
 
 
 
