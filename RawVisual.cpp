@@ -540,9 +540,10 @@ qrencode                *CLI  Make qr code.               Use: qrencode -o outpu
 zbar-tools              *CLI  Read qr code.               Use: zbarimg image.png
 xdg-open                *CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
 pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
-libgmp-dev              *LIB  GMP  - GNU Multiple Precision Arithmetic library.                                        Run it: "apt install g++ geany libgmp-dev".  Open the .cpp in Geany. Append "-lgmp"  to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <gmp.h>"  in that .cpp file!
-libmpfr-dev             *LIB  MPFR - GNU Multiple Precision Floating point computations with correct Rounding library. Run it: "apt install g++ geany libmpfr-dev". Open the .cpp in Geany. Append "-lmpfr" to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <mpfr.h>" in that .cpp file!
-python3-torch           *LIB  PyTorch - Machine Learning library practical only in Python.                             Run it: "apt install python3-torch geany".   Open the .py in Geany.  Replace "python" with "python3" in Geany's execute command.              F5 to run.     Don't forget to add "import torch", "import torch.nn as nn", "import torch.optim as optim" in that .py file!     (You don't need numpy. Some pkg managers don't set numpy as dep upon "apt install python3-torch", don't force your users to need more shit.)
+libgmp-dev              *LIB  GMP  - GNU Multiple Precision Arithmetic library.                                        Run it: "apt install g++ geany libgmp-dev".                       Open the .cpp in Geany. Append "-lgmp"  to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <gmp.h>"  in that .cpp file!
+libmpfr-dev             *LIB  MPFR - GNU Multiple Precision Floating point computations with correct Rounding library. Run it: "apt install g++ geany libmpfr-dev".                      Open the .cpp in Geany. Append "-lmpfr" to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <mpfr.h>" in that .cpp file!
+python3-torch           *LIB  PyTorch - Machine Learning library practical only in Python.                             Run it: "apt install geany python3-torch".                        Open the  .py in Geany. Replace "python" with "python3" in Geany's execute command.              F5 to run.     Don't forget to add "import torch", "import torch.nn as nn", "import torch.optim as optim" in that .py file!     (You don't need numpy. Some pkg managers don't set numpy as dep upon "apt install python3-torch", don't force your users to need more shit.)
+tinygrad                *LIB  Nearly unrestricted Machine Learning library.                                            Run it: "apt install geany python3-pip", "pip3 install tinygrad". Open the  .py in Geany. Replace "python" with "python3" in Geany's execute command.              F5 to run.     imports in progress...
 
 Commands:
 apt-mark hold package_name     (stop updates to this package)
@@ -566,7 +567,7 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 
 My Devuan:
 Packages I need:  apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell vlc
-If sound broken:  add command to Startup Applications: sh -c "pipewire & wireplumber & pipewire-pulse & wait"
+If sound broken:  add command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"
 If MacBook Pro :  cut speaker wires to eliminate chime, physically swap keyboard keys "fn" and "left Ctrl", log in as root, create file "/etc/modprobe.d/hid_apple.conf" with content "options hid_apple swap_fn_leftctrl=1 fnmode=2", then do "sudo update-initramfs -u -k all"
 No 5s countdown:  log in as root, change 5 to 0 in file "/etc/default/grub", then do "update-grub"   */
 
