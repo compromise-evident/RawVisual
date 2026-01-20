@@ -567,7 +567,7 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 
 Personal laptop (Devuan, MATE):
 apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell vlc
-If no sound, add command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"
+If sound is not working or not loud enough: do "apt install pipewire" then add the following command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"          Now restart the computer. FYI: clicking the volume rocker does not always make a sound, test sound else-how. Tested on Devuan 6.1.0 and 6.0.0.
 If Apple: cut speaker wires to eliminate chime, physically swap keyboard keys "fn" and "left Ctrl", log in as root, create file "/etc/modprobe.d/hid_apple.conf" with content "options hid_apple swap_fn_leftctrl=1 fnmode=2", then do "sudo update-initramfs -u -k all"   */
 
 
