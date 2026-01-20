@@ -1,6 +1,6 @@
-/*Version 7.0.0 - Creates a minimalist analysis file about                      Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
-your file. Occurrence, raw, text. This cpp contains an
-extensive reference; should be the first tab in your editor.*/
+/*Version 7.0.0 - Creates a minimalist analysis file                            Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+about your file. Occurrence, raw, text. This cpp contains
+resources; it should be the first tab in your editor.*/
 
 #include <fstream>
 #include <iostream>
