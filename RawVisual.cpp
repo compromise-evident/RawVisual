@@ -527,7 +527,7 @@ inkscape                 GUI  Powerful vector graphics manipulation.
 krita                    GUI  Advanced digital art creator.
 lightdm-settings         GUI  Auto-login. Usage: in Control Center, open Login Window, go to Users, type in username in Username field, then restart.
 mate-tweak               GUI  Remove home folder from desktop, disable folders that show up on desktop when USB stick is inserted.
-mtpaint                  GUI  Minimalist alternative to the all-mighty inimitable Microsoft paint. Although not spectacular, it is extremely powerful at file specs.
+mtpaint                  GUI  Alternative to the all-mighty inimitable Microsoft Paint of Windows 7. Although not intuitive, it is extremely powerful at file specs.
 openshot                 GUI  Video editor and advanced frame dispenser.
 qasmixer                 GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
 shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
