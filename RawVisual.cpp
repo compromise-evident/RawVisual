@@ -549,14 +549,15 @@ Commands:
 apt-mark hold package_name     (stop updates to this package)
 apt-mark unhold package_name   (undo above)
 apt-mark showhold              (shows what's on hold)
-lsblk                          (list block devices) (do lsblk -f to see names)
 chmod                          (change file/directory permissions such as that of an ext4 USB drive: chmod 777 /media/user/USB-drive-name)
+dd                             (iso to thumbdrive) (dd if=/path.iso of=/dev/sdb) Use command lsblk to see names of devices, "sdb" is usially the thumbdrive name to put iso onto, else use what lsblk says it is.
+dmesg --notime -wd             (list USB device info live - as root only)
+g++                            (create executable from .cpp) (g++ path_to.cpp   or hit F9 in Geany.)
+grep                           (search files) use: grep -rin "my_keyword" /path/to/folder_or_file
+lsblk                          (list block devices) (do lsblk -f to see names)
 passwd                         (change passwd for user)
 passwd root                    (change passwd for root)
-g++                            (create executable from .cpp) (g++ path_to.cpp   or hit F9 in Geany.)
-dd                             (iso to thumbdrive) (dd if=/path.iso of=/dev/sdb) Use command lsblk to see names of devices, "sdb" is usially the thumbdrive name to put iso onto, else use what lsblk says it is.
 sudo dmidecode -t memory       (list computer specs as root)   options: bios, system, baseboard, chassis, processor, memory, cache, connector, slot
-dmesg --notime -wd             (list USB device info live - as root only)
 
 Commands for C++. For terminal: use what's in quotes:
 Record as raw audio for 7 seconds using sox:     system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
