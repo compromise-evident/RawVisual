@@ -135,7 +135,7 @@ Dec	Hex	  Binary   Char  Description
  32  20  00100000  space Blank or space               out_stream.put(32);   or   out_stream << ' ';   (32-126 begins here. Space to tilde.)
  33  21  00100001  !     Exclamation mark             out_stream.put(33);
  34  22  00100010  "     Double quote                 out_stream.put(34);
- 35  23  00100011  #     Number                       out_stream.put(35);
+ 35  23  00100011  #     Number sign                  out_stream.put(35);
  36  24  00100100  $     Dollar sign                  out_stream.put(36);
  37  25  00100101  %     Percent                      out_stream.put(37);
  38  26  00100110  &     Ampersand                    out_stream.put(38);
