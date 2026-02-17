@@ -463,7 +463,7 @@ system(groupOTP);
 
 RUN ANOTHER C++ PROGRAM:
 ~~~~~~~~~~~~~~~~~~~~~~~~
-system("/home/user/Desktop/Authorship");   //That Authorship file is the executable made by Geany or with the g++ command (both produce the fame file.)
+system("/home/user/Desktop/Authorship");   //That Authorship file is the executable made by Geany or with the g++ command (both produce the same file.)
 
 WRITE TERMINAL OUTPUT TO FILE INSTEAD:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
