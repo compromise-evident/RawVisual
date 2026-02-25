@@ -17,7 +17,7 @@ int main()
 	char path[100000] = {'\0'}; cin.getline(path, 100000); if(path[0] == '\0') {cin.getline(path, 100000);}
 	if(path[0] == '\'') {for(int bm = 0, a = 0; a < 100000; a++) {if(path[a] != '\'') {path[bm] = path[a]; if(path[bm] == '\\') {path[bm] = '\'';} bm++;}}}
 	for(int a = 99999; a >= 0; a--) {if(path[a] != '\0') {if(path[a] == ' ') {path[a] = '\0';} break;}}
-	in_stream.open(path); if(in_stream.fail() == true) {cout << "\nNo path " << path << "\n"; return 0;} in_stream.close();
+	in_stream.open(path); if(in_stream.fail() == true) {cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
 	
 	//Gets byte occurrence.
 	in_stream.open(path); in_stream.get(file_byte); long long byte_occur[256] = {0};
@@ -571,30 +571,3 @@ Personal laptop (Devuan, MATE):
 apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell vlc
 If sound is not working or not loud enough: do "apt install pipewire" then add the following command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"          Now restart the computer. FYI: clicking the volume rocker does not always make a sound, test sound else-how. For the 3.5mm port, you may want to get a 3.5mm adapter with 3 leads in order to bypass the 4-lead system, which is horrific. Tested on Devuan 6.1.0 and 6.0.0.
 If Apple: cut speaker wires to eliminate chime, physically swap keyboard keys "fn" and "left Ctrl", log in as root, create file "/etc/modprobe.d/hid_apple.conf" with content "options hid_apple swap_fn_leftctrl=1 fnmode=2", then do "sudo update-initramfs -u -k all"   */
-
-
-
-
-
-
-
-
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
-#####'`                                                                  `'#####
-###'                                                                        '###
-##                       Drag-n-drop path into terminal                       ##
-#,                      even if "enter"  was not cleared                      ,#
-#'                       or path contains single-quotes                       '#
-##                         (just as used in this cpp)                         ##
-###,                                                                        ,###
-#####,.                                                                  .,#####
-##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#########
-
-	//Gets path, fixes it, tries it.
-	cout << "\nDrop/enter file or folder:\n";
-	char path[100000] = {'\0'}; cin.getline(path, 100000); if(path[0] == '\0') {cin.getline(path, 100000);}
-	if(path[0] == '\'') {for(int bm = 0, a = 0; a < 100000; a++) {if(path[a] != '\'') {path[bm] = path[a]; if(path[bm] == '\\') {path[bm] = '\'';} bm++;}}}
-	for(int a = 99999; a >= 0; a--) {if(path[a] != '\0') {if(path[a] == ' ') {path[a] = '\0';} break;}}
-	in_stream.open(path); if(in_stream.fail() == true) {cout << "\nNo path " << path << "\n"; return 0;} in_stream.close();
-
-Now do in_stream.open(path); */
