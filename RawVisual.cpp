@@ -12,7 +12,7 @@ int main()
 	ifstream in_stream;
 	ofstream out_stream;
 	
-	//Gets path, fixes it, tries it.
+	//Gets path, fixes it if dropped.
 	cout << "\nDrop/enter file:\n";
 	char path[100000] = {'\0'}; cin.getline(path, 100000); if(path[0] == '\0') {cin.getline(path, 100000);}
 	if(path[0] == '\'') {for(int bm = 0, a = 0; a < 100000; a++) {if(path[a] != '\'') {path[bm] = path[a]; if(path[bm] == '\\') {path[bm] = '\'';} bm++;}}}
