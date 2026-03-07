@@ -56,9 +56,9 @@ int main()
 
 
 
+/*
 
-
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
@@ -79,7 +79,7 @@ if(raw_byte < 0) {raw_byte += 256;}   //raw_byte is now 0 to 255 (256 values.)
 
 WRITE
 if(raw_byte < 128) {out_stream.put(raw_byte      );}
-else               {out_stream.put(raw_byte - 256);}  */
+else               {out_stream.put(raw_byte - 256);}
 
 
 
@@ -88,7 +88,7 @@ else               {out_stream.put(raw_byte - 256);}  */
 
 
 
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
@@ -356,7 +356,7 @@ Dec	Hex	  Binary   Char  Description
 252  FC  11111100  ü                                  out_stream.put(252);  or   out_stream.put(-4);
 253  FD  11111101  ý                                  out_stream.put(253);  or   out_stream.put(-3);
 254  FE  11111110  þ                                  out_stream.put(254);  or   out_stream.put(-2);
-255  FF  11111111  ÿ                                  out_stream.put(255);  or   out_stream.put(-1); */
+255  FF  11111111  ÿ                                  out_stream.put(255);  or   out_stream.put(-1);
 
 
 
@@ -365,7 +365,7 @@ Dec	Hex	  Binary   Char  Description
 
 
 
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
@@ -400,7 +400,7 @@ long long      -9,223,372,036,854,775,807 to
 
                                         0 to                         18,446,744,073,709,551,615   total items for signed.          (256^8 -1)
                18,446,744,073,709,551,615         (unsigned)         18,446,744,073,709,551,616   total items for unsigned.        (256^8)
-______________________________________________________________________________________________________________________________________________________ */
+______________________________________________________________________________________________________________________________________________________
 
 
 
@@ -409,7 +409,7 @@ ________________________________________________________________________________
 
 
 
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
@@ -491,7 +491,7 @@ DO NOT OPTIMIZE VAR:
 volatile int a; //Useful for eliminating timing interference for things like writes to disk.
 
 cout.setstate(ios::failbit); //Disables cout.
-cout.clear();                //Restores cout. */
+cout.clear();                //Restores cout.
 
 
 
@@ -500,7 +500,7 @@ cout.clear();                //Restores cout. */
 
 
 
-/*#######*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
+#########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*##########
 #####'`                                                                  `'#####
 ###'                                                                        '###
 ##                                                                            ##
@@ -512,18 +512,15 @@ cout.clear();                //Restores cout. */
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#########
 
 actiona                  GUI  Tool to emulate human activity without programming or using suspected tools.)
+amberol                  GUI  Minimalist yet beautiful music player.
 artha                    GUI  Offline thesaurus & dictionary.
 audacity                 GUI  Audio editor & sound recorder.
 bleachbit                GUI  Wipe logs & what not.
-exiv2                   *CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
-fswebcam                *CLI  Take pictures using USB-connected Android phone or USB-connected webcam or built-in webcam. (Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. If phone: swipe down & see webcam option in USB connection pop-up. To use USB-connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.)   (And for automated capture, see github.com/compromise-evident/WhatNot/blob/main/quick-security-camera.cpp)
-g++                     *CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
 geany                    GUI  Fast & lightweight IDE & text editor (if src tabs are cooked on ms-notepad, this is for you. Characters 13 & 10 are displayed as intended. That's \r\n.)
 geany-plugin-automark    GUI  Global highlighting of what's selected or at cursor (Geany.)
 geany-plugin-spellcheck  GUI  Grammar (Geany, overwrite hot-key to Ctrl+g to help remember: g for grammar.)
 gparted                  GUI  GNU partition editor for formatting storage device without fail. (Create partition table before final formatting!)
 gqrx-sdr                 GUI  Interface to software-defined radio dongles. Comes with gnuradio. Works for the RTL-SDR dongle.
-imagemagick             *CLI  Convert images and all kinds of stuff. (Use "mogrify" or "convert path_to.bmp out.jpg".)
 inkscape                 GUI  Powerful vector graphics manipulation.
 krita                    GUI  Advanced digital art creator.
 lightdm-settings         GUI  Auto-login. Usage: in Control Center, open Login Window, go to Users, type in username in Username field, then restart.
@@ -532,19 +529,23 @@ mtpaint                  GUI  Alternative to the all-mighty inimitable Microsoft
 openshot                 GUI  Video editor and advanced frame dispenser.
 qasmixer                 GUI  Allows volume-up for headphones on old laptops (set & forget, excellent quality audio.)
 shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
-vlc                      GUI  Universal media interface (good for music & video, safely plays corrupted and partly-downloaded video, plays streams from online source.)
-xz-utils                *CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.
 
-tesseract-ocr           *CLI  Recognize text from image.  Use: tesseract image.jpg my_words   (To make it look for specific char hence improve accuracy & efficiency, use: tesseract image.png output.txt --tessedit_char_whitelist=0123456789RSTXYZ)
-qrcode-terminal         *CLI  Make & show qr in terminal. Use: qrcode-terminal 'my_text'
-qrencode                *CLI  Make qr code.               Use: qrencode -o output.png "my text, no ! char."
-zbar-tools              *CLI  Read qr code.               Use: zbarimg image.png
-xdg-open                *CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
-pkill                   *CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
-libgmp-dev              *LIB  GMP  - GNU Multiple Precision Arithmetic library.                                        Run it: "apt install g++ geany libgmp-dev".                       Open the .cpp in Geany. Append "-lgmp"  to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <gmp.h>"  in that .cpp file!
-libmpfr-dev             *LIB  MPFR - GNU Multiple Precision Floating point computations with correct Rounding library. Run it: "apt install g++ geany libmpfr-dev".                      Open the .cpp in Geany. Append "-lmpfr" to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <mpfr.h>" in that .cpp file!
-python3-torch           *LIB  PyTorch - Machine Learning library practical only in Python.                             Run it: "apt install geany python3-torch".                        Open the  .py in Geany. Replace "python" with "python3" in Geany's execute command.              F5 to run.     Don't forget to add "import torch", "import torch.nn as nn", "import torch.optim as optim" in that .py file!     (You don't need numpy. Some pkg managers don't set numpy as dep upon "apt install python3-torch", don't force your users to need more shit.)
-tinygrad                *LIB  Nearly unrestricted Machine Learning library.                                            Run it: "apt install geany python3-pip", "pip3 install tinygrad". Open the  .py in Geany. Replace "python" with "python3" in Geany's execute command.              F5 to run.     imports in progress...
+exiv2                    CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
+fswebcam                 CLI  Take pictures using USB-connected Android phone or USB-connected webcam or built-in webcam. (Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. If phone: swipe down & see webcam option in USB connection pop-up. To use USB-connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.)   (And for automated capture, see github.com/compromise-evident/WhatNot/blob/main/quick-security-camera.cpp)
+g++                      CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
+imagemagick              CLI  Convert images and all kinds of stuff. (Use "mogrify" or "convert path_to.bmp out.jpg".)
+tesseract-ocr            CLI  Recognize text from image.  Use: tesseract image.jpg my_words   (To make it look for specific char hence improve accuracy & efficiency, use: tesseract image.png output.txt --tessedit_char_whitelist=0123456789RSTXYZ)
+qrcode-terminal          CLI  Make & show qr in terminal. Use: qrcode-terminal 'my_text'
+qrencode                 CLI  Make qr code.               Use: qrencode -o output.png "my text, no ! char."
+zbar-tools               CLI  Read qr code.               Use: zbarimg image.png
+xdg-open                 CLI  Open image.                 Use: xdg-open your_image_file.jpg && sleep 5 && pkill -f xdg-open   (Comes pre-installed.)
+pkill                    CLI  Close image.                Use: pkill -f "eog your_image_file.jpg"                             (Comes pre-installed.)
+xz-utils                 CLI  Compress/decompress .xz files (especially downloaded OS images for Raspberry Pi.) Command: xz -d -v /path/to/file.
+
+libgmp-dev               LIB  GMP  - GNU Multiple Precision Arithmetic library.                                        Run it: "apt install g++ geany libgmp-dev".                       Open the .cpp in Geany. Append "-lgmp"  to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <gmp.h>"  in that .cpp file!
+libmpfr-dev              LIB  MPFR - GNU Multiple Precision Floating point computations with correct Rounding library. Run it: "apt install g++ geany libmpfr-dev".                      Open the .cpp in Geany. Append "-lmpfr" to Geany's compile & build commands.        Hit F9 once. F5 to run.     Don't forget to add "#include <mpfr.h>" in that .cpp file!
+python3-torch            LIB  PyTorch - Machine Learning library practical only in Python.                             Run it: "apt install geany python3-torch".                        Open the  .py in Geany. Replace "python" with "python3" in Geany's execute command.              F5 to run.     Don't forget to add "import torch", "import torch.nn as nn", "import torch.optim as optim" in that .py file!     (You don't need numpy. Some pkg managers don't set numpy as dep upon "apt install python3-torch", don't force your users to need more shit.)
+tinygrad                 LIB  Nearly unrestricted Machine Learning library.                                            Run it: "apt install geany python3-pip", "pip3 install tinygrad". Open the  .py in Geany. Replace "python" with "python3" in Geany's execute command.              F5 to run.     imports in progress...
 
 Commands:
 apt-mark hold package_name     (stop updates to this package)
@@ -560,7 +561,7 @@ passwd                         (change passwd for user)
 passwd root                    (change passwd for root)
 sudo dmidecode -t memory       (list computer specs as root)   options: bios, system, baseboard, chassis, processor, memory, cache, connector, slot
 
-Commands for C++. For terminal: use what's in quotes:
+Commands for C++. Terminal: use what's quoted:
 Record as raw audio for 7 seconds using sox:     system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
 Convert raw audio (any file) to .wav using sox:  system("sox -r 44100 -e unsigned -b 8 -c 1 my_file.raw -t wav out_file.wav");
 Get length of .wav file in seconds using sox:    system("sox my_audio.wav -n stat 2>&1 | grep 'Length' > seconds.txt");
@@ -568,6 +569,11 @@ Play audio file through vlc then close vlc:      system("vlc my_audio.wav --play
 Set system volume using pre-installed ALSA:      system("amixer -q set Master 75%");
 
 Personal laptop (Devuan, MATE):
-apt install g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell vlc
-If sound is not working or not loud enough: do "apt install pipewire" then add the following command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"          Now restart the computer. FYI: clicking the volume rocker does not always make a sound, test sound else-how. For the 3.5mm port, you may want to get a 3.5mm adapter with 3 leads in order to bypass the 4-lead system, which is horrific. Tested on Devuan 6.1.0 and 6.0.0.
-If Apple: cut speaker wires to eliminate chime, physically swap keyboard keys "fn" and "left Ctrl", log in as root, create file "/etc/modprobe.d/hid_apple.conf" with content "options hid_apple swap_fn_leftctrl=1 fnmode=2", then do "sudo update-initramfs -u -k all"   */
+apt install amberol g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell
+If sound is not working or not loud enough: do "apt install pipewire" then add the following command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"
+If Apple: cut speaker wires to eliminate chime, physically swap keyboard keys "fn" and "left Ctrl",
+	su
+	echo "options hid_apple swap_fn_leftctrl=1 fnmode=2" > /etc/modprobe.d/hid_apple.conf
+	sudo update-initramfs -u -k all
+
+*/
