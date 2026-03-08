@@ -423,9 +423,9 @@ ________________________________________________________________________________
 FOLDERS/FILES:
 ~~~~~~~~~~~~~~
 system("ls -Av path_to_folder > my_list.txt");   //Creates a text file in running dir--containing a list of file names in that same dir (standard "ls" command in GNU+Linux.)
-system("mkdir keys");                            //Creates folder, append -p inside quotes for no error if folder already exists.
-system("mkdir /home/nikolay/Desktop/F");         //Creates folder elsewhere.
-system("mkdir keys/Other");                      //Creates folder within a folder.
+system("mkdir -p keys");                         //Creates folder.
+system("mkdir -p /home/nikolay/Desktop/F");      //Creates folder elsewhere.
+system("mkdir -p keys/Other");                   //Creates folder within a folder.
 
 out_stream.open("keys/file_1");                  //File I/O in folders in working dir.
 out_stream.open("/home/nikolay/keys/a");         //File I/O in folders elsewhere.
@@ -440,7 +440,7 @@ mkdir(file_name, 0777);
 
 MKDIR WITH VARIABLE, WITHOUT INCLUDE DIRECTIVES:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-char folder_name[100] = {"mkdir Folder_1"};
+char folder_name[100] = {"mkdir -p Folder_1"};
 system(folder_name);
 
 REMOVING:
