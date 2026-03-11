@@ -559,7 +559,7 @@ grep                           (search files) use: grep -rin "my_keyword" /path/
 lsblk                          (list block devices) (do lsblk -f to see names)
 passwd                         (change passwd for user)
 passwd root                    (change passwd for root)
-sudo dmidecode -t memory       (list computer specs as root)   options: bios, system, baseboard, chassis, processor, memory, cache, connector, slot
+sudo dmidecode -t memory       (list computer specs as root)   options: bios, system, baseboard, chassis, processor, memory, cache, connector, slot,     sudo dmidecode -s system-product-name
 
 Commands for C++. Terminal: use what's quoted:
 Record as raw audio for 7 seconds using sox:     system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
