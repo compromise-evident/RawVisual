@@ -2,6 +2,10 @@ RawVisual
 
 
 
+Version 7.0.1   path is now string, not char; path length no longer limited. But
+                the cost is that single-quotes in paths are not handled.
+                2026_03_23
+
 Version 7.0.0   Minimalist code, output. Raw bytes & their combos are searchable
                 because nothing else is added to each,  so you can select lines.
                 No \r char output;Linux & Mac use \n, Windows deny the standard.
