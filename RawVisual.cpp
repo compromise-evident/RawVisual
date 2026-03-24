@@ -19,7 +19,7 @@ int main()
 	
 	//Gets byte occurrence.
 	in_stream.open(path); in_stream.get(file_byte); long long byte_occur[256] = {0};
-	for(; in_stream.eof() == false; in_stream.get(file_byte)) {raw_byte = file_byte; if(raw_byte < 0) {raw_byte += 256;} byte_occur[raw_byte]++;}
+	for(; !in_stream.eof(); in_stream.get(file_byte)) {raw_byte = file_byte; if(raw_byte < 0) {raw_byte += 256;} byte_occur[raw_byte]++;}
 	in_stream.close();
 	
 	//Gets bit occurrence.
@@ -37,12 +37,12 @@ int main()
 	for(int a = 0; a < 256; a++) {out_stream << "occurrence of byte " << a << ": " << byte_occur[a] << "\n";}
 	long long distinct = 0, total = 0; for(int a = 0; a < 256; a++) {if(byte_occur[a] != 0) {distinct++;} total += byte_occur[a];}
 	out_stream << "\n" << distinct << " distinct, " << total << " total" << "\n\nEvery byte raw:\n";
-	for(; in_stream.eof() == false; in_stream.get(file_byte)) {raw_byte = file_byte; if(raw_byte < 0) {raw_byte += 256;} out_stream << raw_byte << "\n";}
+	for(; !in_stream.eof(); in_stream.get(file_byte)) {raw_byte = file_byte; if(raw_byte < 0) {raw_byte += 256;} out_stream << raw_byte << "\n";}
 	in_stream.close(); out_stream.close();
 	
 	in_stream.open(path); out_stream.open("analysis", ios::app); in_stream.get(file_byte);
 	out_stream << "\nOnly the 97 standard text bytes (9, 10, and 32-126):\n";
-	for(; in_stream.eof() == false; in_stream.get(file_byte))
+	for(; !in_stream.eof(); in_stream.get(file_byte))
 	{	if      ((file_byte > 31) && (file_byte < 127)) {out_stream.put(file_byte);}
 		else if ((file_byte == 9) || (file_byte == 10)) {out_stream.put(file_byte);}
 	}
