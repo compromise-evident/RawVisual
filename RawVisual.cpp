@@ -568,10 +568,7 @@ Set system volume using pre-installed ALSA:      system("amixer -q set Master 75
 
 Personal laptop (Devuan, MATE):
 apt install amberol g++ geany geany-plugin-automark geany-plugin-spellcheck gparted lightdm-settings mate-tweak shotwell
-If sound is not working or not loud enough: do "apt install pipewire" then add the following command to Startup Applications: sh -c "pipewire& sleep 1; wireplumber& sleep 1; pipewire-pulse&"
-If Apple: cut speaker wires to eliminate chime, physically swap keyboard keys "fn" and "left Ctrl",
-	su
+If Apple: cut speaker wires to eliminate chime, cut keyboard backlight cable, physically swap keyboard keys "fn" and "left Ctrl", then do as root:
 	echo "options hid_apple swap_fn_leftctrl=1 fnmode=2" > /etc/modprobe.d/hid_apple.conf
 	sudo update-initramfs -u -k all
-
 */
